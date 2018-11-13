@@ -1,10 +1,10 @@
 import 'antd/dist/antd.css';
 import React, { Component } from 'react';
+import { Layout } from 'antd';
 import Headers from '../header';
 import Footers from '../footer';
-import Table from '../../components/table'
-import Breadcumb from '../../components/breadcrumb'
-import { Layout } from 'antd';
+import Breadcumb from '../../components/breadcrumb';
+import Routes from './../../pages/routes/Routes';
 
 class Body extends Component {
 
@@ -14,9 +14,8 @@ class Body extends Component {
                 <Headers />
                 <Layout>
                     <Breadcumb />
-                    <Table />
+                   <Routes/>
                 </Layout>
-
                 <Footers />
             </Layout>
 

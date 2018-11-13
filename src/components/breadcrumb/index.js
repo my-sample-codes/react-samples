@@ -8,8 +8,7 @@ class Breadcumb extends Component {
     render() {
         return (
             <Breadcrumb className="breadcumb">
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>Users</Breadcrumb.Item>
+                <Breadcrumb.Item>Mgmt-Console</Breadcrumb.Item>
             </Breadcrumb>
         );
     }

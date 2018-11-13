@@ -1,8 +1,6 @@
 import 'antd/dist/antd.css';
-
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-
 import NavigationBar from './sidebar';
 import Body from './body';
 
@@ -16,11 +14,9 @@ class LandingPage extends Component {
         <Sider collapsible>
           <NavigationBar />
         </Sider>
-        
         <Layout>
-          <Body />
+          <Body/>
         </Layout>
-        
       </Layout>
     );
   }
