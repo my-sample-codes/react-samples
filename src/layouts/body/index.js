@@ -1,9 +1,9 @@
 import 'antd/dist/antd.css';
 import React, { Component } from 'react';
-import Headers from '../header/header';
-import Footers from '../footer/footer';
-import Table from '../../components/table/table'
-import Breadcumb from '../../components/breadcrumb/breadcumb'
+import Headers from '../header';
+import Footers from '../footer';
+import Table from '../../components/table'
+import Breadcumb from '../../components/breadcrumb'
 import { Layout } from 'antd';
 
 class Body extends Component {
