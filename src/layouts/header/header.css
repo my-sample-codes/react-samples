@@ -1,0 +1,13 @@
+.header{
+    background-color: cadetblue;
+    padding: .25 rem;
+    width: '100%';
+    text-align: right;
+    font: bold 4em Georgia, serif;
+}
+
+* {
+   /* border: 1px solid red;*/
+    padding: 1px;
+    margin: 1px;
+}
