@@ -7,7 +7,9 @@ class App extends Component {
   render() {
     return (
       <div className="Main">
-        {/* <LayoutDesign /> */}
+      //below one line comment for dashborad design using AntD
+        {/* <LayoutDesign /> */}  
+      //below line for login design using AntD
         <WrappedLoginForm />
       </div>
     );
