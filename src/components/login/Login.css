@@ -1,14 +1,9 @@
 .login-form-layout {
-    max-width: 350px;
-    min-height: 400px;
-    margin-right : 500px;
-    margin-left : 500px;
-    margin-top : 100px;
-    margin-bottom : 100px;
-    border-radius: 5px;
-    border:1px solid #C9D7E5;
-    border:2px solid #A0BDD8;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
+    max-width: 372px;
+    min-height: 350px;
+    float: right;
+    background: #fff;
+    border:1px solid rgb(241, 239, 239);
 } 
 
 .login-form {
@@ -16,19 +11,26 @@
     max-height: 80%;
     margin-right : 50px;
     margin-left : 50px;
-    margin-top : 110px;
+    margin-top : 80px;
     margin-bottom : -100px; 
+    background: #fff;
 } 
 
 .login-form-forgot {
     float: right;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.login-form-checkbox {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .login-form-button {
-    width: 30%;
+    width: 100%;
     text-align: center;
-    margin-right: 90px;
-    margin-left: 90px;
 }
 
 .register-now {
@@ -37,12 +39,23 @@
 
 .info-img-icon {
     position: absolute;
-    width: 272px;
-    height:120px;
-    margin-top: -32%;
-    margin-left: -1%;
-    border-radius: 5px;
-    border:0.5px solid #C9D7E5;
-    border:1px solid #A0BDD8;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4); 
+    width: 290px;
+    height: 65px;
+    margin-top: -22%;
+    margin-left: -1.1%;
 }
+
+img.bg {
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: -98px;
+    left: 0;
+  }
+
+.bg-img-div {
+      position: absolute;
+      z-index: -1;
+  }
