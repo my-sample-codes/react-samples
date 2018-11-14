@@ -1,0 +1,48 @@
+.login-form-layout {
+    max-width: 350px;
+    min-height: 400px;
+    margin-right : 500px;
+    margin-left : 500px;
+    margin-top : 100px;
+    margin-bottom : 100px;
+    border-radius: 5px;
+    border:1px solid #C9D7E5;
+    border:2px solid #A0BDD8;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
+} 
+
+.login-form {
+    max-width: 80%;
+    max-height: 80%;
+    margin-right : 50px;
+    margin-left : 50px;
+    margin-top : 110px;
+    margin-bottom : -100px; 
+} 
+
+.login-form-forgot {
+    float: right;
+}
+
+.login-form-button {
+    width: 30%;
+    text-align: center;
+    margin-right: 90px;
+    margin-left: 90px;
+}
+
+.register-now {
+    margin-left: 78px;
+}
+
+.info-img-icon {
+    position: absolute;
+    width: 272px;
+    height:120px;
+    margin-top: -32%;
+    margin-left: -1%;
+    border-radius: 5px;
+    border:0.5px solid #C9D7E5;
+    border:1px solid #A0BDD8;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4); 
+}
