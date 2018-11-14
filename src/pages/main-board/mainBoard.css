@@ -1,0 +1,10 @@
+.cardList{
+    height:'200px';
+}
+
+.newButton {
+    background-color:black;
+    width: 100%;
+    height: 1880px;
+    padding: 30px 32px;
+  }
