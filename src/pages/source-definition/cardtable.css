@@ -1,0 +1,16 @@
+.cardtablestyle
+{
+    column-fill: cornflowerblue;
+    width: 1300px;
+    color: rgb(0, 183, 255);
+    background-color: rgb(255, 255, 255);
+    column-rule-color: rgb(53, 53, 253);
+    border-color: grey;
+
+}
+
+.searchstyle
+{
+    width: 200px;
+    float: right;
+}
