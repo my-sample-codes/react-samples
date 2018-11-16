@@ -1,10 +1,11 @@
 import 'antd/dist/antd.css';
 import React, { Component } from 'react';
+import { Layout } from 'antd';
 import Headers from '../header';
 import Footers from '../footer';
-import Table from '../../components/table'
-import Breadcumb from '../../components/breadcrumb'
-import { Layout } from 'antd';
+import Breadcumb from '../../components/breadcrumb';
+import Routes from './../../pages/routes/Routes';
+import MainBoard from '../../pages/main-board/mainBoard';
 
 class Body extends Component {
 
@@ -13,13 +14,11 @@ class Body extends Component {
             <Layout>
                 <Headers />
                 <Layout>
-                    <Breadcumb />
-                    <Table />
+                  {/*  <Breadcumb /> */}
+                   <Routes/>
                 </Layout>
-
                 <Footers />
             </Layout>
-
         );
     }
 }

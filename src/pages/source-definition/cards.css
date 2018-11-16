@@ -1,0 +1,102 @@
+.stylecards  
+{
+    margin-block-end: 200px;
+    font-style: oblique;
+    background:whitesmoke;
+    size: initial;
+    width: 300px;
+    height: 115px;
+    color: rgb(85, 83, 83);
+    border-color: #cac9c9; 
+    -webkit-box-shadow: 1px 3px 1px #9E9E9E;
+    -moz-box-shadow: 1px 3px 1px #9E9E9E;
+    box-shadow: 1px 3px 1px #9E9E9E;
+    
+   
+}
+
+.stylecards :hover
+{
+    -ms-transform: scale(0.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.05); 
+}
+
+.cardsbackground
+{
+    background-color: #ffffff69;
+    width: inherit;
+    padding-left: 1%;
+    border: 1px solid #cac3c375;
+    height: 200px;    
+    border-radius: 4px;
+}
+
+.content{
+    margin: '0 16px';
+}
+.sourceCardsDiv
+{
+    margin-left: 3.5%;
+}
+.parentclassstyle 
+{
+    margin-block-start: 1px;
+    background-color: #d9d9d9;
+    height: 130px;
+    width: 350px;
+    border-color: rgb(202, 198, 198);
+    -webkit-box-shadow: 1px 3px 1px #9E9E9E;
+    -moz-box-shadow: 1px 3px 1px #9E9E9E;
+    box-shadow: 1px 3px 1px #9E9E9E;
+      
+}
+
+.parentclassstyle :hover
+{
+    -ms-transform: scale(0.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.05);
+}
+
+
+.parentclassstyle1
+{
+    margin-block-start: 1px;
+    background-color: #d9d9d9;
+    height: 130px;
+    width: 350px;
+    border-color: rgb(202, 198, 198);
+    -webkit-box-shadow: 1px 3px 1px #9E9E9E;
+    -moz-box-shadow: 1px 3px 1px #9E9E9E;
+    box-shadow: 1px 3px 1px #9E9E9E;
+      
+}
+
+.parentclassstyle1 :hover
+{
+    -ms-transform: scale(0.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.05);
+}
+
+
+.parentclassstyle2
+{
+    margin-block-start: 1px;
+    background-color: #d9d9d9;
+    height: 130px;
+    width: 350px;
+    border-color: rgb(202, 198, 198);
+    -webkit-box-shadow: 1px 3px 1px #9E9E9E;
+    -moz-box-shadow: 1px 3px 1px #9E9E9E;
+    box-shadow: 1px 3px 1px #9E9E9E;
+      
+}
+
+.parentclassstyle2 :hover
+{
+    -ms-transform: scale(0.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.05);
+}

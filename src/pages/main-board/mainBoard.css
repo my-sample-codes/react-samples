@@ -1,0 +1,27 @@
+.cardList{
+    height:'200px';
+}
+
+.newCardButton {
+      width: 100%;
+      height: 130px;
+  }
+
+.mainDiv{
+    margin-left: 70px;
+}
+
+.descriptionData{
+        width: 200px;
+        display: block;
+        max-width: 100%;
+        height: 43px;
+        margin: 50 auto;
+        font-size: 14px;
+        line-height: 1;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; 
+}
