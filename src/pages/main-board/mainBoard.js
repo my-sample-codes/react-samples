@@ -10,8 +10,8 @@ import './mainBoard.css';
 
 const { Meta } = Card;
 //URL link to fetch all products
-const getURL = "http://10.10.18.20:8080/recon/product/getlist/";
-const postURL = "http://10.10.18.20:8080/recon/product/save/";
+const getURL = "http://10.11.14.80:8081/recon/product/getlist/";
+const postURL = "http://10.11.14.80:8081/recon/product/save/";
 
 /* const getURL = "http://10.11.14.80:8081/recon/product/getlist/";
 const postURL = "http://10.11.14.80:8081/recon/product/save/"; */
@@ -82,7 +82,7 @@ export default class mainBoard extends Component {
     render() {
 
         return (
-            <div>
+            <div className='mainDiv'>
                 {/* top description header  */}
                 <HeaderDiv />
 
@@ -92,7 +92,7 @@ export default class mainBoard extends Component {
 
                     <Row gutter={16}>
 
-                        <Col span={6}>
+                        <Col span={5}>
                             <br/>
                             <Button type="dashed" size="large" className='newCardButton' onClick={this.showModal}>
                                 < Icon type="plus" /><br />Add new product
@@ -113,13 +113,15 @@ export default class mainBoard extends Component {
                         {/* map all products fetched from URL to card list view */}
                         {this.state.projects.map(project =>
 
-                            <Col span={6}>
+                            <Col span={5}>
                                 <Link to="/SourceDefinition" >
-                                    <Card hoverable bordered={true} bodyStyle={{ height: '170px' }}>
+                                    <Card hoverable bordered={true} bodyStyle={{ height: '130px' }}>
                                         <Meta
                                             avatar={<Avatar src={project.productLogo} />}
                                             title={<a>{project.productName}</a>}
-                                            description={project.productDescription}
+                                            description={
+                                                <div className='descriptionData'>{project.productDescription}</div>
+                                                }
                                         />
                                     </Card>
                                 </Link>

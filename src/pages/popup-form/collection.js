@@ -56,6 +56,8 @@ const CollectionCreateForm = Form.create()(
                   <Select placeholder="Please select a country">
                     <Option value="csv">CSV</Option>
                     <Option value="xml">XML</Option>
+                    <Option value="xls">XLS</Option>
+                    <Option value="other">Other</Option>
                   </Select>
                 )}
               </FormItem>
