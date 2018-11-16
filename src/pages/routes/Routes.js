@@ -1,10 +1,11 @@
 
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import SourceDefinition from './../source-definition/SourceDefinition';
+import Home from './../source-definition/SourceDefinition';
 import LayoutDefinition from './../layout-definition/LayoutDefinition';
 import RecordTokenizer from './../record-tokenizer/RecordTokenizer';
-import Home from './../main-board/mainBoard';
+import TaskDesign from './../taskDesign/taskDesign'
+import Home1 from './../main-board/mainBoard';
 //import Home from './../login/LoginForm';
 
 export default class Routes extends Component {
@@ -23,7 +24,7 @@ export default class Routes extends Component {
                                 <Route
                                     exact
                                     path="/SourceDefinition"
-                                    component={SourceDefinition}
+                                    component={Home1}
                                 />
                                 <Route
                                     exact
@@ -34,6 +35,11 @@ export default class Routes extends Component {
                                     exact
                                     path="/RecordTokenizer"
                                     component={RecordTokenizer}
+                                />
+                                 <Route
+                                    exact
+                                    path="/TaskDesign"
+                                    component={TaskDesign}
                                 />
                             </Switch>
                         </div>
