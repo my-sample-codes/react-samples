@@ -2,6 +2,7 @@
     background-color: rgba(224, 12, 111, 0.836);
     padding: .25 rem;
     width: '100%';
+    height: 64px;
     text-align: left;
     font: bold 3em Georgia, serif;
 
@@ -11,7 +12,8 @@
     background:  #d65095 ;
     height:30px;
     width: 250px;
-    margin-left: 20px;
+    margin-left: 8px;
+    margin-bottom: auto;
 }
 
 .test
@@ -21,21 +23,28 @@
 
 .iconlist{
     float: right;
-    margin-right: 0%;
+    margin-right: 2%;
 }
 .iconbell
 {
   margin-left: 20px;
+  font-size: 22px;
 }
 .iconmsg
 {
   margin-left: 23px;
- 
+  font-size: 22px;
 }
 .iconuser
 {
   margin-left: 28px;
 } 
+
+.user{
+    border: black;
+    margin-left: 23px;
+    font-size: 22px;
+}
 
 * {
   /* border: 1px solid red;  */

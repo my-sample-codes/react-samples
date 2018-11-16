@@ -155,7 +155,7 @@ export default class RecordTokenizer extends Component {
                 <Link to="/SourceDefinition">
                     <Button className="btn">Back</Button>
                 </Link>
-                <Link to="/TaskDesign">
+                <Link to="/RecordTokenizer">
                     <Button type='primary' className="btn">Next</Button>
                 </Link>
                 <Button type='primary' className="btn">Complete Step</Button>
