@@ -13,12 +13,6 @@ const { Meta } = Card;
 const getURL = "http://10.11.14.79:8081/recon/product/getlist/";
 const postURL = "http://10.11.14.79:8081/recon/product/save/";
 
-// const getURL = "http://10.10.18.12:8080/recon/product/getlist/";
-// const postURL = "http://10.10.18.12:8080/recon/product/save/";
-
-/* const getURL = "http://10.11.14.80:8081/recon/product/getlist/";
-const postURL = "http://10.11.14.80:8081/recon/product/save/"; */
-
 export default class mainBoard extends Component {
     state = { visible: false, loadervisible: false, };
     // Performing a POST request
