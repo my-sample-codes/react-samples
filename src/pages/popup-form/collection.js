@@ -8,7 +8,7 @@ class Progressing extends React.Component {
   render() {
     return (
       //Spinner 
-      <div class="proto">
+      <div>
         <center><Spin size="large" tip="Processing ..." /></center>
       </div>
     );

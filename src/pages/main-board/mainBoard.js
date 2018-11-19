@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Col, Row, Button, Icon, Avatar } from 'antd';
-import axios from 'axios';
+// import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import SourceDefinition from '../source-definition/SourceDefinition';
 import CollectionCreateForm from '../popup-form/collection'
@@ -13,6 +13,9 @@ const { Meta } = Card;
 const getURL = "http://10.11.14.80:8081/recon/product/getlist/";
 const postURL = "http://10.11.14.80:8081/recon/product/save/";
 
+// const getURL = "http://10.10.18.12:8080/recon/product/getlist/";
+// const postURL = "http://10.10.18.12:8080/recon/product/save/";
+
 /* const getURL = "http://10.11.14.80:8081/recon/product/getlist/";
 const postURL = "http://10.11.14.80:8081/recon/product/save/"; */
 
@@ -20,21 +23,48 @@ export default class mainBoard extends Component {
     state = { visible: false, loadervisible: false, };
     // Performing a POST request
     setVal(values) {
-        axios.post(postURL,
-            {
+        //using axios::
+        // axios.post(postURL,
+        //     {
+        //         productName: values.title,
+        //         productDescription: values.description,
+        //         productId: values.ProjectID,
+        //         documentType: values.document_type,
+        //         headerPresent: values.headerSet
+        //     }).then(function (response) {
+        //         console.log('saved successfully', response);
+        //         if (response.status == 200) {
+        //             setTimeout(() => this.setState({ loadervisible: false }), 800);
+        //             // this.setState({loadervisible: false});
+        //             this.getProductData();
+        //         }
+        //     }.bind(this));
+
+
+        //using simple fetch
+        fetch(postURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+
                 productName: values.title,
                 productDescription: values.description,
                 productId: values.ProjectID,
                 documentType: values.document_type,
                 headerPresent: values.headerSet
-            }).then(function (response) {
+
+            })
+            }).then(response => {
                 console.log('saved successfully', response);
                 if (response.status == 200) {
                     setTimeout(() => this.setState({ loadervisible: false }), 800);
                     // this.setState({loadervisible: false});
                     this.getProductData();
                 }
-            }.bind(this));
+            }).catch(err => err);
+
     }
     showModal = () => { this.setState({ visible: true }); }
     handleCancel = () => { this.setState({ visible: false }); }
@@ -63,12 +93,30 @@ export default class mainBoard extends Component {
     }
 
     getProductData() {
-        //get products present into database and store into list
-        axios.get(getURL)
-            .then(res => {
-                const projects = res.data;
-                this.setState({ projects });
-            })
+        // get products present into database and store into list
+        // Using  Axios
+        // axios.get(getURL)
+        //     .then(res => {
+        //         const projects = res.data;
+        //         this.setState({ projects });
+        //         console.log(projects);
+        //     })
+
+        // Using Fetch Api
+            fetch(getURL)
+            .then(res => res.json())
+            .then(
+              (result) => {
+                console.log("result>>>>>>>>>>>>>>>>>",result)
+                this.setState({
+                    projects: result
+                  });
+              },
+              (error) => {
+                console.log("error in get product list");
+                console.log(error);
+              }
+            )
     }
 
     componentDidMount() {
