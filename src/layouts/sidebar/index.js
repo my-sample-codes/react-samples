@@ -34,7 +34,7 @@ class NavigationBar extends React.Component {
   };
 
   componentDidMount() {
-    axios.get("http://10.11.14.80:8081/recon/product/getlist/")
+    axios.get("http://10.11.14.79:8081/recon/product/getlist/")
         .then(res => {
                       const projects = res.data;
                       console.log(res.data);
