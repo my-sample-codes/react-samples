@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 import style from 'styled-components';
 
 import type { DiagComponentProps } from 'react-flow-diagram';
-import { Modal} from 'antd';
 import { setCustom ,store ,diagramOn} from 'react-flow-diagram'
 import FormDialog from '../component/FormDialog'
 /*

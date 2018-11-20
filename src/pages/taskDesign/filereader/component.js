@@ -124,8 +124,8 @@ class FileReaderComponent extends React.PureComponent<
   }
 
   getEntityData(value){
-    this.state.entityData = value;
-    store.dispatch(setCustom({id: this.props.model.id, custom: this.state.entityData}));
+    this.state.entityData = value.dataFields;
+    store.dispatch(setCustom({id: this.props.model.id, custom:  value }));
   }
 
   dialogBoxStateChange(){

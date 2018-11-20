@@ -44,13 +44,13 @@ render() {
      <div>
         <Modal
         
-        title="Basic Modal"
+        title="Entity Data"
         visible={this.props.isOpen}
         onOk={this.handleOk}
         onCancel={this.handleCancel}
         centered = {true}
       >
-         <Input placeholder="Name" onChange = {this.handleOnChange} />;
+         <Input placeholder="Name" onChange = {this.handleOnChange} />
       </Modal>
 
     </div>

@@ -4,6 +4,8 @@ import React from 'react';
 import style from 'styled-components';
 
 import type { DiagComponentProps } from 'react-flow-diagram';
+import FormDialog from '../component/FormDialog';
+import { setCustom ,store ,diagramOn} from 'react-flow-diagram';
 
 /*
  * Presentational
@@ -39,6 +41,7 @@ export type TaskProps = DiagComponentProps & {
   name: string,
   isEditing: boolean,
   toggleEdit: boolean => void,
+  dialogBox : boolean,
   refreshName: (SyntheticEvent<HTMLTextAreaElement>) => void,
   handleKeyPress: (SyntheticKeyboardEvent<HTMLTextAreaElement>) => void,
   handleRef: HTMLTextAreaElement => void,
@@ -48,6 +51,7 @@ const Task = (props: TaskProps) => (
     width={props.model.width}
     height={props.model.height}
     isEditing={props.isEditing}
+    onDoubleClick = {props.dialogBox}
   >
     <EditName
       value={props.name}
@@ -57,10 +61,10 @@ const Task = (props: TaskProps) => (
       style={{ display: props.isEditing ? 'block' : 'none' }}
     />
     <Name
-      onDoubleClick={() => props.toggleEdit(true)}
-      style={{ display: !props.isEditing ? 'block' : 'none' }}
+      // onDoubleClick={() => props.toggleEdit(true)}
+      // style={{ display: !props.isEditing ? 'block' : 'none' }}
     >
-      {props.model.name}
+      {props.model.type}
     </Name>
   </TaskStyle>
 );
@@ -80,6 +84,12 @@ class TaskComponent extends React.PureComponent<
 > {
   textarea: ?HTMLTextAreaElement;
 
+  constructor(props){
+    super(props);
+
+    this.getEntityData = this.getEntityData.bind(this);
+    this.dialogBoxStateChange = this.dialogBoxStateChange.bind(this);
+  }
   state = {
     isEditing: false,
     name: this.props.model.name,
@@ -103,6 +113,20 @@ class TaskComponent extends React.PureComponent<
     this.setState({ isEditing });
   };
 
+  dialogBox = () => {
+    this.setState({ isOpen: true });
+   return(<FormDialog isOpen={this.state.isOpen} getEntityData={this.getEntityData} dialogBoxStateChange = {this.dialogBoxStateChange}/>);
+  }
+
+  getEntityData(value){
+    this.state.entityData = value;
+    store.dispatch(setCustom({id: this.props.model.id, custom: this.state.entityData}));
+  }
+
+  dialogBoxStateChange(){
+    this.setState({isOpen:false});
+  }
+
   refreshName = (ev: SyntheticEvent<HTMLTextAreaElement>) => {
     this.setState({ name: ev.currentTarget.value });
   };
@@ -123,16 +147,20 @@ class TaskComponent extends React.PureComponent<
 
   render() {
     return (
+      <div>
       <Task
         {...this.props}
         isEditing={this.state.isEditing}
         name={this.state.name}
         toggleEdit={this.toggleEdit}
+        dialogBox = {this.dialogBox}
         refreshName={this.refreshName}
         handleKeyPress={this.handleKeyPress}
         handleRef={this.handleRef}
       />
-    );
+      <FormDialog isOpen={this.state.isOpen} getEntityData={this.getEntityData} dialogBoxStateChange = {this.dialogBoxStateChange}/>
+      </div>
+   );
   }
 }
 

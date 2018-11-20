@@ -7,11 +7,9 @@ import { Diagram, store, setEntities, setConfig, diagramOn, setCustom } from 're
 import { custom, config, customEntities } from './config-example';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { Select, Card, Input, Button, Table, Divider, Tag, Radio, Steps, Breadcrumb } from 'antd';
-import axios from 'axios';
-// import UploadFile from 'react-flow-diagram';
-// import {JSONReaderHandler} from '../src/jsonFile';
+import UploadFile from './component/UploadFile';
 const Step = Steps.Step;
-// eslint-disable-next-line no-unused-expressions
+
 injectGlobal`
   * {
     box-sizing: border-box;
@@ -22,13 +20,13 @@ injectGlobal`
 `;
 
 const Main = styled.main`
-  max-width: 85em;
+  max-width: 95em;
   padding: 1em;
   margin: 0 auto;
   font-family: sans-serif;
   display: flex;
   flex-flow: column nowrap;
-  min-height: 85vh;
+  min-height: 95vh;
 `;
 
 
@@ -43,35 +41,33 @@ export default class TaskDesign extends React.Component {
     }
     this.componentWillMount = this.componentWillMount.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.handleClickUpload = this.handleClickUpload.bind(this);
+    //this.handleClickUpload = this.handleClickUpload.bind(this);
     this.getFileName = this.getFileName.bind(this);
-    //  var inputData = JSONReaderHandler.getJsonFileContent();
-    // console.log('InputData' ,   inputData);
+    this.uploadConfiguredData();
   }
 
 
   handleClick() {
     console.info('HandleClick method - Latest Entity - ', this.state.diagramEntityState);
     var jsonObject = this.state.diagramEntityState;
-    axios.post(`http://localhost:8080/api`, { jsonObject })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
+    fetch('http://localhost:8080/api', {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jsonObject)
+      }).then(response => {
+      console.log('saved successfully', response);
+      if (response.status == 200) {
 
-  }
+        }
+        }).catch(err => err); 
 
-  handleClickUpload() {
-
-    axios.get('./demo/src/diagram.json') // JSON File Path
-      .then(response => {
-        this.state.model = response.data;
-        store.dispatch(setEntities(this.state.model.jsonObject));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
+    // axios.post(`http://localhost:8080/api`, { jsonObject })
+    //   .then(res => {
+    //     console.log(res);
+    //     console.log(res.data);
+    //   })
 
   }
   componentWillMount() {
@@ -85,6 +81,7 @@ export default class TaskDesign extends React.Component {
     });
   }
   render() {
+   
     return (
       <Main>
         <Breadcrumb className="breadcumb">
@@ -105,21 +102,44 @@ export default class TaskDesign extends React.Component {
           </Link>
           <Button type='primary' className="btn">Complete Step</Button>
           <Button onClick={this.handleClick} >Save Diagram</Button>
-          {/* <UploadFile getFileName = {this.getFileName}/> */}
+          <UploadFile getFileName = {this.getFileName}/>
         </div>
 
       </Main>
     );
   }
 
+  uploadConfiguredData() {
+    var data = require('./input.json');
+    this.entityArray = [{"height": 64,"id": "joo8293n","name": "contest","width": 64,"x": 85,"y": 95}]
+    this.entityArray[0].type = data.object.source.sourceType;
+    this.entityArray[0].custom = data.object.source;
+    store.dispatch(setEntities(this.entityArray));
+  } 
+  
   getFileName(fileName) {
     this.state.fileName = fileName;
-    console.log('FileName', this.state.fileName);
-    axios.get('./demo/src/' + this.state.fileName) // JSON File Path
-      .then(response => {
-        this.state.model = response.data;
-        store.dispatch(setEntities(this.state.model.jsonObject));
-      })
+    var data = require('./'+fileName);
+    store.dispatch(setEntities(data));
+    // axios.get('./demo/src/' + this.state.fileName) // JSON File Path
+    //   .then(response => {
+    //     this.state.model = response.data;
+    //     store.dispatch(setEntities(this.state.model.jsonObject));
+    //   })
   }
 
+
+  // handleClickUpload() {
+
+  //   axios.get('./demo/src/diagram.json') // JSON File Path
+  //     .then(response => {
+  //       this.state.model = response.data;
+  //       store.dispatch(setEntities(this.state.model.jsonObject));
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+
+
+  // }
 }
