@@ -1,6 +1,6 @@
-.login-form-layout {
-    max-width: 372px;
-    min-height: 350px;
+ .login-form-layout {
+    max-width: 381px;
+    min-height: 330px;
     float: right;
     background: #fff;
     border:1px solid rgb(241, 239, 239);
@@ -11,21 +11,23 @@
     max-height: 80%;
     margin-right : 50px;
     margin-left : 50px;
-    margin-top : 80px;
+    margin-top : 30px;
     margin-bottom : -100px; 
     background: #fff;
 } 
 
 .login-form-forgot {
     float: right;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: -30px;
 }
 
 .login-form-checkbox {
     float: left;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: -30px;
 }
 
 .login-form-button {
@@ -56,6 +58,11 @@ img.bg {
   }
 
 .bg-img-div {
-      position: absolute;
-      z-index: -1;
-  }
+    position: absolute;
+    z-index: -1;
+}
+
+.error-msg {
+    color: red;
+    text-align: center;
+}
