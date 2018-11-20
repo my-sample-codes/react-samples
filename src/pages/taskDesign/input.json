@@ -1,0 +1,49 @@
+{
+	"object": {
+	  "source": {
+		"sourceType": "csv",
+		"sectionDetailType" : "Card",
+		"dataFields": [
+		  {
+			"fieldName": "BAN",
+			"dataType": "String",
+			"type": "Fixed",
+			"fieldSize": "4",
+			"rule" : "Is Not Empty(Lookup(BAN))"
+		  },
+		  {
+			"fieldName": "Amount",
+			"dataType": "String",
+			"type": "Fixed",
+			"fieldSize": "4",
+			"rule" : "ACTV_AMT > 0"
+		  },
+		  {
+			"fieldName": "Date",
+			"dataType": "String",
+			"type": "Fixed",
+			"fieldSize": "4",
+			"rule" : "Is Not Empty && isDate(ACTV_AMT)"
+		  }
+		]
+	  },
+	  "destination": {
+		"destinationType": "database",
+		"sectionDetailType" : "Card",
+		"dataFields": [
+		  {
+			"fieldName": "BAN",
+			"dataType": "String",
+			"type": "Fixed",
+			"fieldSize": "4"
+		  },
+		  {
+			"fieldName": "MAN",
+			"dataType": "String",
+			"type": "Fixed",
+			"fieldSize": "4"
+		  }
+		]
+	  }
+	}
+  }

@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { Select, Card, Input, Button, Table, Divider, Tag, Radio, Steps, Breadcrumb } from 'antd';
 import './recordtokenizer.css';
 import {Icon} from 'antd';
-
+import LayoutDefinition from './../layout-definition/LayoutDefinition';
+import TaskDesign from './../taskDesign/taskDesign';
 const Step = Steps.Step;
 const RadioGroup = Radio.Group;
 
@@ -177,13 +178,13 @@ export default class RecordTokenizer extends Component {
                     </div>
                 </Card>
 
-                <Link to="/SourceDefinition">
+                <Link to="/LayoutDefinition">
                     <Button className="btn">Back</Button>
                 </Link>
-                <Link to="/RecordTokenizer">
+                <Link to="/TaskDesign">
                     <Button type='primary' className="btn">Next</Button>
                 </Link>
-                <Button type='primary' className="btn">Complete Step</Button>
+               {/*  <Button type='primary' className="btn">Complete Step</Button> */}
             </div>
         )
     }

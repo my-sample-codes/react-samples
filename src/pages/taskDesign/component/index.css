@@ -1,0 +1,18 @@
+.ant-modal-header {
+    padding: 16px 24px;
+    border-radius: 4px 4px 0 0;
+    background: rgba(224, 12, 111, 0.836);
+    color: rgba(0, 0, 0, 0.65);
+    border-bottom: 0px solid #e8e8e8;
+  }
+
+  .ant-modal-content {
+    position: relative;
+    background-color: #fff;
+    border: 0;
+    border-radius: 4px;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width : max-content;
+  }
