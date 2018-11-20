@@ -34,13 +34,29 @@ class NavigationBar extends React.Component {
   };
 
   componentDidMount() {
-    axios.get("http://10.11.14.79:8081/recon/product/getlist/")
-        .then(res => {
-                      const projects = res.data;
-                      console.log(res.data);
-                      this.setState({ projects });
-                      }
-        )
+    // axios.get("http://10.11.14.80:8081/recon/product/getlist/")
+    //     .then(res => {
+    //                   const projects = res.data;
+    //                   console.log(res.data);
+    //                   this.setState({ projects });
+    //                   }
+    //     )
+
+    fetch("http://10.11.14.79:8081/recon/product/getlist/")
+    .then(res => res.json())
+    .then(
+      (result) => {
+        console.log("Result::",result)
+        this.setState({
+            projects: result
+          });
+      },
+      
+      (error) => {
+        console.log("Cannot fetch product list");
+        console.log(error);
+      }
+    )
   } 
 
   render() {
@@ -49,21 +65,24 @@ class NavigationBar extends React.Component {
 
         <Image/>
 
-       
-        <SubMenu className="menus" key="sub1"  title={ <span> <Icon type="appstore" /> <span>Projects</span> </span> } >    
+        <SubMenu className="menus" key="sub1"  title={ <span> <Icon type="appstore" /> <span>Projects</span> </span> } >  
           {
             this.state.projects.map(project=>
-             /*  <Link to="/SourceDefinition">  */ <Menu.Item>{project.productName}</Menu.Item>/* </Link> */
+              <Menu.Item>{project.productName}</Menu.Item>
             )
           }
-        </SubMenu>
-
-        <p><Icon type="pic-center"/> <span className="nonmenu">Preview</span> </p>    
+          {/* Preview as menu item with icon
+          <Menu.Item><Icon type="pic-center"/>Preview</Menu.Item> */}
+          {/* Normal menu item without icon */}
+          <Menu.Item>Preview</Menu.Item>
+          {/* Preview css self written class spa
+          <div className="spa"><Icon type="pic-center" className = "icon"/>Preview</div> */}
+        </SubMenu> 
 
         <SubMenu key="sub2"  title={ <span> <Icon type="appstore" /> <span>Recon</span> </span> } >
           {
             this.state.projects.map(project=>
-              /* <Link to="/SourceDefinition">  */ <Menu.Item>{project.productName}</Menu.Item> /* </Link> */
+              <Menu.Item>{project.productName}</Menu.Item>
             )
           }
         </SubMenu>
@@ -85,7 +104,7 @@ class NavigationBar extends React.Component {
             >             
               <Menu.Item key="3">Define Source</Menu.Item>
             </SubMenu>
-           <SubMenu
+            <SubMenu
               key="sub2"
               title={<span><Icon type="team" /><span>Team</span></span>}
             >
@@ -96,8 +115,8 @@ class NavigationBar extends React.Component {
               <Icon type="file"/>
               <span>File</span>
             </Menu.Item>
-           
-               </Menu>
+            
+          </Menu>
  */
     );
   }
