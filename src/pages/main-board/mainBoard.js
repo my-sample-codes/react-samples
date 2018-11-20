@@ -10,7 +10,8 @@ import './mainBoard.css';
 
 const { Meta } = Card;
 //URL link to fetch all products
-const getURL = "http://10.11.14.79:8081/recon/product/getlist/";
+//const getURL = "http://10.11.14.79:8081/recon/product/getlist/";
+const getURL = "/product/getlist/";
 const postURL = "http://10.11.14.79:8081/recon/product/save/";
 
 export default class mainBoard extends Component {
