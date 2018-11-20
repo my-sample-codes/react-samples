@@ -38,8 +38,10 @@ export default class mainBoard extends Component {
         //using simple fetch
         fetch(postURL, {
             method: 'POST',
+             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
+                 'Access-Control-Allow-Origin':'*'
             },
             body: JSON.stringify({
 
