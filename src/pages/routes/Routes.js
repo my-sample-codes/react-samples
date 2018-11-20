@@ -1,11 +1,11 @@
 
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import Home from './../source-definition/SourceDefinition';
+import SourceDefinition from './../source-definition/SourceDefinition';
 import LayoutDefinition from './../layout-definition/LayoutDefinition';
 import RecordTokenizer from './../record-tokenizer/RecordTokenizer';
 import TaskDesign from './../taskDesign/taskDesign'
-import Home1 from './../main-board/mainBoard';
+import Home from './../main-board/mainBoard';
 //import Home from './../login/LoginForm';
 
 export default class Routes extends Component {
@@ -24,7 +24,7 @@ export default class Routes extends Component {
                                 <Route
                                     exact
                                     path="/SourceDefinition"
-                                    component={Home1}
+                                    component={SourceDefinition}
                                 />
                                 <Route
                                     exact
