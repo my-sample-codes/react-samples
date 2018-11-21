@@ -136,7 +136,7 @@ export default class mainBoard extends Component {
                         <Col span={5}>
                             <br/>
                             <Button type="dashed" size="large" className='newCardButton' onClick={this.showModal}>
-                                < Icon type="plus" /><br />Add new product
+                                < Icon type="plus" /><br />Add New Project
                             </Button>
                             <CollectionCreateForm
                                 // Modal 1 for "New Project" Form
