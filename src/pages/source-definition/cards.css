@@ -1,0 +1,50 @@
+.stylecards
+{
+    margin-block-end: 200px;
+    font-style: oblique;
+    background:whitesmoke;
+    size: initial;
+    width: 200px;
+    height: 140px;
+    color: rgb(85, 83, 83);
+    border-color: #469de4; 
+    
+}
+
+.cardsbackground
+{
+    background-color:whitesmoke;
+    margin-left: 8%;
+}
+
+.content{
+    margin: '0 16px';
+}
+
+.parentclassstyle
+{
+    margin-left: 20%;
+    background-color: #ebecee;
+    height: 130px;
+    width: 250px;
+
+}
+
+
+.parentclassstyle1
+{
+    margin-left: 50%;
+    background-color: #ebecee;
+    height: 130px;
+    width: 250px;
+}
+
+
+.parentclassstyle2
+{
+    margin-left: 80%;
+    background-color: #ebecee;
+    height: 130px;
+    width: 250px;
+}
+

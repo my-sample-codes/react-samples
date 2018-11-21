@@ -1,0 +1,21 @@
+.iconsize{
+    font-size: 30px;
+}
+
+.addiconcss
+{
+    font-size: 40px;
+    margin-right: 220px;
+   
+    /* float: right; */
+    /* margin-top: 0px; */
+    /* margin-bottom: 100px;
+    margin-block-end: 50px; */
+    /* padding-bottom : 50px;  */
+    color : rgb(189, 16, 97); 
+}
+
+.iconcards
+{
+    float: top;
+}

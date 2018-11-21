@@ -1,13 +1,81 @@
 .header{
-    background-color: cadetblue;
+    background-color: rgba(224, 12, 111, 0.836);
     padding: .25 rem;
     width: '100%';
-    text-align: right;
-    font: bold 4em Georgia, serif;
+    height: 64px;
+    text-align: left;
+    font: bold 3em Georgia, serif;
+
+}
+
+.nav-area1{
+    background:  #d65095 ;
+    height:30px;
+    width: 250px;
+    margin-left: 8px;
+    margin-bottom: auto;
+}
+
+.test
+{
+   background-color:  #ffffff ;
+}
+
+.iconlist{
+    float: right;
+    margin-right: 2%;
+}
+.iconbell
+{
+  margin-left: 20px;
+  font-size: 22px;
+}
+.iconmsg
+{
+  margin-left: 23px;
+  font-size: 22px;
+}
+.iconuser
+{
+  margin-left: 28px;
+} 
+
+.user{
+    border: black;
+    margin-left: 23px;
+    font-size: 22px;
 }
 
 * {
-   /* border: 1px solid red;*/
+  /* border: 1px solid red;  */
     padding: 1px;
     margin: 1px;
 }
+/* 
+.icon{
+    align-content: flex-end
+}
+.nav-area{
+    background-color: rgba(224, 12, 111, 0.836);
+    width: 100%;
+}
+
+.logo {
+
+    width: 130px;
+    height: 31px;
+    background: rgba(255,255,255,.2);
+    margin: 16px 250px 16px 0;
+    float: left;
+    background-image: "tmobiles.png";
+    position: absolute;
+    z-index: 1;
+  }
+  .logo_img
+  {
+      width: 130px;
+      height: 32px;
+      margin-bottom: 110%;
+  }
+*/
+ 
