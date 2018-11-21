@@ -53,7 +53,7 @@ const CollectionCreateForm = Form.create()(
               {/* Document Type */}
               <FormItem {...formItemLayout} label="Select Document Type" hasFeedback>
                 {getFieldDecorator('document_type')(
-                  <Select placeholder="Please select a country">
+                  <Select placeholder="Please Select Document Type">
                     <Option value="csv">CSV</Option>
                     <Option value="xml">XML</Option>
                     <Option value="xls">XLS</Option>
