@@ -1,18 +1,19 @@
 .logo {
-
-    width: 150px;
-    height: 31px; 
+    width: 199px;
+    height: inherit; 
     float: left;
-    background-image: "tmobiles.png";
+    background-image: "tmobiles1.png";
     position: relative;
     z-index: 1;
+    background-color: black;
+
   }
 
   .logo_img
   {
       width: 190px;
-      height: 57px;
-      padding:0px;   
+      height: 65px;
+      /* padding:0px;    */
   }
 
  
