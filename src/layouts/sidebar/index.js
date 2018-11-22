@@ -64,7 +64,7 @@ class NavigationBar extends React.Component {
   <Link to="SourceDefinition">
       <Menu  theme="dark"  mode="inline"  openKeys={this.state.openKeys}  onOpenChange={this.onOpenChange}>
      <div className="imgLogo">
-      <Image/>
+      {/* <Image/> */}
      </div>
         <SubMenu className="menus" key="sub1"  title={ <span> <Icon type="appstore" /> <span>Projects</span> </span> } >  
      
