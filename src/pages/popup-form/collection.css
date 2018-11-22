@@ -19,3 +19,8 @@
 .ant-select-arrow .ant-select-arrow-icon {
     margin-top: -2px;
 }
+
+.ant-modal-header{
+    background: #EE008C;
+    margin: -1px;
+}
