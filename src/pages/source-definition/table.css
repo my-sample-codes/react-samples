@@ -1,5 +1,5 @@
 .ant-table-thead > tr > th {
-  background: #e6e6e6;
+  background: rgb(223, 220, 220) !important;
   -webkit-transition: background .3s ease;
   transition: background .3s ease;
   text-align: left;
@@ -8,4 +8,11 @@
   border-bottom: 1px solid #e8e8e8;
   grid-column-gap: 5px;
   border-spacing: 15px 0px;
+}
+
+.ctable
+{
+  background-color: white;
+  position: unset;
+    margin-top: -12px;
 }

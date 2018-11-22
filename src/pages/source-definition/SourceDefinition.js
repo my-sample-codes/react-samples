@@ -12,17 +12,7 @@ import './SourceDefinition.css'
 
 const Step = Steps.Step;
 
-const hoverContent = (
-  <div>
-            <p>Here you can manage and manage the datasets you added.</p>
-              <p>A dataset holds a raw data that can be used as a raw material</p>
-              <p>without affecting your original data</p>
-           
-              <Link to="/LayoutDefinition"><a>Skip</a></Link>
-                   
-              
-  </div>
-);
+var hoverContent = require('./../infomapper.js').default;
 
 
 const props = {
@@ -78,12 +68,24 @@ export default class SourceDefinition extends Component {
  
       //-----------------
 
+      // state = {
+      //   visible: false,
+      // }
+    
+      // hide = () => {
+      //   this.setState({
+      //     visible: false,
+      //   });
+      // }
+
+      //--------------------
+
     render() {
 
      
         return (
             <div>
-                <Breadcrumb className="breadcumb">
+              {/*   <Breadcrumb className="breadcumb">
                 <Breadcrumb.Item>
                 <Steps size="small" current={0} progressDot>
                 <Step title="Source Definition" />
@@ -92,26 +94,22 @@ export default class SourceDefinition extends Component {
                 <Step title="Task Design" />
             </Steps>
               </Breadcrumb.Item>
-            </Breadcrumb>
+            </Breadcrumb> */}
 
                 <h2>Source Definition</h2>
                
                 <Row>
-                    <Col span={8}>
-                    <header className="title-upload">Choose your file format:</header>
+                    <Col span={10}>
+                    <label className="title-upload">Choose your file :</label>
                     
                     </Col>
-                    <Col span={8}>
+                    <Col span={10}>
                    
                        
-                       <Popover placement = "right" title="Datasets"
-                               content={hoverContent}                               
-                                // <DatasetCard/>
-                            
-                            >
+                      
                             <div>
                             <Upload {...props}
-                       >  
+                             >  
                                 <Button className="upload-button" >
                                {/* {this.state.isToggleOn ? (
                                  'ON'
@@ -120,19 +118,28 @@ export default class SourceDefinition extends Component {
                                  <Icon type="plus-circle" theme="twoTone" /> &nbsp;&nbsp;&nbsp; Add Dataset
                                  
                                 </Button>  
+                                <Popover placement = "right" title="Datasets"
+                               content={hoverContent.maparray.RecordExtract}                               
+                                // <DatasetCard/>
+                      
+                                                            >
+                                <Icon className="info-icon" type="question-circle" />
+                                </Popover>
                                 </Upload><br/>
                                 <Link to="Tables">
                                 <Button className="upload-button">Auto Configuration</Button>
+                                <Popover placement = "right" title="Datasets"
+                               content={hoverContent.maparray.RecordExtract}  > 
+                               <Icon className="info-icon" type="question-circle" />                            
+                               
+                                </Popover>
                                 </Link>
                                 </div>
-                                </Popover>
+                                
                      
                      
                     </Col>
                  </Row>
-               <br/>
-               <br/>
-            <header className="dup-etl-header">Duplicate ETL Jobs:</header>
                <br/>
                <br/>
 
@@ -141,7 +148,7 @@ export default class SourceDefinition extends Component {
                 <br /><br />
                    
                   <Link to="/Login">
-                    <Button className="btn">Back</Button>
+                    <Button className="next-btn">Back</Button>
                   </Link>
                     <Link to="/LayoutDefinition">
                         <Button type='primary' >Next</Button>

@@ -10,11 +10,26 @@
     -webkit-box-shadow: 3px 5px 3px #9E9E9E;
     -moz-box-shadow: 3px 5px 3px #9E9E9E;
     box-shadow: 3px 5px 3px #9E9E9E;
+    height: 380px;
+    margin-top : -20px;
 
 }
 
 .searchstyle
 {
+    margin-top : -10px;
     width: 200px;
     float: right;
+    margin-right: 5px;
+}
+
+.dup-etl-header
+{
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 7px;
+    margin-top: -10px;
+    float: left;
+    color: rgb(20, 20, 20);
+    
 }

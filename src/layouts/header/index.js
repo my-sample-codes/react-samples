@@ -47,13 +47,13 @@ class Headers extends Component {
     return (
 
       
-      <Header className='header' style={{padding:'1px'}} >
+      <Header className='header' style={{padding:'0px'}} >
         <Image/> 
-        <Search className="nav-area1"
+        {/* <Search className="nav-area1"
           placeholder=" search here"
           onSearch={value => console.log(value)}
           enterButton
-        />
+        /> */}
 
         <div className="iconlist" >
         <Dropdown overlay={menu1} trigger={['click']}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Col, Row, Button, Icon, Avatar } from 'antd';
+import { Card, Col, Row, Button, Icon, Avatar,Dropdown,Menu } from 'antd';
 // import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import SourceDefinition from '../source-definition/SourceDefinition';
@@ -7,12 +7,25 @@ import CollectionCreateForm from '../popup-form/collection'
 import HeaderDiv from './headerDiv';
 import './mainBoard.css';
 import Header from './../../layouts/header/index';
+import MenuIcon from './menuIcon.png';
 import SiderLayout from './../../layouts/layout2/SiderLayout';
 const { Meta } = Card;
 //URL link to fetch all products
 const getURL = "http://10.11.14.79:8081/recon/product/getlist/";
 const postURL = "http://10.11.14.79:8081/recon/product/save/";
 
+const menu1 = (
+    <Menu className="menu">
+        <Menu.Item key="0">
+            <a >Duplicate</a>
+        </Menu.Item>
+        <Menu.Divider className="menu9" />
+        <Menu.Item key="1">
+            <a >Delete</a>
+        </Menu.Item>
+
+    </Menu>
+);
 export default class mainBoard extends Component {
     state = { visible: false, loadervisible: false, };
     // Performing a POST request
@@ -124,22 +137,25 @@ export default class mainBoard extends Component {
         return (
             <div className='mainDiv'>
                 <Header/>
-            
+                <div className='cardList'>
+                    <HeaderDiv />
+                </div>
                 <div className='cardList'>
 
                 {/* top description header  */}
-                <HeaderDiv />
+                
 
                 {/* Card List Display */}
                 
-                    Recent Projects
+                <div>
+                        Your Projects
+                    </div>
 
-                    <Row gutter={16}>
+                    <Row gutter={16} className='cardRow'>
 
-                        <Col span={5}>
-                            <br/>
-                            <Button type="dashed" size="large" className='newCardButton' onClick={this.showModal}>
-                                < Icon type="plus" /><br />Add new product
+                        <Col span={7}>
+                            <Button size="large" className='newCardButton' onClick={this.showModal}>
+                                < Icon className="addIcon" type="plus"/><br />Add project
                             </Button>
                             <CollectionCreateForm
                                 // Modal 1 for "New Project" Form
@@ -157,16 +173,25 @@ export default class mainBoard extends Component {
                         {/* map all products fetched from URL to card list view */}
                         {this.state.projects.map(project =>
 
-                            <Col span={5}>
+                            <Col span={7}>
                                 <Link to="/SourceDefinition"> 
-                                    <Card hoverable bordered={true} bodyStyle={{ height: '130px' }}>
+                                    <Card className="projectCards" hoverable bordered={true}>
                                         <Meta
-                                            avatar={<Avatar src={project.productLogo} />}
-                                            title={<a>{project.productName}</a>}
+                                            title={<a className="projectName">{project.productName}</a>}
                                             description={
                                                 <div className='descriptionData'>{project.productDescription}</div>
                                                 }
                                         />
+                                        <div className="menulist" >
+                                        <Dropdown overlay={menu1} trigger={['click']} style={{left:'625px'}}>
+                                            <ul className="ant-card-actions customStyle">
+                                                <li>
+                                                   {/*  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg> */}
+                                                   <Icon type="ellipsis" className="menuIcon"/>
+                                                </li>
+                                            </ul>
+                                        </Dropdown>
+                                        </div>
                                     </Card>
                                  </Link> 
 

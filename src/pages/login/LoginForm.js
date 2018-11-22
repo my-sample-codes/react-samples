@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Form, Icon, Input, Button, Checkbox, Layout } from 'antd';
-import BackgroundImg from './loginBgOptimusImg.png';
+import { Form, Icon, Input, Button, Checkbox, Alert } from 'antd';
+import BackgroundImg from './login_background_img.svg';
 import Dashboard from '../dashboard-landing/DashboardLand';
+// import logo from './logo-blue.png'
+import logo from './logo.png';
+import logo1 from './logo-blue.png';
 import 'antd/dist/antd.css';
 import '../../index.css';
 import './Login.css';
@@ -23,7 +26,6 @@ class LoginForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-
         //Please put your backend url
         //Local
         //var apiBaseUrl = "http://localhost:8090/SpringBootApplicationRestApi/api/"
@@ -53,20 +55,19 @@ class LoginForm extends Component {
 
                 // POST method for login 
                 // axios.post(apiBaseUrl + 'login', values)
-                .then(function (response) {                   //call handler after successful functioning
+                .then(function (response) {                   
                     console.log("All Response - ", response);
                     console.log(JSON.stringify(response));
                     console.log("Response Status Code - ", response.status)
                     
                     if (response.status === 302) {
-                        console.log("Login successfull");              //for printing on console
+                        console.log("Login successfull");              
                         this.setState({ validate: true });
                         this.setState({ error_msg: false });
                         console.log("After return",this.state.validate);
                     }
                     else if (response.status === 404) {
                         console.log("Username password do not match");
-                        // alert("username password do not match")
                         this.setState({ validate: false });
                         this.setState({ error_msg: true });
                     }
@@ -85,50 +86,59 @@ class LoginForm extends Component {
         return (
             <div>
                 {!isValidated ? (
-                    <div> <div className="bg-img-div">
+                    <div>
                         <img className='bg' src={BackgroundImg} />
-                    </div>
                         <div>
-                            <Layout className="login-form-layout">
+                            <div>
                                 <Form onSubmit={this.handleSubmit} className="login-form">
-                                {!isErrorMsg ? (<div></div>) : (<div className="error-msg">Incorrect Username/Password</div>)}
+                                    <div>
+                                        <div className="container-heading" >
+                                            <div className="container">
+                                                <img alt="logo" src={logo} />
+                                            </div>
+                                            <div className="text-title-container">
+                                                <span className="nor-div-title" >Optimus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {!isErrorMsg ? (<div></div>) : (<Alert style={{ marginBottom: 24 }} message={'Invalid username or password'} type="error" showIcon />)}
                                     <FormItem>
                                         {getFieldDecorator('userName', {
-                                            rules: [{ required: true, message: 'Please input your username!' }],
+                                            rules: [{ required: true, message: 'Please enter username!' }],
                                         })(
-                                            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+                                            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder=" Username" />
                                         )}
                                     </FormItem>
                                     <FormItem>
                                         {getFieldDecorator('password', {
-                                            rules: [{ required: true, message: 'Please input your Password!' }],
+                                            rules: [{ required: true, message: 'Please enter password!' }],
                                         })(
-                                            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+                                            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder=" Password" />
                                         )}
                                     </FormItem>
                                     <FormItem>
-                                        <div>
+                                        <div className="ckh-frgt">
                                             <div className="login-form-checkbox">
                                                 {getFieldDecorator('remember', {
                                                     valuePropName: 'checked',
-                                                    initialValue: false,
+                                                    initialValue: true,
                                                 })(
                                                     <Checkbox>Remember me</Checkbox>
                                                 )}
                                             </div>
                                             <div className="login-form-forgot"><span><Icon type="lock" /><span>
-                                                <a href="#forgotPass"> Forgot pwd?</a></span></span>
+                                                <a href="#forgotPass">Forgot your password?</a></span></span>
                                             </div>
                                         </div>
                                         <Button type="primary" htmlType="submit" onClick={this.handleClick} className="login-form-button">
-                                            Sign In
+                                            Login
                                         </Button>
                                     </FormItem>
-                                    {/* <div>
-                                        <img className="info-img-icon" src={AdminSingInImg} />
-                                    </div> */}
                                 </Form>
-                            </Layout>
+                            </div>
+                            <div className="container-all">
+                                <img alt="logo1" src={logo1} />
+                            </div>
                         </div>
                     </div>
                 ) : (<div><Dashboard /></div>)}

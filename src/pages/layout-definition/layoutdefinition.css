@@ -4,26 +4,64 @@
     }
   
 .selt-encode{
-    margin-top: -10%;
-    margin-left: 350px;
+    margin-top: -14px;
+    margin-left: 40px;
     width:530px;
+    position: unset;
 }    
 
 .btn-apply{
+       margin-top: -17px;
       float: right;
-      background: #D3D3D3;
+     background-color:  rgb(212, 209, 209);
+     color: black;
+     -webkit-box-shadow: 1px 3px 1px rgb(161, 159, 159);
+     -moz-box-shadow: 1px 3px 1px rgb(161, 159, 159);
+     box-shadow: 1px 3px 1px rgb(161, 159, 159);
+        
 }
 
 .CharacterEncoding
 {
     width: 150px;
-    font-weight: 700;
-    color: rgb(59, 59, 59);
     margin-right: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    text-overflow: ellipsis; 
+    color: black;
+    margin-top: -23px;
 }
 
 .char-encode-card
 {
 
-    height: 75px;
+    height: 210px;
+    -webkit-box-shadow: 0px 1px 0px rgb(204, 202, 202);
+     -moz-box-shadow:  0px 1px 0px rgb(204, 202, 202);
+     box-shadow:  0px 1px 0px rgb(204, 202, 202);
+}
+
+.all-titles
+{
+    font-weight: 400;
+    font-size: 15px;
+    text-overflow: ellipsis; 
+    color: black;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
+.card-title
+{
+    padding: 1px 0;
+    height: 200px;
+    -webkit-box-shadow: 0px 1px 0px rgb(204, 202, 202);
+    -moz-box-shadow:  0px 1px 0px rgb(204, 202, 202);
+    box-shadow:  0px 1px 0px rgb(204, 202, 202);
+        
+}
+
+.section-id-table
+{
+    margin-top: -18px;
 }

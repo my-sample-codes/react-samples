@@ -7,32 +7,27 @@
 } 
 
 .login-form {
-    max-width: 80%;
-    max-height: 80%;
-    margin-right : 50px;
-    margin-left : 50px;
-    margin-top : 30px;
-    margin-bottom : -100px; 
-    background: #fff;
+    max-width: 28%;
+    max-height: 30%;
+    background: #fff; 
+    margin:auto;
+    margin-top:120px;
 } 
 
 .login-form-forgot {
     float: right;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: -30px;
+    margin-top: -50px;
 }
 
 .login-form-checkbox {
     float: left;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: -30px;
+    margin-top: -50px;
 }
 
 .login-form-button {
     width: 100%;
     text-align: center;
+    margin-top: 8px;
 }
 
 .register-now {
@@ -47,22 +42,79 @@
     margin-left: -1.1%;
 }
 
-img.bg {
-    min-height: 100%;
-    min-width: 1024px;
-    width: 100%;
-    height: auto;
-    position: fixed;
-    top: -98px;
-    left: 0;
-  }
-
 .bg-img-div {
     position: absolute;
     z-index: -1;
 }
 
-.error-msg {
-    color: red;
-    text-align: center;
+.bg { 
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #F0F2F5; 
+    position: fixed;
+    top:0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+.nor-div-title {
+    font-size: 33px;
+    color:#18509D;
+    font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
+    font-weight: 600;
+    position: relative;
+    
+
+
+    top: 16px;
+    left: -48px;
+}
+
+
+.container {
+    width: 140px;
+    height: 84px;
+    float: left;
+    /* margin-left: 36px; */
+    margin-left: 56px;
+}
+
+.container img {
+    width: 6%;
+    height: auto;
+    position: absolute;
+    z-index: inherit;
+}
+
+.container-heading {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.text-title-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.container-all {
+    position: relative;
+}
+
+.container-all img {
+    width: 14%;
+    height: auto;
+    position: absolute;
+    z-index: inherit;
+    bottom: -190px;
+    right: 16px;
+    opacity: 1.2;
+}
+
+.ckh-frgt{
+    margin-top: 40px;
 }

@@ -84,7 +84,7 @@ export default class TaskDesign extends React.Component {
    
     return (
       <Main>
-        <Breadcrumb className="breadcumb">
+       {/*  <Breadcrumb className="breadcumb">
           <Breadcrumb.Item>
             <Steps size="small" current={3} progressDot>
               <Step title="Source Definition" />
@@ -92,7 +92,7 @@ export default class TaskDesign extends React.Component {
               <Step title="Record Tokenizer" />
               <Step title="Task Design" />
             </Steps></Breadcrumb.Item>
-        </Breadcrumb>
+        </Breadcrumb> */}
         <h2>Task Designer</h2>
 
         <Diagram customEntities={customEntities} />

@@ -10,15 +10,15 @@ export default class headerDiv extends Component {
                 <h2>Welcome to Optimus!</h2>
                 <br/>
                 <div>
-                    <a>
+                    {/* <a>
                         <Icon type="bulb" />{' '}
                         Learn more
-                    </a>
+                    </a> */}
                     <a>
                         <Icon type="file-text" />{' '}
                         Documentation
                     </a>
-                    <a>
+                    <a className='supportLink'>
                         <Icon type="solution" />{' '}
                         Support
                     </a>

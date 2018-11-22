@@ -31,7 +31,7 @@ const CollectionCreateForm = Form.create()(
 
       return (
         <div>
-          <Modal
+          <Modal 
             visible={visible}
             title="Create a new Project"
             okText="Create"

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Card, Col, Row, Layout} from 'antd';
+import { Card, Col, Row, Layout, Icon, Popover} from 'antd';
 import './cards.css'
 import './cardtable.css'
 import Tables from './table';
 import { Input } from 'antd';
+import './SourceDefinition.css';
 
 const Search = Input.Search;
+var hoverContent = require('./../infomapper.js').default;
 class CardTable extends Component 
 {
     
@@ -13,6 +15,13 @@ class CardTable extends Component
     {
       return (
         <Card className="cardtablestyle">
+              <header className="dup-etl-header">Duplicate ETL Jobs</header>
+              {/* <Icon className="info-icon" type="question-circle" style={{marginTop:"-10px"}} /> */}
+              <Popover placement = "right" title="Datasets"
+                               content={hoverContent.maparray.RecordExtract}                               
+                                  >
+                               <Icon className="info-icon" type="question-circle" style={{marginTop:"-10px"}} />
+              </Popover>
                <Search
                         placeholder="Search Source Name"
                         onSearch={value => console.log(value)}

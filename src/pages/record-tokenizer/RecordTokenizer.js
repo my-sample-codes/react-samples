@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import { Select, Card, Input, Button, Table, Divider, Tag, Radio, Steps, Breadcrumb } from 'antd';
+import { Select, Card, Input, Button, Table, Divider, Tag, Radio, Steps, Breadcrumb, Layout, Row, Col, Popover,Icon } from 'antd';
 import './recordtokenizer.css';
-import {Icon} from 'antd';
+
 import LayoutDefinition from './../layout-definition/LayoutDefinition';
 import TaskDesign from './../taskDesign/taskDesign';
 
+
+
+
 const Step = Steps.Step;
 const RadioGroup = Radio.Group;
+var hoverContent = require('./../infomapper.js').default;
 
 const columns = [{
     title: 'Field Name',
@@ -88,9 +92,17 @@ export default class RecordTokenizer extends Component {
         console.log('radio checked', e.target.value);
         this.setState({
             value: e.target.value,
+            
         });
     }
-
+    
+    textappear = (e) => {
+        console.log('helooooo');
+        // return(<div>
+        //     <input placeholder="jhuhgfjhg"></input>
+        // </div>);
+        
+    }
     render() {
 
         const Option = Select.Option;
@@ -107,9 +119,13 @@ export default class RecordTokenizer extends Component {
             console.log('focus');
         }
 
+      
+
+            
+        
         return (
             <div>
-                <Breadcrumb className="breadcumb">
+               {/*  <Breadcrumb className="breadcumb">
                     <Breadcrumb.Item>
                         <Steps size="small" current={2} progressDot>
                             <Step title="Source Definition" />
@@ -117,39 +133,74 @@ export default class RecordTokenizer extends Component {
                             <Step title="Record Tokenizer" />
                             <Step title="Task Design" />
                         </Steps></Breadcrumb.Item>
-                </Breadcrumb>
+                </Breadcrumb> */}
                 <h2>Record Tokenizer</h2>
-                <Card
-                    title="Extractor Details"
-                >
-                    <div>
-                        <Select
-                            showSearch
-                            className="slt-ret"
-                            placeholder="Record Extractor types"
-                            optionFilterProp="children"
-                            onChange={handleChange}
-                            onFocus={handleFocus}
-                            onBlur={handleBlur}
-                            filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-                        >
-                            <Option value="delimited">Delimited record tokenizer</Option>
-                            <Option value="fixed">Fixed length record tokenizer</Option>
-                        </Select>
+                <Card className="record-card">
+                <div>
+                        <Row>
+                            <Col span={3}>
+                            <label className="extractor-details">Extractor Details :</label>
+                            </Col>
+                            <Col span={8}>
+                    
+                   
+                                    <Select
+                                        showSearch
+                                        className="slt-ret"
+                                        placeholder="Record Extractor types"
+                                        optionFilterProp="children"
+                                        onChange={handleChange}
+                                        onFocus={handleFocus}
+                                        onBlur={handleBlur}
+                                        filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                                    >
+                                        <Option value="delimited">Delimited record tokenizer</Option>
+                                        <Option value="fixed">Fixed length record tokenizer</Option>
+
+                                        
+                                    </Select>
+                                    
+                                    </Col>
+                                    <Col span={8}>
+                                    <Popover placement = "right" title="Datasets"
+                                    content={hoverContent.maparray.RecordExtract}                              
+                                        // <DatasetCard/>
+                                        style={{width:"50px"}}
+                            
+                                                                    >
+                                   {/*  <Icon className="info-icon" type="question-circle" style={{marginLeft:"0px" , marginTop:"-5px"}} /> */}
+                                    </Popover>
+                                    </Col>
+                        </Row>
                     </div>
                     <br />
                     <div>
                         <RadioGroup onChange={this.onChange} value={this.state.value}>
-                            <Radio value="line" className="rdio">Line</Radio>
-                            <Radio value="comma" className="rdio">Comma</Radio>
-                            <Radio value="colon" className="rdio">Colon</Radio>
-                            <Radio value="space" className="rdio">Others</Radio>
+                            <Radio value="line" className="radio">Line</Radio>
+                            <Radio value="comma" className="radio">Comma</Radio>
+                            <Radio value="colon" className="radio">Colon</Radio>
+                           {/* <Radio value="others" className="radio" onChange={this.textappear}>Others</Radio> */}
+                           <Radio  value={4}>
+                                    Others
+                                    {this.state.value === 4 ? <Input placeholder="Enter Delimiter " style={{ width: 150, marginLeft: 10 }} /> : null}
+                            </Radio>
                         </RadioGroup>
                     </div>
                 </Card>
-
+                <br/>
                 <Card
                     title="Field Tokenization"
+                    className="field-card"
+                    extra={
+                        <Popover placement = "right" title="Datasets"
+                                    content={hoverContent.maparray.RecordExtract}                               
+                                        // <DatasetCard/>
+                            
+                                                                    >
+                                    <Icon className="info-icon" type="question-circle" style={{marginRight:"820px" , marginTop:"-8px"}} />
+                         </Popover>
+
+                    }
                 >
                     <div>
                         <Select
@@ -175,7 +226,7 @@ export default class RecordTokenizer extends Component {
                     </div>
                     <br />
                     <div>
-                        <Table columns={columns} dataSource={data} />
+                        <Table size = "small" columns={columns} dataSource={data} className="record-table" />
                     </div>
                 </Card>
 

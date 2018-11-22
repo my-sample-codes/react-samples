@@ -7,7 +7,6 @@ import RecordTokenizer from './../record-tokenizer/RecordTokenizer';
 import Login from './../login/LoginForm';
 import SiderLayout from './../../layouts/layout2/SiderLayout';
 import NavigationBar from './../../layouts/sidebar/index';
-import NavigationBar1 from './../../layouts/sidebar/index1';
 import Preview from './../preview/preview';
 import { Layout, Menu, Icon, Input, Dropdown } from 'antd';
 import './siderlayout.css';
@@ -87,9 +86,9 @@ export default class Routes extends Component {
                                 >
                                
                             {logo?(
-                                   <div><div><TLogo/></div><div><NavigationBar /></div></div>
+                                   <div className='sidebar'><div><TLogo/></div><div><NavigationBar /></div></div>
                                    ):( 
-                                    <div><div><Image/></div><div><NavigationBar /></div></div>)
+                                    <div className='sidebar'><div><Image/></div><div><NavigationBar /></div></div>)
                                      }
                                                               
                                 </Sider>
