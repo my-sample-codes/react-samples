@@ -1,12 +1,11 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Button, Modal, Form, Input, Radio, Select, Progress, Spin, Icon } from 'antd';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import SourceDefinition from "./../source-definition/SourceDefinition";
+import './collection.css'
 
 const Option = Select.Option;
 const FormItem = Form.Item;
-
+const { TextArea } = Input;
 
 class Progressing extends React.Component {
   render() {
@@ -38,42 +37,47 @@ const CollectionCreateForm = Form.create()(
             okText="Create"
             onCancel={onCancel}
             onOk={onCreate}
-            style={{ top: "20px" }}>
+            className="modal"
+            >
             <Form layout="vertical">{/* Project Title */}
               <FormItem label="Project Name">
                 {getFieldDecorator('title', {
-                  rules: [{ required: true, message: 'Please Enter Project Name!' }],
+                  rules: [{ required: true, message: 'Please enter Project Name!' }],
                 })
                   (<Input />)}
               </FormItem>
               {/* Project Description */}
               <FormItem label="Description">
-                {getFieldDecorator('description')(<Input type="textarea" />)}
-              </FormItem>
-              {/* Project Id */}
-              <FormItem label="ProjectID">
-                {getFieldDecorator('project_id')(<Input />)}
+                {getFieldDecorator('description', {
+                  rules: [{ required: true, message: 'Please enter Description!' }],
+                })(<TextArea autosize={{ minRows: 2, maxRows: 6 }} />)}
               </FormItem>
               {/* Document Type */}
               <FormItem {...formItemLayout} label="Select Document Type" hasFeedback>
-                {getFieldDecorator('document_type')(
-                  <Select placeholder="Please select a country">
+                {getFieldDecorator('document_type', {
+                  rules: [{ required: true, message: 'Please select Document Type!' }],
+                })
+                (
+                  <div className="dropdown">
+                  <Select placeholder="Select Document Type">
                     <Option value="csv">CSV</Option>
                     <Option value="xml">XML</Option>
                     <Option value="xls">XLS</Option>
-                    <Option value="other">Other</Option>
                   </Select>
+                  </div>
                 )}
               </FormItem>
               {/* File header */}
-              <FormItem className="collection-create-form_last-form-item" label="File have header's ?">
+              <FormItem className="collection-create-form_last-form-item" label="Does the file have headers ?" style={{display: 'flex', flexDirection: 'row', marginTop:"-25px", marginBottom:"0px"}}>
                 {getFieldDecorator('headerSet', {
-                  initialValue: 'public',
+                  rules: [{ required: true, message: 'Please specify whether the file has Headers!' }],
                 })(
+                  <div className="radiodiv">
                   <Radio.Group>
-                    <Radio value="yes">Yes</Radio>
-                    <Radio value="no">No</Radio>
+                    <Radio value="yes" style={{marginLeft:"40px"}}>Yes</Radio>
+                    <Radio value="no" style={{marginLeft:"10px"}}>No</Radio>
                   </Radio.Group>
+                  </div>
                 )}
               </FormItem>
             </Form>
@@ -83,12 +87,12 @@ const CollectionCreateForm = Form.create()(
             visible={visible1}
             closable={false}
             centered={true}
-         okButtonProps={{ disabled: true }} 
+            okButtonProps={{ disabled: true }}
             cancelButtonProps={{ disabled: true }}
             bodyStyle={{ height: "100px" }}
           >
             <Progressing />
-        </Modal>
+          </Modal>
         </div>
       );
     }
