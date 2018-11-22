@@ -7,6 +7,7 @@ import RecordTokenizer from './../record-tokenizer/RecordTokenizer';
 import Login from './../login/LoginForm';
 import SiderLayout from './../../layouts/layout2/SiderLayout';
 import NavigationBar from './../../layouts/sidebar/index';
+import NavigationBar1 from './../../layouts/sidebar/index1';
 import Preview from './../preview/preview';
 import { Layout, Menu, Icon, Input, Dropdown } from 'antd';
 import './siderlayout.css';
@@ -14,42 +15,41 @@ import 'antd/dist/antd.css';
 import './header.css';
 import Tables from './../table/table';
 import TaskDesign from './../taskDesign/taskDesign';
-
-const { Header, Sider, Content } = Layout;
-
+import TLogo from './../../components/navbar-logo-single-T/logo'
+import Image from './../../components/navbar-logo/image';
 
 const Search = Input.Search;
-
+const { Header, Sider, Content } = Layout;
 const menu1 = (
-  <Menu>
-    <Menu.Item key="0">
-      <a>You are all caught up! </a>
+    <Menu>
+        <Menu.Item key="0">
+            <a>You are all caught up! </a>
 
-    </Menu.Item>
-  </Menu>
+        </Menu.Item>
+    </Menu>
 );
 const menu2 = (
-  <Menu>
-    <Menu.Item key="0">
-      <a>No new messages</a>
-    </Menu.Item>
-  </Menu>
+    <Menu>
+        <Menu.Item key="0">
+            <a>No new messages</a>
+        </Menu.Item>
+    </Menu>
 );
 const menu3 = (
-  <Menu className="menu">
-    <Menu.Item key="0">
-      <a >Edit Profile</a>
-    </Menu.Item>
-    <Menu.Divider className="menu9" />
-    <Menu.Item key="1">
-      <a >View Profile</a>
-    </Menu.Item>
-    <Menu.Divider  className="menu9"/>
-     <Menu.Item key="2">
-      <a >Sign Out</a>
-    </Menu.Item>
-   
-  </Menu>
+    <Menu className="menu">
+        <Menu.Item key="0">
+            <a >Edit Profile</a>
+        </Menu.Item>
+        <Menu.Divider className="menu9" />
+        <Menu.Item key="1">
+            <a >View Profile</a>
+        </Menu.Item>
+        <Menu.Divider className="menu9" />
+        <Menu.Item key="2">
+            <a >Sign Out</a>
+        </Menu.Item>
+
+    </Menu>
 );
 
 export default class Routes extends Component {
@@ -65,60 +65,78 @@ export default class Routes extends Component {
     }
 
     render() {
+
+        const logo=this.state.collapsed;
+
         return (
             <div>
                 <Router>
                     <div >
-                      <Switch>
-                             <Route
+                        <Switch>
+                            <Route
                                 exact
                                 path="/"
                                 component={Login}
-                            /> 
-                                                           <Layout>
-                                                                <Sider
-                                                                   trigger={null}
-                                                                   collapsible
-                                                                   collapsed={this.state.collapsed}
-                                                                 >
-                                                                  <NavigationBar />
-                                                            </Sider>
-                                                            <Layout>
-                                                             <Header style={{ background: ' rgba(224, 12, 111, 0.836)', padding: 0 }}>
-                                                                      <Icon
-                                                                        className="trigger"
-                                                                        type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                                                                        onClick={this.toggle}
-                                                                    />
+                            />
+                            <Layout>
+                                <Sider
+                                    trigger={null}
+                                    collapsible
+                                    collapsed={this.state.collapsed}
+                                  
+                                >
+                               
+                            {logo?(
+                                   <div><div><TLogo/></div><div><NavigationBar /></div></div>
+                                   ):( 
+                                    <div><div><Image/></div><div><NavigationBar /></div></div>)
+                                     }
+                                                              
+                                </Sider>
 
-        <div className="iconlist" >
-        <Dropdown overlay={menu1} trigger={['click']}>
-            <a className="iconbell" href="#">
-              <Icon type="bell" style={{ fontSize: '22px', color: '#FFFFFF' }} />
-            </a>
-          </Dropdown>
+                                {/* <Sider
+                                    trigger={null}
+                                    collapsible
+                                    collapsed={!this.state.collapsed} 
+                                >
+                                    <NavigationBar1 />
+                                </Sider> */}
+                                <Layout>
+                                    <Header style={{ background: ' rgba(224, 12, 111, 0.836)', padding: 7, paddingLeft: 18 }} >
+                                        <Icon style={{ fontSize: '26px' }}
+                                            className="trigger"
+                                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                                            onClick={this.toggle}
+                                        />
+
+                                        <div className="iconlist" >
+                                            <Dropdown overlay={menu1} trigger={['click']}>
+                                                <a className="iconbell" href="#">
+                                                    <Icon type="bell" style={{ fontSize: '22px', color: '#FFFFFF' }} />
+                                                </a>
+                                            </Dropdown>
 
 
-        <Dropdown overlay={menu2} trigger={['click']}>
-            <a className="iconbell" href="#">
-              <Icon type="message" className="iconmsg" style={{ fontSize: '22px', color: '#FFFFFF' }} />
-              
-            </a>
-          </Dropdown>
-        <Dropdown overlay={menu3} trigger={['click']} onClick={this.showModal}>
-            <a className="iconbell" href="#">
-              <Icon type="user" className="iconuser" style={{ fontSize: '22px', color: '#FFFFFF' }} />
-            </a>
-           
-        </Dropdown>
-        {/* <Button type="dashed" >
+                                            <Dropdown overlay={menu2} trigger={['click']}>
+                                                <a className="iconbell" href="#">
+                                                    <Icon type="message" className="iconmsg" style={{ fontSize: '22px', color: '#FFFFFF' }} />
+
+                                                </a>
+                                            </Dropdown>
+                                            <Dropdown overlay={menu3} trigger={['click']} onClick={this.showModal}>
+                                                <a className="iconbell" href="#">
+                                                    <Icon type="user" className="iconuser" style={{ fontSize: '22px', color: '#FFFFFF' }} />
+                                                </a>
+
+                                            </Dropdown>
+                                            {/* <Button type="dashed" >
            < Icon type="plus" />
          </Button>
         */}
 
-        </div>
-                                                             </Header>
-                                                             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+                                        </div>
+                                    </Header>
+                                    <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
                                         <Route
                                             exact
                                             path="/SourceDefinition"
@@ -138,22 +156,22 @@ export default class Routes extends Component {
                                             exact
                                             path="/Preview"
                                             component={Preview}
-                                        /> 
+                                        />
                                         <Route
                                             exact
                                             path="/Tables"
                                             component={Tables}
-                                        /> 
+                                        />
                                         <Route
                                             exact
                                             path="/TaskDesign"
                                             component={TaskDesign}
-                                        /> 
-                                        
+                                        />
+
                                     </Content>
                                 </Layout>
                             </Layout>
-                            
+
                         </Switch>
                     </div>
                 </Router>
