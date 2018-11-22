@@ -1,5 +1,6 @@
 .cardList{
     height:'200px';
+    margin-left: 185px;
 }
 
 .newCardButton {
@@ -8,7 +9,7 @@
   }
 
 .mainDiv{
-    margin-left: 70px;
+    /* margin-left: 70px; */
 }
 
 .descriptionData{

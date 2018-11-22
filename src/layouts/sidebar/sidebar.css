@@ -6,7 +6,15 @@
     padding-left: 13333px;
     
 }
-
+.previewStyle
+{
+    margin-left: 16%;
+    color: #fff;
+}
+.imgLogo
+{
+    margin-top:-12%;
+}
 .spa{
     padding-left: 12px;
     width: 100%;

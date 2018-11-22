@@ -7,14 +7,13 @@ import BackgroundImg from './../src/pages/login/loginimg.png';
 import 'antd/dist/antd.css';
 import './../src/pages/login/index.css';
 import './../src/pages/login/Login.css';
-
-import WrappedLoginForm from './pages/login/LoginForm';
+import Routes from './pages/routes/Routes';
 
 class App extends Component {
     render() {
         return (
             <div className="Main">
-              <WrappedLoginForm />
+              <Routes/>
             </div>
           );
     }

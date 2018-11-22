@@ -1,0 +1,36 @@
+.upload-button
+{
+    background-color: skyblue;
+    color: white;
+    font-weight: 500;
+    /* margin-right: 200px; */
+}
+
+.title-upload
+{
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 100px;
+}
+
+.source-card-info
+{
+    text-align:left; 
+    width: 500px;
+    height: 250px;
+}
+
+.skip-button
+{
+    background-color: rgb(76, 165, 135);
+    color: white;
+    font-weight: 600;
+}
+
+.dup-etl-header
+{
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 500px;
+    
+}

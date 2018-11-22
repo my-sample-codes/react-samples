@@ -86,7 +86,7 @@ export default class TaskDesign extends React.Component {
       <Main>
         <Breadcrumb className="breadcumb">
           <Breadcrumb.Item>
-            <Steps size="small" current={3}>
+            <Steps size="small" current={3} progressDot>
               <Step title="Source Definition" />
               <Step title="Layout Definition" />
               <Step title="Record Tokenizer" />

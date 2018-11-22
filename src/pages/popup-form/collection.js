@@ -1,8 +1,12 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Button, Modal, Form, Input, Radio, Select, Progress, Spin, Icon } from 'antd';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import SourceDefinition from "./../source-definition/SourceDefinition";
+
 const Option = Select.Option;
 const FormItem = Form.Item;
+
 
 class Progressing extends React.Component {
   render() {
@@ -53,7 +57,7 @@ const CollectionCreateForm = Form.create()(
               {/* Document Type */}
               <FormItem {...formItemLayout} label="Select Document Type" hasFeedback>
                 {getFieldDecorator('document_type')(
-                  <Select placeholder="Please Select Document Type">
+                  <Select placeholder="Please select a country">
                     <Option value="csv">CSV</Option>
                     <Option value="xml">XML</Option>
                     <Option value="xls">XLS</Option>
@@ -79,12 +83,12 @@ const CollectionCreateForm = Form.create()(
             visible={visible1}
             closable={false}
             centered={true}
-            okButtonProps={{ disabled: true }}
+         okButtonProps={{ disabled: true }} 
             cancelButtonProps={{ disabled: true }}
             bodyStyle={{ height: "100px" }}
           >
             <Progressing />
-          </Modal>
+        </Modal>
         </div>
       );
     }

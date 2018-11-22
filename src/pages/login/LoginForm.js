@@ -84,7 +84,7 @@ class LoginForm extends Component {
         const isErrorMsg = this.state.error_msg;
         return (
             <div>
-                {/* {!isValidated ? (
+                {!isValidated ? (
                     <div> <div className="bg-img-div">
                         <img className='bg' src={BackgroundImg} />
                     </div>
@@ -126,14 +126,12 @@ class LoginForm extends Component {
                                     </FormItem>
                                     {/* <div>
                                         <img className="info-img-icon" src={AdminSingInImg} />
-                                    </div> }
+                                    </div> */}
                                 </Form>
                             </Layout>
                         </div>
                     </div>
-                ) : (<div><Dashboard /></div>)} */}
-                <Dashboard />
-
+                ) : (<div><Dashboard /></div>)}
             </div>
         );
     }

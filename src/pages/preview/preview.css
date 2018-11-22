@@ -1,0 +1,48 @@
+.pre
+{
+    margin-left: 270px;
+    
+}
+.pre1
+{
+    margin-right: 0px;
+}
+
+.p{
+    margin-left: 250px;
+    font-size: 20px;
+}
+.p1{
+    margin-top: 43px;
+    margin-left: 250px;
+    font-size: 20px;
+}
+.p2
+{
+    background-color: aliceblue;
+}
+.btnclr
+{
+    background-color:  rgba(224, 12, 111, 0.836);
+    margin-left: 200px;
+}
+.btnclr1
+{
+    background-color: rgba(224, 12, 111, 0.836);
+    margin-left: 150px;
+}
+
+
+.btnspc
+{
+    background-color: rgb(128,128,128);
+    margin-left: 35px;
+}
+.hdr
+{
+    background-color: rgba(224, 12, 111, 0.836);
+    margin-right: 100px;
+    margin-top: 50px;
+    width: 630px;
+    height: 40px;
+}

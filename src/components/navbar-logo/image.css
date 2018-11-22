@@ -7,11 +7,12 @@
     position: relative;
     z-index: 1;
   }
+
   .logo_img
   {
       width: 190px;
-      height: 65px;
-    
+      height: 57px;
+      padding:0px;   
   }
 
  

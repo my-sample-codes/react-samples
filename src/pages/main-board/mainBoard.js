@@ -6,12 +6,11 @@ import SourceDefinition from '../source-definition/SourceDefinition';
 import CollectionCreateForm from '../popup-form/collection'
 import HeaderDiv from './headerDiv';
 import './mainBoard.css';
-
-
+import Header from './../../layouts/header/index';
+import SiderLayout from './../../layouts/layout2/SiderLayout';
 const { Meta } = Card;
 //URL link to fetch all products
 const getURL = "http://10.11.14.79:8081/recon/product/getlist/";
-//const getURL = "/product/getlist/";
 const postURL = "http://10.11.14.79:8081/recon/product/save/";
 
 export default class mainBoard extends Component {
@@ -124,11 +123,15 @@ export default class mainBoard extends Component {
 
         return (
             <div className='mainDiv'>
+                <Header/>
+            
+                <div className='cardList'>
+
                 {/* top description header  */}
                 <HeaderDiv />
 
                 {/* Card List Display */}
-                <div className='cardList'>
+                
                     Recent Projects
 
                     <Row gutter={16}>
@@ -136,7 +139,7 @@ export default class mainBoard extends Component {
                         <Col span={5}>
                             <br/>
                             <Button type="dashed" size="large" className='newCardButton' onClick={this.showModal}>
-                                < Icon type="plus" /><br />Add New Project
+                                < Icon type="plus" /><br />Add new product
                             </Button>
                             <CollectionCreateForm
                                 // Modal 1 for "New Project" Form
@@ -155,7 +158,7 @@ export default class mainBoard extends Component {
                         {this.state.projects.map(project =>
 
                             <Col span={5}>
-                                <Link to="/SourceDefinition" >
+                                <Link to="/SourceDefinition"> 
                                     <Card hoverable bordered={true} bodyStyle={{ height: '130px' }}>
                                         <Meta
                                             avatar={<Avatar src={project.productLogo} />}
@@ -165,7 +168,7 @@ export default class mainBoard extends Component {
                                                 }
                                         />
                                     </Card>
-                                </Link>
+                                 </Link> 
 
                             </Col>
 

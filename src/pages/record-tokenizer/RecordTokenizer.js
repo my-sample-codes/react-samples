@@ -5,6 +5,7 @@ import './recordtokenizer.css';
 import {Icon} from 'antd';
 import LayoutDefinition from './../layout-definition/LayoutDefinition';
 import TaskDesign from './../taskDesign/taskDesign';
+
 const Step = Steps.Step;
 const RadioGroup = Radio.Group;
 
@@ -110,7 +111,7 @@ export default class RecordTokenizer extends Component {
             <div>
                 <Breadcrumb className="breadcumb">
                     <Breadcrumb.Item>
-                        <Steps size="small" current={2}>
+                        <Steps size="small" current={2} progressDot>
                             <Step title="Source Definition" />
                             <Step title="Layout Definition" />
                             <Step title="Record Tokenizer" />
@@ -142,7 +143,7 @@ export default class RecordTokenizer extends Component {
                             <Radio value="line" className="rdio">Line</Radio>
                             <Radio value="comma" className="rdio">Comma</Radio>
                             <Radio value="colon" className="rdio">Colon</Radio>
-                            <Radio value="space" className="rdio">Blank Space</Radio>
+                            <Radio value="space" className="rdio">Others</Radio>
                         </RadioGroup>
                     </div>
                 </Card>
@@ -184,7 +185,7 @@ export default class RecordTokenizer extends Component {
                 <Link to="/TaskDesign">
                     <Button type='primary' className="btn">Next</Button>
                 </Link>
-               {/*  <Button type='primary' className="btn">Complete Step</Button> */}
+                {/* <Button type='primary' className="btn">Complete Step</Button> */}
             </div>
         )
     }

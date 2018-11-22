@@ -4,8 +4,9 @@
     }
   
 .selt-encode{
-    margin-left: 8px;
-    width:400px;
+    margin-top: -10%;
+    margin-left: 350px;
+    width:530px;
 }    
 
 .btn-apply{
@@ -13,3 +14,16 @@
       background: #D3D3D3;
 }
 
+.CharacterEncoding
+{
+    width: 150px;
+    font-weight: 700;
+    color: rgb(59, 59, 59);
+    margin-right: 10px;
+}
+
+.char-encode-card
+{
+
+    height: 75px;
+}

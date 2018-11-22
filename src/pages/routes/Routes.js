@@ -1,47 +1,161 @@
 
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import Home from './../source-definition/SourceDefinition';
+import SourceDefinition from './../source-definition/SourceDefinition';
 import LayoutDefinition from './../layout-definition/LayoutDefinition';
 import RecordTokenizer from './../record-tokenizer/RecordTokenizer';
-import Home1 from './../main-board/mainBoard';
+import Login from './../login/LoginForm';
+import SiderLayout from './../../layouts/layout2/SiderLayout';
+import NavigationBar from './../../layouts/sidebar/index';
+import Preview from './../preview/preview';
+import { Layout, Menu, Icon, Input, Dropdown } from 'antd';
+import './siderlayout.css';
+import 'antd/dist/antd.css';
+import './header.css';
+import Tables from './../table/table';
 import TaskDesign from './../taskDesign/taskDesign';
 
+const { Header, Sider, Content } = Layout;
+
+
+const Search = Input.Search;
+
+const menu1 = (
+  <Menu>
+    <Menu.Item key="0">
+      <a>You are all caught up! </a>
+
+    </Menu.Item>
+  </Menu>
+);
+const menu2 = (
+  <Menu>
+    <Menu.Item key="0">
+      <a>No new messages</a>
+    </Menu.Item>
+  </Menu>
+);
+const menu3 = (
+  <Menu className="menu">
+    <Menu.Item key="0">
+      <a >Edit Profile</a>
+    </Menu.Item>
+    <Menu.Divider className="menu9" />
+    <Menu.Item key="1">
+      <a >View Profile</a>
+    </Menu.Item>
+    <Menu.Divider  className="menu9"/>
+     <Menu.Item key="2">
+      <a >Sign Out</a>
+    </Menu.Item>
+   
+  </Menu>
+);
+
 export default class Routes extends Component {
+
+    state = {
+        collapsed: false,
+    };
+
+    toggle = () => {
+        this.setState({
+            collapsed: !this.state.collapsed,
+        });
+    }
 
     render() {
         return (
             <div>
                 <Router>
-                        <div >
-                            <Switch>
-                                <Route
-                                    exact
-                                    path="/"
-                                    component={Home}
-                                />
-                                <Route
-                                    exact
-                                    path="/Home"
-                                    component={Home}
-                                />
-                                <Route
-                                    exact
-                                    path="/LayoutDefinition"
-                                    component={LayoutDefinition}
-                                />
-                                <Route
-                                    exact
-                                    path="/RecordTokenizer"
-                                    component={RecordTokenizer}
-                                />
-                                 <Route
-                                    exact
-                                    path="/TaskDesign"
-                                    component={TaskDesign}
-                                />
-                            </Switch>
-                        </div>
+                    <div >
+                      <Switch>
+                             <Route
+                                exact
+                                path="/"
+                                component={Login}
+                            /> 
+                                                           <Layout>
+                                                                <Sider
+                                                                   trigger={null}
+                                                                   collapsible
+                                                                   collapsed={this.state.collapsed}
+                                                                 >
+                                                                  <NavigationBar />
+                                                            </Sider>
+                                                            <Layout>
+                                                             <Header style={{ background: ' rgba(224, 12, 111, 0.836)', padding: 0 }}>
+                                                                      <Icon
+                                                                        className="trigger"
+                                                                        type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                                                                        onClick={this.toggle}
+                                                                    />
+
+        <div className="iconlist" >
+        <Dropdown overlay={menu1} trigger={['click']}>
+            <a className="iconbell" href="#">
+              <Icon type="bell" style={{ fontSize: '22px', color: '#FFFFFF' }} />
+            </a>
+          </Dropdown>
+
+
+        <Dropdown overlay={menu2} trigger={['click']}>
+            <a className="iconbell" href="#">
+              <Icon type="message" className="iconmsg" style={{ fontSize: '22px', color: '#FFFFFF' }} />
+              
+            </a>
+          </Dropdown>
+        <Dropdown overlay={menu3} trigger={['click']} onClick={this.showModal}>
+            <a className="iconbell" href="#">
+              <Icon type="user" className="iconuser" style={{ fontSize: '22px', color: '#FFFFFF' }} />
+            </a>
+           
+        </Dropdown>
+        {/* <Button type="dashed" >
+           < Icon type="plus" />
+         </Button>
+        */}
+
+        </div>
+                                                             </Header>
+                                                             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+                                        <Route
+                                            exact
+                                            path="/SourceDefinition"
+                                            component={SourceDefinition}
+                                        />
+                                        <Route
+                                            exact
+                                            path="/LayoutDefinition"
+                                            component={LayoutDefinition}
+                                        />
+                                        <Route
+                                            exact
+                                            path="/RecordTokenizer"
+                                            component={RecordTokenizer}
+                                        />
+                                        <Route
+                                            exact
+                                            path="/Preview"
+                                            component={Preview}
+                                        /> 
+                                        <Route
+                                            exact
+                                            path="/Tables"
+                                            component={Tables}
+                                        /> 
+                                        <Route
+                                            exact
+                                            path="/TaskDesign"
+                                            component={TaskDesign}
+                                        /> 
+                                        
+                                    </Content>
+                                </Layout>
+                            </Layout>
+                            
+                        </Switch>
+                    </div>
                 </Router>
             </div>
         );

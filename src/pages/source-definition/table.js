@@ -86,7 +86,7 @@ class Tables extends Component {
       const { dataSource } = this.state;
       const columns = this.columns;
       return (
-        <Table className = "ant-table-thead" columns={columns}  dataSource={dataSource}/*  pagination={{ pageSize: 10 }} */ />
+        <Table size="middle" className = "ant-table-thead" columns={columns}  dataSource={dataSource}/*  pagination={{ pageSize: 10 }} */ />
       );
     }
   }

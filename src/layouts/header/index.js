@@ -5,6 +5,8 @@ import './header.css';
 import SourceDefinition from '../../pages/source-definition/SourceDefinition';
 import "antd/dist/antd.css";
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import Image from '../../components/navbar-logo/image';
+
 const { Header } = Layout;
 const Search = Input.Search;
 
@@ -46,7 +48,7 @@ class Headers extends Component {
 
       
       <Header className='header' style={{padding:'1px'}} >
-
+        <Image/> 
         <Search className="nav-area1"
           placeholder=" search here"
           onSearch={value => console.log(value)}

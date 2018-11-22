@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import { Select, Card, Input, Button, Table, Divider, Tag, Steps, Breadcrumb } from 'antd';
+import { Select, Card, Input, Button, Table, Divider, Tag, Steps, Breadcrumb, Row, Col,Radio } from 'antd';
 import RecordTokenizer from './../record-tokenizer/RecordTokenizer';
 import SourceDefinition from './../source-definition/SourceDefinition';
 import './layoutdefinition.css';
+import TaskDesign from './../taskDesign/taskDesign';
 
+const RadioGroup = Radio.Group;
 const Step = Steps.Step;
 const columns = [{
     title: 'Section',
@@ -23,6 +25,18 @@ const data = [{
 },];
 
 export default class LayoutDefinition extends Component {
+   
+    state = {
+        value:'',
+    }
+
+
+    onChange = (e) => {
+        console.log('radio checked', e.target.value);
+        this.setState({
+            value: e.target.value,
+        });
+    }
 
     render() {
         const Option = Select.Option;
@@ -39,11 +53,13 @@ export default class LayoutDefinition extends Component {
             console.log('focus');
         }
 
+        const val=this.state.value;
         return (
             <div>
+                <div>
                 <Breadcrumb className="breadcumb">
                     <Breadcrumb.Item>
-                        <Steps size="small" current={1}>
+                        <Steps size="small" current={1} progressDot>
                             <Step title="Source Definition" />
                             <Step title="Layout Definition" />
                             <Step title="Record Tokenizer" />
@@ -51,22 +67,47 @@ export default class LayoutDefinition extends Component {
                         </Steps></Breadcrumb.Item>
                 </Breadcrumb>
 
-                <h2>Layout Definition</h2>
-                <Card title="Character Encoding">
+                <h2>Layout Definition</h2><br/><br/>
+
+                <div>
+                <h3>
+                    Does the file have multiple data sections?  &nbsp;&nbsp;
+                       <RadioGroup   onChange={this.onChange} value={this.state.value}>
+                            <Radio value="yes" >Yes</Radio>
+                            <Radio value="no" >No</Radio>
+                        </RadioGroup>
+                </h3>
+                </div>
+               </div>
+               
+                {
+                    val==='yes'?(
+                 <div>
+                <Card className="char-encode-card" >
                     <div>
-                        Select Character Encoding: <Select
-                            showSearch
-                            className="selt-encode"
-                            placeholder="Character Encoding"
-                            optionFilterProp="children"
-                            onChange={handleChange}
-                            onFocus={handleFocus}
-                            onBlur={handleBlur}
-                            filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-                        >
-                            <Option value="utf8">UTF-8</Option>
-                            <Option value="utf16">UTF-16</Option>
-                        </Select>
+                        <Row>
+                            <Col span={2}>
+                                <header className="CharacterEncoding">Character Encoding</header>
+                            </Col>
+                            <Col span={10}>
+
+                                <Select
+                                    showSearch
+                                    className="selt-encode"
+                                    placeholder="Character Encoding"
+                                    optionFilterProp="children"
+                                    onChange={handleChange}
+                                    onFocus={handleFocus}
+                                    onBlur={handleBlur}
+                                    filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                                >
+                                    <Option value="utf8">UTF-8</Option>
+                                    <Option value="utf16">UTF-16</Option>
+
+
+                                </Select>
+                            </Col>
+                        </Row>
                     </div>
                 </Card>
                 <Card
@@ -96,9 +137,14 @@ export default class LayoutDefinition extends Component {
                 <Link to="/RecordTokenizer">
                     <Button type='primary' className="btn">Next</Button>
                 </Link>
-                <Button type='primary' className="btn">Complete Step</Button>
-            </div>
-
+             </div>
+                ): val==='no'?(<div>  <Link to="/RecordTokenizer">
+                <Button type='primary' className="btn">Next</Button>
+                </Link></div>):(<div></div>)
+            }
+            </div>    
         )
     }
 }
+
+
