@@ -1,0 +1,20 @@
+.logo-t {
+    width: 78px;
+    height: inherit; 
+    float: left;
+    background-image: "tmobiles1.png";
+    position: relative;
+    z-index: 1;
+    background-color: black;
+
+  }
+
+  .logo_img-t
+  {
+      width: 100px;
+      height: 65px;
+      padding-left: 17px;
+      /* padding:0px;    */
+  }
+
+ 
