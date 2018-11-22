@@ -14,6 +14,7 @@ export default {
 
     }
 
+    // var urls = require('./../../urls.js').default;
 
     // urls.urlarray.GetProducts
     // urls.urlarray.SaveProducts
