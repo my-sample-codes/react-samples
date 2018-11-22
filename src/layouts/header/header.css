@@ -1,5 +1,5 @@
 .header{
-    background-color: rgba(224, 12, 111, 0.836);
+    background-color: #EE008C;
     padding: .25 rem;
     width: '100%';
     text-align: left;
@@ -45,8 +45,8 @@
 
 * {
   /* border: 1px solid red;  */
-    padding: 1px;
-    margin: 1px;
+    /* padding: 1px;
+    margin: 1px; */
 }
 /* 
 .icon{
