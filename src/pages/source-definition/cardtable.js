@@ -18,9 +18,9 @@ class CardTable extends Component
               <header className="dup-etl-header">Duplicate ETL Jobs</header>
               {/* <Icon className="info-icon" type="question-circle" style={{marginTop:"-10px"}} /> */}
               <Popover placement = "right" title="Datasets"
-                               content={hoverContent.maparray.RecordExtract}                               
+                               content={hoverContent.maparray.duplicate_etl_jobs}                               
                                   >
-                               <Icon className="info-icon" type="question-circle" style={{marginTop:"-10px"}} />
+                               <Icon className="info-icon" type="question-circle" style={{marginTop:"-20px"}} />
               </Popover>
                <Search
                         placeholder="Search Source Name"

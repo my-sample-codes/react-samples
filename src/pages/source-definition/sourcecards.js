@@ -17,32 +17,26 @@ class SourceCards extends Component {
        <tr>
        <Row gutter={16}>
       <Col span={7}>
-   
-      <Card className = "parentclassstyle" >
-            {/* <Icon className="addiconcss" type="file-text" theme="filled" twoToneColor="deeppink" /> */}
+        
             <Link to="/LayoutDefinition"><Card className = "stylecards"  title="CSV" bordered={true} >
-            
+           
            Create Configuration for CSV file Sources</Card> </Link>
-            
-            </Card>
+                    
            
       </Col>
 
       <Col span={7} className="sourceCardsDiv">
      
-        <Card className = "parentclassstyle">
-          {/* <Icon className="addiconcss" type="file-text" theme="filled" twoToneColor="deeppink" /> */}
-          <Link to="/LayoutDefinition">  <Card className = "stylecards" title="XLS/XLSX" bordered={true}>Create configuraion for excel file sources</Card></Link>
-            </Card>
+       
+          <Link to="/LayoutDefinition">  <Card className = "stylecards" title="XLS/XLSX" bordered={true}
+           
+          >Create configuraion for excel file sources</Card></Link>
+           
             
       </Col>
       <Col span={7} className="sourceCardsDiv">
-      
-      <Card className = "parentclassstyle">
-          {/* <Icon className="addiconcss" type="file-text" theme="filled" twoToneColor= "rgb(226, 74, 104)" /> */}
+
           <Link to="/LayoutDefinition"><Card className = "stylecards" title="Other" bordered={true}>Browse repo / marketplace for more</Card> </Link>
-            </Card>
-           
            
       </Col>
     

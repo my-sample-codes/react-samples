@@ -18,16 +18,17 @@
     margin-left: 8px;
     margin-top: 8px;
     }
-  
+
 .plus-icon
 {
- color: #1a75ff;
- font-size: 30px;
+    padding-left: 12px;
+    color: #1a75ff;
+    font-size: 30px;
 }
 
 .edit-delete
 {
-
+    padding-right: 15px;
     font-size: 20px;
 }
 
@@ -47,8 +48,8 @@
     
     height : 130px;
     -webkit-box-shadow: 0px 1px 0px rgb(204, 202, 202);
-     -moz-box-shadow:  0px 1px 0px rgb(204, 202, 202);
-     box-shadow:  0px 1px 0px rgb(204, 202, 202);
+    -moz-box-shadow:  0px 1px 0px rgb(204, 202, 202);
+    box-shadow:  0px 1px 0px rgb(204, 202, 202);
 }
 
 .field-card
@@ -57,16 +58,23 @@
     size: 150px;
     height : 400px;
     -webkit-box-shadow: 0px 1px 0px rgb(204, 202, 202);
-     -moz-box-shadow:  0px 1px 0px rgb(204, 202, 202);
-     box-shadow:  0px 1px 0px rgb(204, 202, 202);
+    -moz-box-shadow:  0px 1px 0px rgb(204, 202, 202);
+    box-shadow:  0px 1px 0px rgb(204, 202, 202);
 }
 
 .record-table
 {
     margin-top:0px;
-   color: #EE008C;
+    color: #EE008C;
 }
 
 .ant-popover-inner-content {
     width: 300px;
+}
+
+.ant-select{
+    width: 230px;
+}
+.ant-select-dropdown-menu {
+    width: 230px;
 }

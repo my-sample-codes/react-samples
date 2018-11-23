@@ -84,11 +84,11 @@ class LoginForm extends Component {
         const isValidated = this.state.validate;
         const isErrorMsg = this.state.error_msg;
         return (
-            <div>
+            <div style={{overflow:'hidden'}}>
                 {!isValidated ? (
-                    <div>
+                    <div >
                         <img className='bg' src={BackgroundImg} />
-                        <div>
+                        <div style={{marginBottom:'9%'}}>
                             <div>
                                 <Form onSubmit={this.handleSubmit} className="login-form">
                                     <div>
@@ -101,8 +101,8 @@ class LoginForm extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    {!isErrorMsg ? (<div></div>) : (<Alert style={{ marginBottom: 24 }} message={'Invalid username or password'} type="error" showIcon />)}
-                                    <FormItem>
+                                    {!isErrorMsg ? (<div></div>) : (<Alert style={{ marginTop: '46px' }} message={'Invalid username or password'} type="error" showIcon />)}
+                                    <FormItem className='loginFormItem'>
                                         {getFieldDecorator('userName', {
                                             rules: [{ required: true, message: 'Please enter username!' }],
                                         })(
@@ -117,7 +117,7 @@ class LoginForm extends Component {
                                         )}
                                     </FormItem>
                                     <FormItem>
-                                        <div className="ckh-frgt">
+                                        <div>
                                             <div className="login-form-checkbox">
                                                 {getFieldDecorator('remember', {
                                                     valuePropName: 'checked',
@@ -126,7 +126,9 @@ class LoginForm extends Component {
                                                     <Checkbox>Remember me</Checkbox>
                                                 )}
                                             </div>
-                                            <div className="login-form-forgot"><span><Icon type="lock" /><span>
+                                            <div className="login-form-forgot"><span>
+                                                {/* <Icon className="icon-size" type="lock" /> */}
+                                                <span>
                                                 <a href="#forgotPass">Forgot your password?</a></span></span>
                                             </div>
                                         </div>
@@ -136,10 +138,25 @@ class LoginForm extends Component {
                                     </FormItem>
                                 </Form>
                             </div>
-                            <div className="container-all">
+                            {/* <div className="container-all">
                                 <img alt="logo1" src={logo1} />
-                            </div>
+                            </div> */}
                         </div>
+                            {/* <div className="container-all">
+                                <img alt="logo1" src={logo1} />
+                            </div> */}
+
+
+                            {!isErrorMsg ? (
+                                <div className="container-all1">
+                                    <img alt="logo1" src={logo1} />
+                                </div>
+                            ) : (
+                                <div className="container-all2">
+                                    <img alt="logo1" src={logo1} />
+                                </div>
+                            )}
+
                     </div>
                 ) : (<div><Dashboard /></div>)}
             </div>

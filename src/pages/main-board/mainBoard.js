@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Col, Row, Button, Icon, Avatar,Dropdown,Menu } from 'antd';
 // import axios from 'axios';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
 import SourceDefinition from '../source-definition/SourceDefinition';
 import CollectionCreateForm from '../popup-form/collection'
 import HeaderDiv from './headerDiv';
@@ -9,6 +9,7 @@ import './mainBoard.css';
 import Header from './../../layouts/header/index';
 import MenuIcon from './menuIcon.png';
 import SiderLayout from './../../layouts/layout2/SiderLayout';
+
 const { Meta } = Card;
 //URL link to fetch all products
 const getURL = "http://10.11.14.79:8081/recon/product/getlist/";
@@ -27,7 +28,10 @@ const menu1 = (
     </Menu>
 );
 export default class mainBoard extends Component {
-    state = { visible: false, loadervisible: false, };
+    state = { visible: false,
+              loadervisible: false, 
+              sourcedef:false
+            };
     // Performing a POST request
     setVal(values) {
         //using axios::
@@ -78,6 +82,7 @@ export default class mainBoard extends Component {
     showModal = () => { this.setState({ visible: true }); }
     handleCancel = () => { this.setState({ visible: false }); }
     handleCancel1 = () => { this.setState({ loadervisible: false }); }
+    
     handleCreate = () => {
         const form = this.formRef.props.form;
         form.validateFields((err, values) => {
@@ -89,6 +94,8 @@ export default class mainBoard extends Component {
             this.setState({ loadervisible: true });
             this.setVal(values);
             form.resetFields();
+            this.setState({sourcedef:true});
+
         });
     }
     saveFormRef = (formRef) => { this.formRef = formRef; }
@@ -134,6 +141,10 @@ export default class mainBoard extends Component {
 
     render() {
 
+        if (this.state.sourcedef === true) {
+            return <Redirect to='/SourceDefinition' />
+          }
+
         return (
             <div className='mainDiv'>
                 <Header/>
@@ -173,27 +184,28 @@ export default class mainBoard extends Component {
                         {/* map all products fetched from URL to card list view */}
                         {this.state.projects.map(project =>
 
-                            <Col span={7}>
-                                <Link to="/SourceDefinition"> 
+<Col span={7}>
+                                
                                     <Card className="projectCards" hoverable bordered={true}>
-                                        <Meta
+                                    <Link to="/LayoutDefinition"> 
+                                        <Meta style={{height:'-webkit-fill-available'}}
                                             title={<a className="projectName">{project.productName}</a>}
                                             description={
                                                 <div className='descriptionData'>{project.productDescription}</div>
                                                 }
                                         />
+                                        </Link>
                                         <div className="menulist" >
-                                        <Dropdown overlay={menu1} trigger={['click']} style={{left:'625px'}}>
+                                        <Dropdown overlay={menu1} placement="bottomRight" trigger={['click']} style={{left:'625px'}}>
                                             <ul className="ant-card-actions customStyle">
                                                 <li>
-                                                   {/*  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg> */}
                                                    <Icon type="ellipsis" className="menuIcon"/>
                                                 </li>
                                             </ul>
                                         </Dropdown>
                                         </div>
                                     </Card>
-                                 </Link> 
+                                  
 
                             </Col>
 

@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './sidebar.css'; 
 import SourceDefinition from './../../pages/source-definition/SourceDefinition';
 import Image from './../../components/navbar-logo/image';
-
+import MainBoard from './../../pages/main-board/mainBoard';
 const SubMenu = Menu.SubMenu;
 
 class NavigationBar extends React.Component {
@@ -34,14 +34,7 @@ class NavigationBar extends React.Component {
   };
 
   componentDidMount() {
-    // axios.get("http://10.11.14.80:8081/recon/product/getlist/")
-    //     .then(res => {
-    //                   const projects = res.data;
-    //                   console.log(res.data);
-    //                   this.setState({ projects });
-    //                   }
-    //     )
-
+    
     fetch("http://10.11.14.79:8081/recon/product/getlist/")
     .then(res => res.json())
     .then(
@@ -61,32 +54,36 @@ class NavigationBar extends React.Component {
 
   render() {
     return (
-  <Link to="SourceDefinition">
+  <Link to="LayoutDefinition">
+
+      {/* <Link to="/Preview">
+         <Menu.Item className="previewStyle"> <Icon type="appstore" /> Preview</Menu.Item>
+          </Link> */}
       <Menu  theme="dark"  mode="inline"  openKeys={this.state.openKeys}  onOpenChange={this.onOpenChange}>
-     <div className="imgLogo">
-      {/* <Image/> */}
-     </div>
+      
+      <Menu.Item key="1">
+<Link to="/MainBoard">
+<Icon type="home" />
+<span>Home</span>
+</Link>
+</Menu.Item>
+          
+          
+
+     {/* <div className="imgLogo">
+      <Image/>
+     </div> */}
+          
         <SubMenu className="menus" key="sub1"  title={ <span> <Icon type="appstore" /> <span>Projects</span> </span> } >  
-     
-       
           {
             this.state.projects.map(project=>
           <Menu.Item>{project.productName}</Menu.Item>
             )
           }
-          {/* Preview as menu item with icon
-          <Menu.Item><Icon type="pic-center"/>Preview</Menu.Item> */}
-          {/* Normal menu item without icon */}
-          <Link to="/Preview">
-         <Menu.Item className="previewStyle"> <Icon type="appstore" /> Preview</Menu.Item>
-          </Link>
-          {/* Preview css self written class spa
-          <div className="spa"><Icon type="pic-center" className = "icon"/>Preview</div> */}
-       
-     
+      
         </SubMenu> 
        
-        <SubMenu key="sub2"  title={ <span> <Icon type="appstore" /> <span>Recon</span> </span> } >
+        <SubMenu key="sub2"  title={ <span> <Icon type="reconciliation" /> <span>Recon</span> </span> } >
           {
             this.state.projects.map(project=>
               <Menu.Item>{project.productName}</Menu.Item>
@@ -103,3 +100,15 @@ class NavigationBar extends React.Component {
   }
 }
 export default NavigationBar;
+
+
+
+ {/* Preview as menu item with icon
+          <Menu.Item><Icon type="pic-center"/>Preview</Menu.Item> */}
+          {/* Normal menu item without icon */}
+          {/* <Link to="/Preview">
+         <Menu.Item className="previewStyle"> <Icon type="appstore" /> Preview</Menu.Item>
+          </Link> */}
+          {/* Preview css self written class spa
+          <div className="spa"><Icon type="pic-center" className = "icon"/>Preview</div> */}
+       

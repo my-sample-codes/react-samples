@@ -16,6 +16,7 @@ import Tables from './../table/table';
 import TaskDesign from './../taskDesign/taskDesign';
 import TLogo from './../../components/navbar-logo-single-T/logo'
 import Image from './../../components/navbar-logo/image';
+import MainBoard from './../main-board/mainBoard';
 
 const Search = Input.Search;
 const { Header, Sider, Content } = Layout;
@@ -77,6 +78,13 @@ export default class Routes extends Component {
                                 path="/"
                                 component={Login}
                             />
+
+                            <Route
+                                exact
+                                path="/MainBoard"
+                                component={MainBoard}
+                            />
+
                             <Layout>
                                 <Sider
                                     trigger={null}
