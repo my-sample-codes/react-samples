@@ -14,8 +14,12 @@ const FileReaderStyle = style.div`
 background-image : url(${Background});
 display: flex;
 flex-flow: row nowrap;
-width: 50px;
+position: relative;
+align-items: center;
+width:50px;
 height: 50px;
+justify-content: center;
+font-size: .5rem;
 `;
 
 const Name = style.span`

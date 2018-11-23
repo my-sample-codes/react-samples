@@ -10,9 +10,10 @@ import DB from './db/component';
 import dbIcon from './db/icon';
 import excel from './excel/component';
 import excelIcon from './excel/icon'
-
-
+import end from './end/component';
+import endIcon from './end/icon'
 import type { SetCustomPayload ,ConfigState, CustomEntities } from 'react-flow-diagram';
+
 const config: ConfigState = {
   entityTypes: {
     Task: {
@@ -49,7 +50,13 @@ const config: ConfigState = {
       validLinkEntity : [
         "Task","csv"
       ],
-    }
+    },
+    End : {
+      width: 64,
+      height: 64,
+      validLinkEntity : [
+      ],
+    },
   },
   gridSize: 15,
 };
@@ -74,6 +81,10 @@ const customEntities: CustomEntities = {
   Excel :{
     component : excel,
     icon : excelIcon
+  },
+  End :{
+    component : end,
+    icon : endIcon
   }
 };
 

@@ -1,11 +1,10 @@
 import React from 'react';
 import { Modal } from 'antd';
-//import 'antd/es/modal/style/index.css';
-//import 'antd/lib/table/style/index.css';
 import { Input } from 'antd';
 import { Table, Divider, Tag } from 'antd';
 import {store} from 'react-flow-diagram';
 import './index.css';
+import {Icon} from 'antd';
 import cancel from '../../images/cancel-btn.png';
 import edit from '../../images/edit.png';
 
@@ -15,7 +14,10 @@ const { Column, ColumnGroup } = Table;
 const columns = [
   { title: 'Validation Name', dataIndex: 'fieldName', key: 'fieldName' },
   { title: 'Rule', dataIndex: 'rule', key: 'rule' },
-  { title: 'Action', dataIndex: '', key: 'x', render: () => <div><img src={edit}/><img src={cancel}/></div>},
+  //{ title: 'Action', dataIndex: '', key: 'x', render: () => <div><img src={edit}/><img src={cancel}/></div>},
+  { title: 'Action', dataIndex: '', key: 'x', render: () => <div> <Icon className="edit-delete" type="edit" theme="filled" /><Icon className="edit-delete" type="delete" theme="filled" /> </div>},
+  
+  //{title: <div><Icon type="plus-circle" theme="filled" className="plus-icon"/></div>,dataIndex: 'Action',key: 'Action'}
 ];
 class CSVDialogBox extends React.Component {
   constructor(props) {
@@ -24,7 +26,7 @@ class CSVDialogBox extends React.Component {
       isOpen: this.props.isOpen,
       nameTextValue: '',
       entityData: [{}],
-      sectionDetailTypeText : '',
+      //sectionDetailTypeText : '',
       dataFields : [{}],
     };
     this.updateDataFields = this.updateDataFields.bind(this);
@@ -35,7 +37,7 @@ updateDataFields(){
   var configuredData = store.getState();
   console.log('Data' ,configuredData);
   this.state.dataFields = configuredData.entity[0].custom.dataFields;
-  //this.state.sectionDetailTypeText = configuredData.entity[0].custom.sectionDetailTypeText;
+  //this.state.sectionDetailTypeText = configuredData.entity[0].custom.sectionDetailType;
 }
 
   showModal = () => {
@@ -49,17 +51,15 @@ updateDataFields(){
     this.setState({
       isOpen: false,
     });
-    console.log('State',this.state.sectionDetailTypeText);
     this.props.getEntityData(this.state)
   }
 
-  handleOnChange = (e) => {
-    this.setState({
-      sectionDetailTypeText:  e.currentTarget.value,
-    });
-   // this.state.sectionDetailTypeText = e.currentTarget.value;
-    console.log(this.state.sectionDetailTypeText);
-  }
+  // handleOnChange = (e) => {
+  //   this.setState({
+  //     sectionDetailTypeText:  e.currentTarget.value,
+  //   });
+  //   console.log(this.state.sectionDetailTypeText);
+  // }
 
   handleCancel = (e) => {
 
@@ -73,7 +73,7 @@ updateDataFields(){
     this.updateDataFields();
     return (
       <div>
-        <Modal
+        <Modal className = "ant-modal-header1"
 
           title="Data Validation Rules"
           visible={this.props.isOpen}
@@ -81,31 +81,8 @@ updateDataFields(){
           onCancel={this.handleCancel}
           centered={true}
         >
-         <Input placeholder="Section Detail Types"  onChange={this.handleOnChange} /> &nbsp;&nbsp;&nbsp;
-          <Table dataSource={this.state.dataFields} columns={columns}>
-           
-            {/* <Column
-              title="Validation Name"
-              dataIndex="fieldName"
-              key="fieldName"
-            />
-             <Column
-              title="Rule"
-              dataIndex="rule"
-              key="rule"
-            />
-            <Column
-              title = 'Action'
-              dataIndex = ''
-              key = 'x'
-              render = () => <a href="javascript:;">Delete</a> 
-            />
-             <Column
-              title=""
-              dataIndex=""
-              key=""
-            /> */}
-            
+         {/* <Input placeholder="Section Detail Types" value = {this.state.sectionDetailTypeText} onChange={this.handleOnChange} /> &nbsp;&nbsp;&nbsp; */}
+          <Table  dataSource={this.state.dataFields} columns={columns} scroll={ {y: 1300} } pagination = {false}>
           </Table>
         </Modal>
 
