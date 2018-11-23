@@ -53,7 +53,7 @@ const CollectionCreateForm = Form.create()(
                 })(<TextArea autosize={{ minRows: 2, maxRows: 6 }} />)}
               </FormItem>
               {/* Document Type */}
-              <FormItem {...formItemLayout} label="Select Document Type" hasFeedback>
+            {/*   <FormItem {...formItemLayout} label="Select Document Type" hasFeedback>
                 {getFieldDecorator('document_type', {
                   rules: [{ required: true, message: 'Please select Document Type!' }],
                 })
@@ -67,8 +67,9 @@ const CollectionCreateForm = Form.create()(
                   </div>
                 )}
               </FormItem>
+              <div>
               {/* File header */}
-              <FormItem className="collection-create-form_last-form-item" label="Does the file have headers ?" style={{display: 'flex', flexDirection: 'row', marginTop:"-25px", marginBottom:"0px"}}>
+              {/* <FormItem className="collection-create-form_last-form-item" label="Does the file have headers ?" style={{display: 'flex', flexDirection: 'row', marginTop:"-25px", marginBottom:"0px"}}>
                 {getFieldDecorator('headerSet', {
                   rules: [{ required: true, message: 'Please specify whether the file has Headers!' }],
                 })(
@@ -79,7 +80,8 @@ const CollectionCreateForm = Form.create()(
                   </Radio.Group>
                   </div>
                 )}
-              </FormItem>
+              </FormItem> 
+              </div> */}
             </Form>
           </Modal>
           {/* Modal for Spinner */}
