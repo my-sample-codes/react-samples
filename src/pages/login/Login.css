@@ -11,17 +11,23 @@
     max-height: 30%;
     background: #fff; 
     margin:auto;
-    margin-top:120px;
+    margin-top: 5%;
 } 
 
 .login-form-forgot {
     float: right;
-    margin-top: -50px;
+}
+
+.icon-size {
+   font-size: 18px;
+}
+
+.loginFormItem{
+    padding-top:15%;
 }
 
 .login-form-checkbox {
     float: left;
-    margin-top: -50px;
 }
 
 .login-form-button {
@@ -66,9 +72,6 @@
     font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
     font-weight: 600;
     position: relative;
-    
-
-
     top: 16px;
     left: -48px;
 }
@@ -78,12 +81,11 @@
     width: 140px;
     height: 84px;
     float: left;
-    /* margin-left: 36px; */
     margin-left: 56px;
 }
 
 .container img {
-    width: 6%;
+    width: 5%;
     height: auto;
     position: absolute;
     z-index: inherit;
@@ -99,22 +101,42 @@
     margin-bottom: 10px;
 }
 
-
-
 .container-all {
-    position: relative;
+    /* position: relative; */
 }
 
 .container-all img {
-    width: 14%;
+    width: 8%;
     height: auto;
     position: absolute;
-    z-index: inherit;
-    bottom: -190px;
+   /*  z-index: inherit;
+    bottom: -120px; */
     right: 16px;
     opacity: 1.2;
 }
 
-.ckh-frgt{
-    margin-top: 40px;
+.container-all1 {
+    /* position: relative; */
+}
+
+.container-all1 img {
+    width: 10%;
+    height: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 16px;
+    opacity: 1.2;
+}
+
+.container-all2 {
+    /* position: relative; */
+}
+
+.container-all2 img {
+    width: 10%;
+    height: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 16px;
+    opacity: 1.2;
 }

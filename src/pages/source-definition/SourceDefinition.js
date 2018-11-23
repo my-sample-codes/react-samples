@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { Button, Steps, Breadcrumb,Card, Icon, Row, Col,Upload , message, Popover } from 'antd';
 import LayoutDefinition from './../layout-definition/LayoutDefinition';
 import Tables from './../table/table';
-// import SourceCards from './sourcecards';
+import SourceCards from './sourcecards';
 import CardTable from './cardtable';
 // import SourceButton from './SourceButton';
 //import DatasetCard from './DatasetCard';
@@ -85,7 +85,7 @@ export default class SourceDefinition extends Component {
      
         return (
             <div>
-              {/*   <Breadcrumb className="breadcumb">
+             <Breadcrumb className="breadcumb" style={{marginTop:'-1%',marginBottom:'2%'}}>
                 <Breadcrumb.Item>
                 <Steps size="small" current={0} progressDot>
                 <Step title="Source Definition" />
@@ -94,52 +94,11 @@ export default class SourceDefinition extends Component {
                 <Step title="Task Design" />
             </Steps>
               </Breadcrumb.Item>
-            </Breadcrumb> */}
+            </Breadcrumb> 
 
                 <h2>Source Definition</h2>
                
-                <Row>
-                    <Col span={10}>
-                    <label className="title-upload">Choose your file :</label>
-                    
-                    </Col>
-                    <Col span={10}>
-                   
-                       
-                      
-                            <div>
-                            <Upload {...props}
-                             >  
-                                <Button className="upload-button" >
-                               {/* {this.state.isToggleOn ? (
-                                 'ON'
-                                 ) : (<Upload {...props} />) }  */}
-
-                                 <Icon type="plus-circle" theme="twoTone" /> &nbsp;&nbsp;&nbsp; Add Dataset
-                                 
-                                </Button>  
-                                <Popover placement = "right" title="Datasets"
-                               content={hoverContent.maparray.RecordExtract}                               
-                                // <DatasetCard/>
-                      
-                                                            >
-                                <Icon className="info-icon" type="question-circle" />
-                                </Popover>
-                                </Upload><br/>
-                                <Link to="Tables">
-                                <Button className="upload-button">Auto Configuration</Button>
-                                <Popover placement = "right" title="Datasets"
-                               content={hoverContent.maparray.RecordExtract}  > 
-                               <Icon className="info-icon" type="question-circle" />                            
-                               
-                                </Popover>
-                                </Link>
-                                </div>
-                                
-                     
-                     
-                    </Col>
-                 </Row>
+               <SourceCards/>
                <br/>
                <br/>
 

@@ -1,10 +1,36 @@
-.ant-steps-item-icon
+/* TO DO */
+.ant-steps-dot .ant-steps-item-icon .ant-steps-icon-dot {
+    width: 6px;
+    height: 6px;
+    margin-top: 0.4%;
+}
+/* IN PROCESS */
+.ant-steps-dot .ant-steps-item-process .ant-steps-item-icon .ant-steps-icon-dot {
+    top: 0px;
+}
+.ant-steps-item-process .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
+    background: #EE008C;
+}
+.ant-steps-item-process > .ant-steps-item-content > .ant-steps-item-title
 {
-    margin-top: -4.7%;
+    font-weight: 650;
+}
+/* COMPLETED */
+.ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot {
+    background: #EE008C;
+}
+.ant-steps-item-finish > .ant-steps-item-tail:after {
+    background-color: #EE008C;
 }
 
+.breadcrum
+{
+    margin-bottom: 5%;
+    margin-top:-5%;
+}
 .next-btn
 {
+    margin-right: 5px;
     margin-top:-40px;
 }
 

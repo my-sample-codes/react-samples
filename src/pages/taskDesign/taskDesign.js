@@ -84,15 +84,18 @@ export default class TaskDesign extends React.Component {
    
     return (
       <Main>
-       {/*  <Breadcrumb className="breadcumb">
-          <Breadcrumb.Item>
-            <Steps size="small" current={3} progressDot>
-              <Step title="Source Definition" />
-              <Step title="Layout Definition" />
-              <Step title="Record Tokenizer" />
-              <Step title="Task Design" />
-            </Steps></Breadcrumb.Item>
-        </Breadcrumb> */}
+   
+   <Breadcrumb className="breadcumb" style={{marginTop:'-1%',marginBottom:'2%'}}>
+                <Breadcrumb.Item>
+                <Steps size="small" current={3} progressDot>
+                <Step title="Source Definition" />
+                <Step title="Layout Definition" />
+                <Step title="Record Tokenizer" />
+                <Step title="Task Design" />
+            </Steps>
+              </Breadcrumb.Item>
+            </Breadcrumb> 
+            
         <h2>Task Designer</h2>
 
         <Diagram customEntities={customEntities} />

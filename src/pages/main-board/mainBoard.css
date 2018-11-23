@@ -3,7 +3,7 @@
     margin-left: 185px;
 }
 
-.newCardButton {
+.newCardButton,.newCardButton:focus {
     width: 100%;
     height: 130px;
     background: #039BE5;
@@ -11,12 +11,20 @@
     border-radius: 10px;
     height: 204px;
     font-weight: 700;
+    -webkit-box-shadow: 0 2px 8px rgba(3, 155, 229, 0.9);
+    box-shadow: 0 2px 8px rgba(3, 155, 229, 0.9);
+    border: #039BE5;
   }
 .newCardButton:hover {
-    /*  transform: scale(1.05); */
      background: #0288D1;
      color: #fff;
  }
+ /* .ant-btn-lg,.ant-btn-lg:hover,.ant-btn-lg:focus
+ {
+     width: -webkit-fill-available;
+     height: inherit;
+     background: red;
+ } */
  .cardRow
  {
      margin-top:2%;
@@ -63,18 +71,24 @@
     border-top:none;
     float: right;
 }
-.menu
+.ant-dropdown-menu-item, .ant-dropdown-menu-submenu-title
 {  
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 5px 5px 1px 5px;
   text-align: center;
-  
+  line-height: 1;
+  font-size: 12px;
+  font-weight: 700;
+}
+.ant-dropdown-menu-item:hover, .ant-dropdown-menu-submenu-title:hover
+{  
+    background: #EDEDED;
 }
 .menulist{
     float: right;
     margin-right: 0px;
-    margin-top: 70px;
-
+    margin-top: -32px;
+    height: 50px;
+    width: 60px;
 }
 .addIcon
 {
@@ -82,6 +96,12 @@
 }
 .menuIcon
 {
-    font-size: 22px;
+    font-size: 24px;
     background-color: #fff;
+    border-radius: 4px;
+}
+.menuIcon:hover
+{
+    transform: scale(1.2);
+    background-color: rgba(128,128,128,0.14);
 }

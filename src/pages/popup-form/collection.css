@@ -1,5 +1,6 @@
 .modal{
     top: 20px;
+   
 }
 
 .radiodiv{
@@ -22,5 +23,9 @@
 
 .ant-modal-header{
     background: #EE008C;
-    margin: -1px;
+    margin: -1px;   
 }
+
+.ant-modal-title {
+    color: white;
+    } 

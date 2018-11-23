@@ -1,6 +1,6 @@
 .logo-t {
     width: 78px;
-    height: inherit; 
+    height: 65px; 
     float: left;
     background-image: "tmobiles1.png";
     position: relative;
@@ -11,10 +11,12 @@
 
   .logo_img-t
   {
-      width: 100px;
-      height: 65px;
-      padding-left: 17px;
-      /* padding:0px;    */
+      width: 65px;
+      height: 55px;
+      padding-left: 30px;
+      padding-top: 17px;
+
+     
   }
 
  

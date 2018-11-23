@@ -18,18 +18,20 @@
      -webkit-box-shadow: 1px 3px 1px rgb(161, 159, 159);
      -moz-box-shadow: 1px 3px 1px rgb(161, 159, 159);
      box-shadow: 1px 3px 1px rgb(161, 159, 159);
+     height: 29px;
         
 }
 
 .CharacterEncoding
 {
-    width: 150px;
+    width: 230px;
     margin-right: 10px;
     font-weight: 400;
     font-size: 15px;
     text-overflow: ellipsis; 
     color: black;
-    margin-top: -23px;
+    margin-top: -4px;
+    
 }
 
 .char-encode-card
@@ -63,5 +65,17 @@
 
 .section-id-table
 {
-    margin-top: -18px;
+    margin-top: -8px;
+}
+
+.text-area
+{
+    margin-top:6px;
+}
+
+.ant-select{
+    width: 230px;
+}
+.ant-select-dropdown-menu {
+    width: 230px;
 }
