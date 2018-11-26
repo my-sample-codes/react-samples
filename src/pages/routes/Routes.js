@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import SourceDefinition from './../source-definition/SourceDefinition';
 import LayoutDefinition from './../layout-definition/LayoutDefinition';
 import RecordTokenizer from './../record-tokenizer/RecordTokenizer';
-import TaskDesign from './../taskDesign/taskDesign'
+import TaskDesign from './../bpmn/App'
 import Home from './../main-board/mainBoard';
 //import Home from './../login/LoginForm';
 

@@ -6,7 +6,7 @@ import SourceDefinition from '../source-definition/SourceDefinition';
 import CollectionCreateForm from '../popup-form/collection'
 import HeaderDiv from './headerDiv';
 import './mainBoard.css';
-
+import { ProjectDataProvider, ProjectDataConsumer } from "./ProjectContext"; 
 
 const { Meta } = Card;
 //URL link to fetch all products
@@ -46,6 +46,7 @@ export default class mainBoard extends Component {
                 return;
             }
             console.log('Received values of form: ', values);
+
             this.setState({ visible: false });
             this.setState({ loadervisible: true });
             this.setVal(values);
