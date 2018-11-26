@@ -11,7 +11,7 @@ import Preview from './../preview/preview';
 import { Layout, Menu, Icon, Input, Dropdown } from 'antd';
 import './siderlayout.css';
 import 'antd/dist/antd.css';
-import './header.css';
+import './header.less';
 import Tables from './../table/table';
 import TaskDesign from './../taskDesign/taskDesign';
 import TLogo from './../../components/navbar-logo-single-T/logo'
@@ -35,22 +35,7 @@ const menu2 = (
         </Menu.Item>
     </Menu>
 );
-const menu3 = (
-    <Menu className="menu">
-        <Menu.Item key="0">
-            <a >Edit Profile</a>
-        </Menu.Item>
-        <Menu.Divider className="menu9" />
-        <Menu.Item key="1">
-            <a >View Profile</a>
-        </Menu.Item>
-        <Menu.Divider className="menu9" />
-        <Menu.Item key="2">
-            <a >Sign Out</a>
-        </Menu.Item>
 
-    </Menu>
-);
 
 export default class Routes extends Component {
 
@@ -65,6 +50,27 @@ export default class Routes extends Component {
     }
 
     render() {
+
+        const menu3 = (
+            <Menu className="menu">
+                <Menu.Item key="0">
+                    <a >Edit Profile</a>
+                </Menu.Item>
+                <Menu.Divider className="menu9" />
+                <Menu.Item key="1" onClick={this.props.click}>
+                  <a >Change Settings</a>
+                </Menu.Item>
+                <Menu.Divider className="menu9" />
+                <Menu.Item key="1">
+                    <a >View Profile</a>
+                </Menu.Item>
+                <Menu.Divider className="menu9" />
+                <Menu.Item key="2">
+                    <a >Sign Out</a>
+                </Menu.Item>
+        
+            </Menu>
+        );
 
         const logo=this.state.collapsed;
 
@@ -109,7 +115,7 @@ export default class Routes extends Component {
                                     <NavigationBar1 />
                                 </Sider> */}
                                 <Layout>
-                                    <Header style={{ background: ' rgba(224, 12, 111, 0.836)', padding: 7, paddingLeft: 18 }} >
+                                    <Header style={{ padding: 7, paddingLeft: 18 }} >
                                         <Icon style={{ fontSize: '26px' }}
                                             className="trigger"
                                             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}

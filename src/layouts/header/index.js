@@ -25,25 +25,40 @@ const menu2 = (
     </Menu.Item>
   </Menu>
 );
-const menu3 = (
-  <Menu className="menu">
-    <Menu.Item key="0">
-      <a >Edit Profile</a>
-    </Menu.Item>
-    <Menu.Divider className="menu9" />
-    <Menu.Item key="1">
-      <a >View Profile</a>
-    </Menu.Item>
-    <Menu.Divider  className="menu9"/>
-     <Menu.Item key="2">
-      <a >Sign Out</a>
-    </Menu.Item>
-   
-  </Menu>
-);
+
 
 class Headers extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  
   render() {
+
+    console.log("PROPS  :: ",this.props);
+
+    const menu3 = (
+      <Menu className="menu">
+        <Menu.Item key="0">
+          <a >Edit Profile</a>
+        </Menu.Item>
+        <Menu.Divider className="menu9" />
+        <Menu.Item key="1" onClick={this.props.click}>
+          <a >Change Settings</a>
+        </Menu.Item>
+        <Menu.Divider className="menu9" />
+        <Menu.Item key="2">
+          <a >View Profile</a>
+        </Menu.Item>
+        <Menu.Divider  className="menu9"/>
+         <Menu.Item key="3">
+          <a >Sign Out</a>
+        </Menu.Item>
+       
+      </Menu>
+    );
+
     return (
 
       

@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import { Menu, Icon } from 'antd';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import './sidebar.css'; 
+import './sidebar.less'; 
 import SourceDefinition from './../../pages/source-definition/SourceDefinition';
 import Image from './../../components/navbar-logo/image';
 import MainBoard from './../../pages/main-board/mainBoard';

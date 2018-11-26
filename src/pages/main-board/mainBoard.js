@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Col, Row, Button, Icon, Avatar,Dropdown,Menu } from 'antd';
+import { Card, Col, Row, Icon, Avatar,Dropdown,Menu } from 'antd';
 // import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
 import SourceDefinition from '../source-definition/SourceDefinition';
@@ -9,6 +9,10 @@ import './mainBoard.css';
 import Header from './../../layouts/header/index';
 import MenuIcon from './menuIcon.png';
 import SiderLayout from './../../layouts/layout2/SiderLayout';
+
+import { Layout, Tag, Button, Drawer, Divider } from 'antd';
+import ThemeColor from './ThemeColor';
+import BlockChecbox from './BlockChecbox';
 
 const { Meta } = Card;
 //URL link to fetch all products
@@ -27,11 +31,60 @@ const menu1 = (
 
     </Menu>
 );
+
+const Body1 = ({ children, title, style }) => (
+    <div
+      
+    >
+      <h3 >{title}</h3>
+      {children}
+    </div>
+  );
+
 export default class mainBoard extends Component {
-    state = { visible: false,
-              loadervisible: false, 
-              sourcedef:false
-            };
+
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            collapsed: false,
+            visible: false,
+            drawarVisible: false,
+            loadervisible: false, 
+            sourcedef:false,
+            projects: []
+          };
+       this.showDrawar = this.showDrawar.bind(this);   
+      }
+
+      onCollapse = (collapsed) => {
+        this.setState({ collapsed });
+      }
+    
+      changeSetting = (type,color) => {
+    
+        window.less
+        .modifyVars({
+          '@layout-header-background': color,
+          '@primary-color': color,
+        })
+        
+      }
+    
+      onClose = () => {
+        this.setState({
+            drawarVisible: false,
+        });
+      };
+
+      showDrawar(){
+
+        console.log("CALLED :: ")
+
+        this.setState({
+            drawarVisible: true,
+          });
+      }
     // Performing a POST request
     setVal(values) {
         //using axios::
@@ -101,12 +154,12 @@ export default class mainBoard extends Component {
     saveFormRef = (formRef) => { this.formRef = formRef; }
 
     // CARDS
-    constructor(props) {
-        super(props);
-        this.state = {
-            projects: []
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         projects: []
+    //     };
+    // }
 
     getProductData() {
         // get products present into database and store into list
@@ -141,13 +194,15 @@ export default class mainBoard extends Component {
 
     render() {
 
+        console.log('window: ', window);
+
         if (this.state.sourcedef === true) {
             return <Redirect to='/SourceDefinition' />
           }
 
         return (
             <div className='mainDiv'>
-                <Header/>
+                <Header click = {this.showDrawar}/>
                 <div className='cardList'>
                     <HeaderDiv />
                 </div>
@@ -213,6 +268,74 @@ export default class mainBoard extends Component {
 
                     </Row>
                 </div>
+
+
+                <Layout>
+            <div style={{width:"300px"}}>
+
+              <Drawer
+                title="Basic Drawer"
+
+                placement="right"
+                closable={false}
+                onClose={this.onClose}
+                visible={this.state.drawarVisible}
+              >
+
+              <Body1 title="Page style setting">
+            <BlockChecbox
+              list={[
+                {
+                  key: 'dark',
+                  url: 'https://gw.alipayobjects.com/zos/rmsportal/LCkqqYNmvBEbokSDscrm.svg',
+                  title: "Dark",
+                },
+                {
+                  key: 'light',
+                  url: 'https://gw.alipayobjects.com/zos/rmsportal/jpRkZQMyYRryryPNtyIC.svg',
+                  title: "Light",
+                },
+              ]}
+              value = "dark"
+              onChange={value => this.changeSetting('navTheme', value)}
+            />
+          </Body1>
+
+            <div className = "content">
+                <ThemeColor
+                      title="Theme Color"
+                      value="#fff000"
+                      onChange={color => this.changeSetting('primaryColor', color)}
+                />
+            </div>
+
+            <Divider />
+  
+            <Body1 title="Navigation Mode">
+              <BlockChecbox
+                list={[
+                  {
+                    key: 'sidemenu',
+                    url: 'https://gw.alipayobjects.com/zos/rmsportal/JopDzEhOqwOjeNTXkoje.svg',
+                    title: 'Side Menu',
+                  },
+                  {
+                    key: 'topmenu',
+                    url: 'https://gw.alipayobjects.com/zos/rmsportal/KDNDBbriJhLwuqMoxcAr.svg',
+                    title: 'Top Menu',
+                  },
+                ]}
+                
+                onChange={value => this.changeSetting('layout', value)}
+              />
+            </Body1>
+              </Drawer>
+            </div>
+
+          </Layout>         
+
+
+
             </div>
         )
 
