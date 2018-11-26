@@ -80,7 +80,10 @@ export default class mainBoard extends Component {
 
     }
     showModal = () => { this.setState({ visible: true }); }
-    handleCancel = () => { this.setState({ visible: false }); }
+    handleCancel = () => {
+        const form = this.formRef.props.form;
+        this.setState({ visible: false });
+    form.resetFields();}
     handleCancel1 = () => { this.setState({ loadervisible: false }); }
     
     handleCreate = () => {

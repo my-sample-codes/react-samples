@@ -215,7 +215,7 @@ export default class RecordTokenizer extends Component {
                         // <DatasetCard/>
 
                         >
-                            <Icon className="info-icon" type="question-circle" style={{ marginRight: "820px", marginTop: "-8px" }} />
+                            <Icon className="info-icon" type="question-circle" style={{cursor:'pointer', marginRight: "820px", marginTop: "-8px" }} />
                         </Popover>
 
                     }
@@ -228,7 +228,7 @@ export default class RecordTokenizer extends Component {
                             optionFilterProp="children"
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                         >
-                            <Option value="Header">Header</Option>
+                            <Option value="Header">Data (*)</Option>
                         </Select>
 
                         <Select

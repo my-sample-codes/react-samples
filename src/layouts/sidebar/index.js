@@ -20,7 +20,7 @@ class NavigationBar extends React.Component {
     };
   }
 
-  onOpenChange = openKeys => {
+  /* onOpenChange = openKeys => {
     const latestOpenKey = openKeys.find(
       key => this.state.openKeys.indexOf(key) === -1
     );
@@ -31,7 +31,7 @@ class NavigationBar extends React.Component {
         openKeys: latestOpenKey ? [latestOpenKey] : []
       });
     }
-  };
+  }; */
 
   componentDidMount() {
     
@@ -54,12 +54,12 @@ class NavigationBar extends React.Component {
 
   render() {
     return (
-  <Link to="LayoutDefinition">
+  <Link to="LayoutDefinition" style={{ textDecoration: 'none' }}>
 
       {/* <Link to="/Preview">
          <Menu.Item className="previewStyle"> <Icon type="appstore" /> Preview</Menu.Item>
           </Link> */}
-      <Menu  theme="dark"  mode="inline"  openKeys={this.state.openKeys}  onOpenChange={this.onOpenChange}>
+      <Menu  theme="dark"  mode="inline"  /* openKeys={this.state.openKeys}  onOpenChange={this.onOpenChange} */>
       
       <Menu.Item key="1">
 <Link to="/MainBoard">

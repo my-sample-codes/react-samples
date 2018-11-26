@@ -28,15 +28,21 @@ const menu2 = (
 const menu3 = (
   <Menu className="menu">
     <Menu.Item key="0">
-      <a >Edit Profile</a>
+    <Icon type="profile"/>
+            <span>
+      <a style={{color:'#757E82'}}>Edit Profile</a></span>
     </Menu.Item>
     <Menu.Divider className="menu9" />
     <Menu.Item key="1">
-      <a >View Profile</a>
+    <Icon type="read"/>
+            <span>
+      <a style={{color:'#757E82'}}>View Profile</a></span>
     </Menu.Item>
     <Menu.Divider  className="menu9"/>
      <Menu.Item key="2">
-      <a >Sign Out</a>
+     <Icon type="logout" />
+            <span>
+      <a style={{color:'#757E82'}}>Sign Out</a></span>
     </Menu.Item>
    
   </Menu>

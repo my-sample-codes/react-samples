@@ -20,7 +20,7 @@ class CardTable extends Component
               <Popover placement = "right" title="Datasets"
                                content={hoverContent.maparray.duplicate_etl_jobs}                               
                                   >
-                               <Icon className="info-icon" type="question-circle" style={{marginTop:"-20px"}} />
+                               <Icon className="info-icon" type="question-circle" style={{cursor:'pointer',marginTop:"-20px"}} />
               </Popover>
                <Search
                         placeholder="Search Source Name"

@@ -38,15 +38,18 @@ const menu2 = (
 const menu3 = (
     <Menu className="menu">
         <Menu.Item key="0">
-            <a >Edit Profile</a>
+            <Icon type="profile"/>
+            <span><a style={{color:'#757E82'}}>Edit Profile</a></span>
         </Menu.Item>
         <Menu.Divider className="menu9" />
         <Menu.Item key="1">
-            <a >View Profile</a>
+            <Icon type="read"/>
+            <span><a style={{color:'#757E82'}}>View Profile</a></span>
         </Menu.Item>
         <Menu.Divider className="menu9" />
         <Menu.Item key="2">
-            <a >Sign Out</a>
+            <Icon type="logout" />
+            <span><a style={{color:'#757E82'}}>Sign Out</a></span>
         </Menu.Item>
 
     </Menu>
@@ -109,8 +112,8 @@ export default class Routes extends Component {
                                     <NavigationBar1 />
                                 </Sider> */}
                                 <Layout>
-                                    <Header style={{ background: ' rgba(224, 12, 111, 0.836)', padding: 7, paddingLeft: 18 }} >
-                                        <Icon style={{ fontSize: '26px' }}
+                                    <Header style={{ background: '#EE008C', padding: 7, paddingLeft: 18 }} >
+                                        <Icon style={{ fontSize: '26px',color:'#FEF5F9'}}
                                             className="trigger"
                                             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                                             onClick={this.toggle}
