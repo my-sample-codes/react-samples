@@ -23,7 +23,8 @@
 }
 
 .loginFormItem{
-    padding-top:15%;
+    /* padding-top:4%; */
+    padding-top:8%;
 }
 
 .login-form-checkbox {
@@ -66,16 +67,10 @@
     bottom: 0px;
 }
 
-.nor-div-title {
-    font-size: 33px;
-    color:#18509D;
-    font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
-    font-weight: 600;
-    position: relative;
-    top: 16px;
-    left: -48px;
+.container-heading {
+    margin-top: 20px;
+    margin-bottom: 20px;  
 }
-
 
 .container {
     width: 140px;
@@ -91,14 +86,21 @@
     z-index: inherit;
 }
 
-.container-heading {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
 .text-title-container {
     margin-top: 10px;
     margin-bottom: 10px;
+
+    display: inline;
+}
+
+.nor-div-title {
+    font-size: 33px;
+    color: #18509D;
+    font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
+    font-weight: 600;
+    position: relative;
+    top: 10%;
+    left: 38%; 
 }
 
 .container-all {
