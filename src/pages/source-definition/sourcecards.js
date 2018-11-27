@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Col, Row, Layout, Icon} from 'antd';
+import { Card, Col, Row, Layout, Icon, Upload, message } from 'antd';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './cards.css'
 import './iconcss.css'
@@ -7,13 +7,31 @@ import IconCards from './icon';
 import LayoutDefinition from './../layout-definition/LayoutDefinition';
 
 const { Content } = Layout;
+const props = {
+  name: 'file',
+  action: '//jsonplaceholder.typicode.com/posts/',
+  headers: {
+    authorization: 'authorization-text',
+  },
+  onChange(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      message.success(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  },
+};
+
 
 class SourceCards extends Component {
-    
-    render() {
-      return (
-    <Content >
-       {/*  <div className = "cardsbackground">
+
+  render() {
+    return (
+      <Content >
+        {/*  <div className = "cardsbackground">
        <tr>
        <Row gutter={16}>
       <Col span={7}>
@@ -44,12 +62,12 @@ class SourceCards extends Component {
             
         </tr><br/><br/><br/><br/><br/>
       </div> */}
-      <div className="cardsbackground">
+        <div className="cardsbackground">
           <tr>
             <Row gutter={16}>
               <Col span={7}>
 
-                <Link to="/LayoutDefinition">
+                <Upload {...props}>
                   <div className="icon-div">
                     <Icon className="card-icons" type="file-text" />
                   </div>
@@ -57,47 +75,40 @@ class SourceCards extends Component {
                     Create Configuration for CSV file Sources
                     </Card>
 
-
-                </Link>
-
-
+                </Upload>
               </Col>
 
               <Col span={7} className="sourceCardsDiv">
 
-
-                <Link to="/LayoutDefinition">
+                <Upload {...props}>
                   <div className="icon-div">
                     <Icon className="card-icons" type="file-text" />
                   </div>
                   <Card className="stylecards" bordered={true}>
                     Create configuraion for excel file sources
                         </Card>
-                </Link>
-
+                </Upload>
 
               </Col>
               <Col span={7} className="sourceCardsDiv">
-
-                <Link to="/LayoutDefinition">
+                <Upload {...props}>
                   <div className="icon-div">
                     <Icon className="card-icons" type="file-text" />
                   </div>
                   <Card className="stylecards" bordered={true}>Browse repo / marketplace for more
                   </Card>
-
-                </Link>
+                </Upload>
 
               </Col>
 
             </Row>
 
-          </tr><br /><br /><br />
+          </tr>
         </div>
-    </Content>
- 
-      );
-    }
+      </Content>
+
+    );
+  }
 }
 
 export default SourceCards;
