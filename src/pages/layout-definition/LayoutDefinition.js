@@ -87,7 +87,7 @@ export default class LayoutDefinition extends Component {
                             <Popover placement="right" title="Datasets"
                                 content={hoverContent.maparray.question_info}
                             >
-                                <Icon className="info-icon" type="question-circle" style={{ marginTop: "5px" }} />
+                                <Icon className="info-icon" type="question-circle" style={{ marginTop: "5px",cursor:'pointer' }} />
                             </Popover>
 
                         </h3> 

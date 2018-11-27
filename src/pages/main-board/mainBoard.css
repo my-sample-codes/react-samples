@@ -71,7 +71,7 @@
     border-top:none;
     float: right;
 }
-.ant-dropdown-menu-item, .ant-dropdown-menu-submenu-title
+/* .ant-dropdown-menu-item, .ant-dropdown-menu-submenu-title
 {  
   padding: 5px 5px 1px 5px;
   text-align: center;
@@ -82,14 +82,14 @@
 .ant-dropdown-menu-item:hover, .ant-dropdown-menu-submenu-title:hover
 {  
     background: #EDEDED;
-}
+}*/
 .menulist{
     float: right;
     margin-right: 0px;
     margin-top: -32px;
     height: 50px;
     width: 60px;
-}
+} 
 .addIcon
 {
     font-size: 40px;

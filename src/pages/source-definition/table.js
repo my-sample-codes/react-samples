@@ -42,7 +42,7 @@ class Tables extends Component {
                 onConfirm={() => this.handleDelete(record.key)}
               >
                 <a href="javascript:;"></a>
-                <Icon type="copy" className="iconsize"/>
+                <Icon type="copy" className="iconsize"  theme="filled" style={{cursor:'pointer'}}/>
               </Popconfirm>
             ) : null;
         },

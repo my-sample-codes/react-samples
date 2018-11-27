@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox, Alert } from 'antd';
-import BackgroundImg from './login_background_img.svg';
+import BackgroundImg from './../../assets/login_background_img.svg';
 import Dashboard from '../dashboard-landing/DashboardLand';
-// import logo from './logo-blue.png'
-import logo from './logo.png';
-import logo1 from './logo-blue.png';
+import logo from './../../assets/logo.png';
+import logo1 from './../../assets/logo-blue.png';
 import 'antd/dist/antd.css';
-import '../../index.css';
 import './Login.css';
 
 const FormItem = Form.Item;
@@ -53,28 +51,28 @@ class LoginForm extends Component {
                     body: JSON.stringify({ userName: values.userName, password: values.password })
                 })
 
-                // POST method for login 
-                // axios.post(apiBaseUrl + 'login', values)
-                .then(function (response) {                   
-                    console.log("All Response - ", response);
-                    console.log(JSON.stringify(response));
-                    console.log("Response Status Code - ", response.status)
-                    
-                    if (response.status === 302) {
-                        console.log("Login successfull");              
-                        this.setState({ validate: true });
-                        this.setState({ error_msg: false });
-                        console.log("After return",this.state.validate);
-                    }
-                    else if (response.status === 404) {
-                        console.log("Username password do not match");
-                        this.setState({ validate: false });
-                        this.setState({ error_msg: true });
-                    }
-                }.bind(this))
-                .catch(function (error) {
-                    console.log(error);
-                });
+                    // POST method for login 
+                    // axios.post(apiBaseUrl + 'login', values)
+                    .then(function (response) {
+                        console.log("All Response - ", response);
+                        console.log(JSON.stringify(response));
+                        console.log("Response Status Code - ", response.status)
+
+                        if (response.status === 302) {
+                            console.log("Login successfull");
+                            this.setState({ validate: true });
+                            this.setState({ error_msg: false });
+                            console.log("After return", this.state.validate);
+                        }
+                        else if (response.status === 404) {
+                            console.log("Username password do not match");
+                            this.setState({ validate: false });
+                            this.setState({ error_msg: true });
+                        }
+                    }.bind(this))
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             }
         });
     }
@@ -84,25 +82,24 @@ class LoginForm extends Component {
         const isValidated = this.state.validate;
         const isErrorMsg = this.state.error_msg;
         return (
-            <div style={{overflow:'hidden'}}>
+            <div style={{ overflow: 'hidden' }}>
                 {!isValidated ? (
                     <div >
                         <img className='bg' src={BackgroundImg} />
-                        <div style={{marginBottom:'9%'}}>
+                        <div style={{ marginBottom: '9%' }}>
                             <div>
                                 <Form onSubmit={this.handleSubmit} className="login-form">
                                     <div>
                                         <div className="container-heading" >
                                             <div className="container">
                                                 <img alt="logo" src={logo} />
-                                            </div>
-                                            <div className="text-title-container">
                                                 <span className="nor-div-title" >Optimus</span>
                                             </div>
                                         </div>
                                     </div>
-                                    {!isErrorMsg ? (<div></div>) : (<Alert style={{ marginTop: '46px' }} message={'Invalid username or password'} type="error" showIcon />)}
                                     <FormItem className='loginFormItem'>
+                                        {!isErrorMsg ? (<div></div>) : (<Alert style={{ marginTop: '66px', marginBottom: '36px' }} message={'Invalid username or password'} type="error" showIcon />)}
+
                                         {getFieldDecorator('userName', {
                                             rules: [{ required: true, message: 'Please enter username!' }],
                                         })(
@@ -129,7 +126,7 @@ class LoginForm extends Component {
                                             <div className="login-form-forgot"><span>
                                                 {/* <Icon className="icon-size" type="lock" /> */}
                                                 <span>
-                                                <a href="#forgotPass">Forgot your password?</a></span></span>
+                                                    <a href="#forgotPass">Forgot your password?</a></span></span>
                                             </div>
                                         </div>
                                         <Button type="primary" htmlType="submit" onClick={this.handleClick} className="login-form-button">
@@ -138,25 +135,16 @@ class LoginForm extends Component {
                                     </FormItem>
                                 </Form>
                             </div>
-                            {/* <div className="container-all">
-                                <img alt="logo1" src={logo1} />
-                            </div> */}
                         </div>
-                            {/* <div className="container-all">
+                        {!isErrorMsg ? (
+                            <div className="container-all1">
                                 <img alt="logo1" src={logo1} />
-                            </div> */}
-
-
-                            {!isErrorMsg ? (
-                                <div className="container-all1">
-                                    <img alt="logo1" src={logo1} />
-                                </div>
-                            ) : (
+                            </div>
+                        ) : (
                                 <div className="container-all2">
                                     <img alt="logo1" src={logo1} />
                                 </div>
                             )}
-
                     </div>
                 ) : (<div><Dashboard /></div>)}
             </div>

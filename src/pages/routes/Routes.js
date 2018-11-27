@@ -11,7 +11,7 @@ import Preview from './../preview/preview';
 import { Layout, Menu, Icon, Input, Dropdown } from 'antd';
 import './siderlayout.css';
 import 'antd/dist/antd.css';
-import './header.less';
+import './header.css';
 import Tables from './../table/table';
 import TaskDesign from './../taskDesign/taskDesign';
 import TLogo from './../../components/navbar-logo-single-T/logo'
@@ -39,39 +39,47 @@ const menu2 = (
 
 export default class Routes extends Component {
 
-    state = {
+    /* state = {
         collapsed: false,
-    };
+    }; */
 
     toggle = () => {
         this.setState({
             collapsed: !this.state.collapsed,
         });
     }
+    constructor(props) {
+        super(props);
+        this.state = {
+            collapsed: false,
+        }
+    }
 
     render() {
-
         const menu3 = (
             <Menu className="menu">
                 <Menu.Item key="0">
-                    <a >Edit Profile</a>
-                </Menu.Item>
-                <Menu.Divider className="menu9" />
-                <Menu.Item key="1" onClick={this.props.click}>
-                  <a >Change Settings</a>
+                    <Icon type="profile"/>
+                    <span><a style={{color:'#757E82'}}>Edit Profile</a></span>
                 </Menu.Item>
                 <Menu.Divider className="menu9" />
                 <Menu.Item key="1">
-                    <a >View Profile</a>
+                    <Icon type="read"/>
+                    <span><a style={{color:'#757E82'}}>View Profile</a></span>
+                </Menu.Item>
+                <Menu.Divider className="menu9" />
+                <Menu.Item key="2" onClick={this.props.click}>
+                    <Icon type="logout" />
+                    <span><a style={{color:'#757E82'}}>Settings</a></span>
                 </Menu.Item>
                 <Menu.Divider className="menu9" />
                 <Menu.Item key="2">
-                    <a >Sign Out</a>
+                    <Icon type="logout" />
+                    <span><a style={{color:'#757E82'}}>Sign Out</a></span>
                 </Menu.Item>
         
             </Menu>
         );
-
         const logo=this.state.collapsed;
 
         return (
@@ -115,8 +123,8 @@ export default class Routes extends Component {
                                     <NavigationBar1 />
                                 </Sider> */}
                                 <Layout>
-                                    <Header style={{ padding: 7, paddingLeft: 18 }} >
-                                        <Icon style={{ fontSize: '26px' }}
+                                    <Header style={{ background: '#EE008C', padding: 7, paddingLeft: 18 }} >
+                                        <Icon style={{ fontSize: '26px',color:'#FEF5F9'}}
                                             className="trigger"
                                             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                                             onClick={this.toggle}

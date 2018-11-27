@@ -58,3 +58,9 @@
 .home{
     color:#fff;
 }
+.ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected{
+background-color: #EE008C;
+} 
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+     background-color: #EE008C; 
+}

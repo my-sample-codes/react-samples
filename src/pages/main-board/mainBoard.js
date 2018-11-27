@@ -332,10 +332,7 @@ export default class mainBoard extends Component {
               </Drawer>
             </div>
 
-          </Layout>         
-
-
-
+          </Layout>     
             </div>
         )
 

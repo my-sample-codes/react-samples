@@ -9,11 +9,7 @@ import MainBoard from '../../pages/main-board/mainBoard';
 
 class Body extends Component {
 
-    
-
     render() {
-
-    
         return (
             <Layout>
                 <Headers />

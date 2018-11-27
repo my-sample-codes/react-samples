@@ -99,8 +99,6 @@ export default class SourceDefinition extends Component {
                 <h2>Source Definition</h2>
                
                <SourceCards/>
-               <br/>
-               <br/>
 
                <div><CardTable/></div>
 

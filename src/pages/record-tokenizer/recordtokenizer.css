@@ -24,12 +24,14 @@
     padding-left: 12px;
     color: #1a75ff;
     font-size: 30px;
+    cursor: pointer;
 }
 
 .edit-delete
 {
     padding-right: 15px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .extractor-details

@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './App.css';
-import { Select, Card, Input, Button, Table, Divider, Tag, Steps, Breadcrumb } from 'antd';
+import {Divider, Layout, Drawer } from 'antd';
 import DashboardLand from './pages/dashboard-landing/DashboardLand';
-import BackgroundImg from './../src/pages/login/loginimg.png';
+
 import 'antd/dist/antd.css';
-import './../src/pages/login/index.css';
+import './../src/index.css';
 import './../src/pages/login/Login.css';
 import Routes from './pages/routes/Routes';
 
-import { Layout, Drawer } from 'antd';
 import ThemeColor from './pages/main-board/ThemeColor';
 import BlockChecbox from './pages/main-board/BlockChecbox';
 
