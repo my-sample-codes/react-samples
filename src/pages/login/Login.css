@@ -1,4 +1,74 @@
- .login-form-layout {
+.loginMaindiv{
+    overflow-y: hidden;
+}
+.backgroundImg{
+    position: absolute;
+    margin-top:-5%;
+}
+.formdiv{
+    text-align: -webkit-center;
+    margin-top:4%;
+}
+.loginForm{
+    width: max-content;
+    height: max-content;
+}
+.optimusLogo{
+    width: 20%;
+    margin-top:-6%;
+}
+.optimusTitle{
+    color: #18509D;
+    font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
+    font-weight: 600;
+    display: inline-block;
+}
+.loginFormItem{
+    padding-top:8%;
+}
+.loginAlert.ant-alert-error{
+   margin-bottom: 2%;
+}
+.loginIcons.anticon{
+    color : rgba(0,0,0,0.25);
+}
+.loginCheckbox{
+    float: left;
+}
+.loginForgotPwd{
+    float: right;
+}
+.loginButton{
+    width: 100%;
+}
+.bottomLogo
+{
+    float: right;
+    text-align: right;
+    margin-top:10%;
+}
+.bottomLogo_2{
+    float: right;
+    text-align: right;
+    margin-top: 6.5%;
+}
+.bottomLogo img, .bottomLogo_2 img
+{
+    width: 50%;
+}
+.bg { 
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #F0F2F5; 
+    position: fixed;
+    top:0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+.login-form-layout {
     max-width: 381px;
     min-height: 330px;
     float: right;
@@ -14,18 +84,12 @@
     margin-top: 5%;
 } 
 
-.login-form-forgot {
-    float: right;
-}
+
 
 .icon-size {
    font-size: 18px;
 }
 
-.loginFormItem{
-    /* padding-top:4%; */
-    padding-top:8%;
-}
 
 .login-form-checkbox {
     float: left;
@@ -54,18 +118,7 @@
     z-index: -1;
 }
 
-.bg { 
-    height: 100%; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #F0F2F5; 
-    position: fixed;
-    top:0px;
-    right: 0px;
-    left: 0px;
-    bottom: 0px;
-}
+
 
 .container-heading {
     margin-top: 20px;

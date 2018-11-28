@@ -1,1 +1,0 @@
-create page components by importing components from component library (/src/components)

@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import { Button, Steps, Breadcrumb,Card, Icon, Row, Col,Upload , message, Popover } from 'antd';
-import LayoutDefinition from './../layout-definition/LayoutDefinition';
-import Tables from './../table/table';
+import {Link } from 'react-router-dom';
+import { Button, Steps, Breadcrumb, message } from 'antd';
 import SourceCards from './sourcecards';
 import CardTable from './cardtable';
-// import SourceButton from './SourceButton';
-//import DatasetCard from './DatasetCard';
-import './uploadbutton.css'
 import './SourceDefinition.css'
 
 const Step = Steps.Step;
@@ -84,35 +79,33 @@ export default class SourceDefinition extends Component {
 
      
         return (
-            <div>
-             <Breadcrumb className="breadcumb" style={{marginTop:'-1%',marginBottom:'2%'}}>
-                <Breadcrumb.Item>
+          <div>
+            <Breadcrumb className="breadcumb" style={{ marginTop: '-1%', marginBottom: '2%' }}>
+              <Breadcrumb.Item>
                 <Steps size="small" current={0} progressDot>
-                <Step title="Source Definition" />
-                <Step title="Layout Definition" />
-                <Step title="Record Tokenizer" />
-                <Step title="Task Design" />
-            </Steps>
+                  <Step title="Source Definition" />
+                  <Step title="Layout Definition" />
+                  <Step title="Record Tokenizer" />
+                  <Step title="Task Design" />
+                </Steps>
               </Breadcrumb.Item>
-            </Breadcrumb> 
+            </Breadcrumb>
 
-                <h2>Source Definition</h2>
-               
-               <SourceCards/>
+            <h2>Source Definition</h2>
 
-               <div><CardTable/></div>
+            <SourceCards />
 
-                <br /><br />
-                   
-                  <Link to="/Login">
-                    <Button className="next-btn">Back</Button>
-                  </Link>
-                    <Link to="/LayoutDefinition">
-                        <Button type='primary' >Next</Button>
-                    </Link>
-              
+            <div><CardTable /></div>
+            <br/>
+            <div>
+              <Link to="/Login">
+                <Button className="next-btn">Back</Button>
+              </Link>
+              <Link to="/LayoutDefinition">
+                <Button type='primary' >Next</Button>
+              </Link>
             </div>
-
+          </div>
         )
     }
 }

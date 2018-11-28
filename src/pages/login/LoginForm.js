@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox, Alert } from 'antd';
-import BackgroundImg from './login_background_img.svg';
-import Dashboard from '../dashboard-landing/DashboardLand';
-// import logo from './logo-blue.png'
-import logo from './logo.png';
-import logo1 from './logo-blue.png';
+import Dashboard from '../dashboard/DashboardLand';
+import BackgroundImg from './../../assets/login_background_img.svg';
+import logo from './../../assets/logo.png';
+import logo1 from './../../assets/logo-blue.png';
 import 'antd/dist/antd.css';
 import '../../index.css';
 import './Login.css';
@@ -84,66 +83,69 @@ class LoginForm extends Component {
         const isValidated = this.state.validate;
         const isErrorMsg = this.state.error_msg;
         return (
-            <div style={{ overflow: 'hidden' }}>
+            <div style={{overflow:'hidden'}} className="loginMaindiv">
                 {!isValidated ? (
-                    <div >
-                        <img className='bg' src={BackgroundImg} />
-                        <div style={{ marginBottom: '9%' }}>
-                            <div>
-                                <Form onSubmit={this.handleSubmit} className="login-form">
+                    <div>
+                        <div className="backgroundImg">
+                            <img src={BackgroundImg} />
+                        </div>
+                        
+                        <div className="formdiv">
+                            <Form onSubmit={this.handleSubmit} className="loginForm">
+                                <div>
+                                    <img alt="logo" src={logo} className="optimusLogo"/>
+                                    <h1 className="optimusTitle">Optimus</h1>
+                                </div>
+                                {/* {!isErrorMsg ? (<div></div>) : (<Alert style={{ marginTop: '46px' }} message={'Invalid username or password'} type="error" showIcon />)} */}
+
+                                <FormItem className='loginFormItem'>
+                                    {!isErrorMsg ? (<div></div>) : (<Alert className="loginAlert" message={'Invalid username or password'} type="error" showIcon />)}
+
+                                    {getFieldDecorator('userName', {
+                                        rules: [{ required: true, message: 'Please enter username!' }],
+                                    })(
+                                        <Input prefix={<Icon className="loginIcons" type="user"/>} placeholder=" Username" />
+                                    )}
+                                </FormItem>
+                                <FormItem>
+                                    {getFieldDecorator('password', {
+                                        rules: [{ required: true, message: 'Please enter password!' }],
+                                    })(
+                                        <Input prefix={<Icon className="loginIcons" type="lock"/>} type="password" placeholder=" Password" />
+                                    )}
+                                </FormItem>
+                                <FormItem>
                                     <div>
-                                        <div className="container-heading" >
-                                            <div className="container">
-                                                <img alt="logo" src={logo} />
-                                                <span className="nor-div-title" >Optimus</span>
-                                            </div>
-                                            {/* <div className="text-title-container">
-                                                <span className="nor-div-title" >Optimus</span>
-                                            </div> */}
+                                        <div className="loginCheckbox">
+                                            {getFieldDecorator('remember', {
+                                                valuePropName: 'checked',
+                                                initialValue: true,
+                                            })(
+                                                <Checkbox>Remember me</Checkbox>
+                                            )}
+                                        </div>
+                                        <div className="loginForgotPwd">
+                                            <a href="#forgotPass">Forgot your password?</a>
                                         </div>
                                     </div>
-                                    {/* {!isErrorMsg ? (<div></div>) : (<Alert style={{ marginTop: '46px' }} message={'Invalid username or password'} type="error" showIcon />)} */}
-
-                                    <FormItem className='loginFormItem'>
-                                        {!isErrorMsg ? (<div></div>) : (<Alert style={{ marginTop: '66px', marginBottom: '36px' }} message={'Invalid username or password'} type="error" showIcon />)}
-
-                                        {getFieldDecorator('userName', {
-                                            rules: [{ required: true, message: 'Please enter username!' }],
-                                        })(
-                                            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder=" Username" />
-                                        )}
-                                    </FormItem>
-                                    <FormItem>
-                                        {getFieldDecorator('password', {
-                                            rules: [{ required: true, message: 'Please enter password!' }],
-                                        })(
-                                            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder=" Password" />
-                                        )}
-                                    </FormItem>
-                                    <FormItem>
-                                        <div>
-                                            <div className="login-form-checkbox">
-                                                {getFieldDecorator('remember', {
-                                                    valuePropName: 'checked',
-                                                    initialValue: true,
-                                                })(
-                                                    <Checkbox>Remember me</Checkbox>
-                                                )}
-                                            </div>
-                                            <div className="login-form-forgot"><span>
-                                                {/* <Icon className="icon-size" type="lock" /> */}
-                                                <span>
-                                                    <a href="#forgotPass">Forgot your password?</a></span></span>
-                                            </div>
-                                        </div>
-                                        <Button type="primary" htmlType="submit" onClick={this.handleClick} className="login-form-button">
-                                            Login
-                                        </Button>
-                                    </FormItem>
-                                </Form>
-                            </div>
+                                </FormItem>
+                                <FormItem>
+                                    <Button type="primary" htmlType="submit" onClick={this.handleClick} className="loginButton">
+                                        Login
+                                    </Button>
+                                </FormItem>
+                            </Form>
                         </div>
                         {!isErrorMsg ? (
+                            <div className="bottomLogo">
+                                <img alt="logo1" src={logo1} />
+                            </div>
+                        ) : (
+                            <div className="bottomLogo_2">
+                                <img alt="logo1" src={logo1} />
+                            </div>
+                        )}
+                       {/*  {!isErrorMsg ? (
                             <div className="container-all1">
                                 <img alt="logo1" src={logo1} />
                             </div>
@@ -151,7 +153,7 @@ class LoginForm extends Component {
                                 <div className="container-all2">
                                     <img alt="logo1" src={logo1} />
                                 </div>
-                            )}
+                            )} */}
                     </div>
                 ) : (<div><Dashboard /></div>)}
             </div>

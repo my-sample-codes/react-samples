@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import React, { Component } from 'react';
 
 
-import tmobiles from './logo1.png';
+import tmobiles from './../../assets/logo1.png';
 
 import './logo.css';
 

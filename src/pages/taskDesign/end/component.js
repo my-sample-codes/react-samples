@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import style from 'styled-components';
-import Background from '../../images/circleEnd.png';
+import Background from './../../../assets/circleEnd.png';
 import type { DiagComponentProps } from 'react-flow-diagram';
  /* Presentational
  * ==================================== */

@@ -4,7 +4,7 @@ import React from 'react';
 import style from 'styled-components';
 
 import type {DiagComponentProps} from 'react-flow-diagram';
-import Background from '../../images/database.png';
+import Background from './../../../assets/database.png';
 import FormDialog from '../component/FormDialog'
 import { setCustom ,store } from 'react-flow-diagram'
 /*

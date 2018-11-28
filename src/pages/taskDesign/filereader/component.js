@@ -4,7 +4,7 @@ import React from 'react';
 import style from 'styled-components';
 import { setCustom ,store ,diagramOn} from 'react-flow-diagram' ;
 import type {DiagComponentProps} from 'react-flow-diagram';
-import Background from '../../images/file-document.png';
+import Background from './../../../assets/file-document.png';
 import CSVDialogBox from '../component/CSVDialogBox';
 /*
  * Presentational

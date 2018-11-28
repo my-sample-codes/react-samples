@@ -7,7 +7,6 @@ import CollectionCreateForm from '../popup-form/collection'
 import HeaderDiv from './headerDiv';
 import './mainBoard.css';
 import Header from './../../layouts/header/index';
-import MenuIcon from './menuIcon.png';
 import SiderLayout from './../../layouts/layout2/SiderLayout';
 
 const { Meta } = Card;
@@ -150,26 +149,18 @@ export default class mainBoard extends Component {
 
         return (
             <div className='mainDiv'>
-                <Header/>
-                <div className='cardList'>
+                <Header />
+
+                <div className='contentDiv'>
                     <HeaderDiv />
                 </div>
-                <div className='cardList'>
 
-                {/* top description header  */}
-                
-
-                {/* Card List Display */}
-                
-                <div>
-                        Your Projects
-                    </div>
-
-                    <Row gutter={16} className='cardRow'>
-
+                <div className='contentDiv'>
+                    <h4>Your Projects</h4>
+                    <Row gutter={16}>
                         <Col span={7}>
-                            <Button size="large" className='newCardButton' onClick={this.showModal}>
-                                < Icon className="addIcon" type="plus"/><br />Add project
+                            <Button size="large" className='newProjectButton' onClick={this.showModal}>
+                                < Icon className="addIcon" type="plus" /><br />Add project
                             </Button>
                             <CollectionCreateForm
                                 // Modal 1 for "New Project" Form
@@ -181,43 +172,36 @@ export default class mainBoard extends Component {
                                 visible1={this.state.loadervisible}
                                 onCancel1={this.handleCancel1}
                                 onCreate2={this.handleCreate2} />
-
                         </Col>
 
                         {/* map all products fetched from URL to card list view */}
                         {this.state.projects.map(project =>
 
-<Col span={7}>
-                                
-                                    <Card className="projectCards" hoverable bordered={true}>
-                                    <Link to="/LayoutDefinition"> 
-                                        <Meta style={{height:'-webkit-fill-available'}}
-                                            title={<a className="projectName">{project.productName}</a>}
+                            <Col span={7}>
+                                <Card className="projectCards" hoverable bordered={true}>
+                                    <Link to="/LayoutDefinition">
+                                        <Meta className="projectDetails"
+                                            title={<p>{project.productName}</p>}
                                             description={
                                                 <div className='descriptionData'>{project.productDescription}</div>
-                                                }
+                                            }
                                         />
-                                        </Link>
-                                        <div className="menulist" >
-                                        <Dropdown overlay={menu1} placement="bottomRight" trigger={['click']} style={{left:'625px'}}>
-                                            <ul className="ant-card-actions customStyle">
+                                    </Link>
+                                    <div className="menulist" >
+                                        <Dropdown overlay={menu1} placement="bottomRight" trigger={['click']}>
+                                            <ul className="menuIconStyle ant-card-actions">
                                                 <li>
-                                                   <Icon type="ellipsis" className="menuIcon"/>
+                                                    <Icon type="ellipsis" className="menuIcon" />
                                                 </li>
                                             </ul>
                                         </Dropdown>
-                                        </div>
-                                    </Card>
-                                  
-
+                                    </div>
+                                </Card>
                             </Col>
-
                         )}
-
                     </Row>
                 </div>
             </div>
         )
-
     }
 }

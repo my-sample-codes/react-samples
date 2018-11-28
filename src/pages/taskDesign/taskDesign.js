@@ -8,7 +8,7 @@ import { custom, config, customEntities } from './config-example';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { Select, Card, Input, Button, Table, Divider, Tag, Radio, Steps, Breadcrumb } from 'antd';
 import UploadFile from './component/UploadFile';
-import playImage from '../images/playOptimized.png';
+/* import playImage from './../../../assets/playOptimized.png'; */
 import {Icon} from 'antd';
 const Step = Steps.Step;
 

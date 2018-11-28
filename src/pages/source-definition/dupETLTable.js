@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import TaskDesign from '../taskDesign/taskDesign';
-import { Table, Popconfirm, Icon, Card, Button} from 'antd';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-// import 'antd/dist/antd.css';
-import './table.css';
+
+import { Table, Popconfirm, Icon} from 'antd';
+import './SourceDefinition.css';
   
 class Tables extends Component {
     constructor(props) {
@@ -13,21 +11,18 @@ class Tables extends Component {
           title: "ID",
           dataIndex: "ID",
           key: 'ID', 
-          // height:'5%'
+          
         },
         {
           title: "Source Name",
           dataIndex: "sourcename",
           key: 'sourcename',
-          width:'18%',
-          
-          // height:'5%'
+        
         },
         {
           title: "Type",
           dataIndex: "type", 
-          key: 'type',
-          width:'12%',
+          key: 'type'
         },
         {
             title: "Description",
@@ -35,8 +30,8 @@ class Tables extends Component {
             key: 'description'
         },
         { 
-          title: 'Actions', 
-          dataIndex: 'actions', 
+          title: '', 
+          dataIndex: '', 
           key: 'copyicon', 
           render: (text, record) => {
             return this.state.dataSource.length >= 1 ? (
@@ -45,7 +40,7 @@ class Tables extends Component {
                 onConfirm={() => this.handleDelete(record.key)}
               >
                 <a href="javascript:;"></a>
-                <Icon type="copy" className="iconsize" size='3%'/>
+                <Icon type="copy" className="iconsize"  theme="filled" style={{cursor:'pointer'}}/>
               </Popconfirm>
             ) : null;
         },
@@ -59,7 +54,6 @@ class Tables extends Component {
             sourcename: 'Jim Green',        
             type: 'CSV',    
             description: 'Customer Account information file ',
-            
           },
           {
             ID: 102,    
@@ -84,21 +78,13 @@ class Tables extends Component {
       };
     }
   
+    
+
     render() {
       const { dataSource } = this.state;
       const columns = this.columns;
       return (
-        <Card className="table-layout">
-          <Card className="card">
-            <p>Card content</p>
-          </Card>
-          <Table size="middle" className = "ant-table-thead" columns={columns}  dataSource={dataSource} pagination={{ pageSize: 10 }} size="small" bordered/>
-        <Link to="TaskDesign"> 
-          <Button className="proceed" type="primary">Proceed</Button>
-          </Link> 
-          <Button className="proceed" type="primary">Close</Button>
-        
-        </Card>
+        <Table size="small" className="ctable" columns={columns}  dataSource={dataSource}/*  pagination={{ pageSize: 10 }} */ />
       );
     }
   }
