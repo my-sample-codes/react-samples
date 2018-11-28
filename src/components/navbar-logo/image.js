@@ -2,8 +2,8 @@ import 'antd/dist/antd.css';
 
 import React, { Component } from 'react';
 
-import tmobiles from './../../assets/tmobiles.jpg';
-import tmobiles1 from './../../assets/tmobiles1.png';
+import tmobiles from './../../assets/logos/tmobiles.jpg';
+import tmobiles1 from './../../assets/logos/tmobiles1.png';
 import './image.css';
 
 

@@ -5,8 +5,8 @@ import { Table, Divider, Tag } from 'antd';
 import {store} from 'react-flow-diagram';
 import './index.css';
 import {Icon} from 'antd';
-import cancel from './../../../assets/cancel-btn.png';
-import edit from './../../../assets/edit.png';
+import cancel from './../../../assets/icons/cancel-btn.png';
+import edit from './../../../assets/icons/edit.png';
 
 
 const { Column, ColumnGroup } = Table;

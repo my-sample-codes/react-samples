@@ -5,7 +5,7 @@ import style from 'styled-components';
 
 import type { DiagComponentProps } from 'react-flow-diagram';
 import { setCustom ,store ,diagramOn} from 'react-flow-diagram'
-import Background from './../../../assets/excel.png';
+import Background from './../../../assets/icons/excel.png';
 import FormDialog from '../component/FormDialog'
 
 /*

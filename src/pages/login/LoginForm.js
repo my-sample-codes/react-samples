@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox, Alert } from 'antd';
 import Dashboard from '../dashboard/DashboardLand';
-import BackgroundImg from './../../assets/login_background_img.svg';
-import logo from './../../assets/logo.png';
-import logo1 from './../../assets/logo-blue.png';
+import BackgroundImg from './../../assets/images/login_background_img.svg';
+import logo from './../../assets/logos/logo.png';
+import logo1 from './../../assets/logos/logo-blue.png';
 import 'antd/dist/antd.css';
 import '../../index.css';
 import './Login.css';
