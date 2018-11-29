@@ -73,6 +73,9 @@ PaletteProvider.prototype.getPaletteEntries = function(element) {
     // 'custom-circle': createAction(
     //   'custom:circle', 'event', 'icon-custom-circle'
     // ),
+    'custom-xls': createAction(
+      'custom:xls', 'data-object', 'icon-custom-xls'
+    ),
     'custom-separator': {
       group: 'custom',
       separator: true

@@ -116,7 +116,8 @@ CustomElementFactory.prototype._getCustomElementSize = function (type) {
     __default: { width: 100, height: 80 },
     'custom:triangle': { width: 40, height: 40 },
     'custom:circle': { width: 140, height: 140 },
-    'custom:csv': { width: 45, height: 52 }
+    'custom:csv': { width: 45, height: 52 },
+    'custom:xls': { width: 45, height: 52 }
   };
 
   return shapes[type] || shapes.__default;

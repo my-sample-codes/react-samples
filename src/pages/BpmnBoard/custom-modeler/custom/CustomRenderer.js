@@ -17,6 +17,7 @@ import {
 } from 'min-dom';
 
  import csv from '../../style/image/csvRender.png'
+ import xls from '../../style/image/xlsRender.png'
 
 
 /**
@@ -127,6 +128,21 @@ export default function CustomRenderer(eventBus, styles, canvas) {
     return catGfx;
   };
 
+  this.drawXLS = function (parent, shape) {
+    var catGfx = svgCreate('image', {
+      x: 0,
+      y: 0,
+      width: shape.width,
+      height: shape.height,
+      href: xls
+    });
+
+    svgAppend(parent, catGfx);
+
+    return catGfx;
+  };
+
+
 
   this.drawCustomConnection = function (p, element) {
 
@@ -215,6 +231,9 @@ CustomRenderer.prototype.drawShape = function (p, element) {
   if (type === 'custom:csv') {
     return this.drawCSV(p, element)
   }
+  if (type === 'custom:xls') {
+    return this.drawXLS(p, element)
+  }
 
 };
 
@@ -228,7 +247,7 @@ CustomRenderer.prototype.getShapePath = function (shape) {
   if (type === 'custom:circle') {
     return this.getCirclePath(shape);
   }
-  if (type === 'custom:csv') {
+  if (type === 'custom:csv' || type === 'custom:xls') {
     return getRectPath(shape);
   }
 };

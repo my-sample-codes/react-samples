@@ -67,7 +67,7 @@ export default class BpmnBoard extends Component {
 
   showDialogBox(e) {
 
-    if (e.element.type === "custom:csv") {
+    if (e.element.type === "custom:csv" || e.element.type === "custom:xls") {
       this.setState({ csvIsOpen: true });
     } else if (e.element.type === "bpmn:StartEvent" || e.element.type === "bpmn:EndEvent" || e.element.type === "bpmn:Task") {
       this.setState({ formIsopen: true })

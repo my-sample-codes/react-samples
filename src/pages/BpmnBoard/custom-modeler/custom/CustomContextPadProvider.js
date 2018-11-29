@@ -55,7 +55,7 @@ export default function CustomContextPadProvider(injector, connect, translate, e
     
 
 
-    if (isAny(businessObject, ['custom:triangle', 'custom:circle', 'custom:csv'])) {
+    if (isAny(businessObject, ['custom:triangle', 'custom:circle', 'custom:csv', 'custom:xls'])) {
       assign(actions, {
         'connect': {
           group: 'connect',
@@ -87,7 +87,11 @@ export default function CustomContextPadProvider(injector, connect, translate, e
           'custom:csv',
           'icon-custom-csv-pad',
           translate('Append CSV')
-          )
+          ), 'append.custom-xls': appendAction(
+            'custom:xls',
+            'icon-custom-xls-pad',
+            translate('Append XLS')
+            )
       
       });
     }
