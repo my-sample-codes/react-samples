@@ -3,7 +3,9 @@ import { Form, Icon, Input, Button, Checkbox, Alert } from 'antd';
 import Dashboard from '../dashboard/DashboardLand';
 import BackgroundImg from './../../assets/images/login_background_img.svg';
 import logo from './../../assets/logos/logo.png';
+import { BrowserRouter as Router, Route, Link, Switch,Redirect } from 'react-router-dom';
 import logo1 from './../../assets/logos/logo-blue.png';
+import welcome from './../welcome/welcome'
 import 'antd/dist/antd.css';
 import '../../index.css';
 import './Login.css';
@@ -79,12 +81,17 @@ class LoginForm extends Component {
     }
 
     render() {
+
+        if(this.state.validate)
+        {
+           return <Redirect to="/welcome"/>
+        }
         const { getFieldDecorator } = this.props.form;
         const isValidated = this.state.validate;
         const isErrorMsg = this.state.error_msg;
         return (
             <div style={{overflow:'hidden'}} className="loginMaindiv">
-                {!isValidated ? (
+        
                     <div>
                         <div className="backgroundImg">
                             <img src={BackgroundImg} />
@@ -145,17 +152,9 @@ class LoginForm extends Component {
                                 <img alt="logo1" src={logo1} />
                             </div>
                         )}
-                       {/*  {!isErrorMsg ? (
-                            <div className="container-all1">
-                                <img alt="logo1" src={logo1} />
-                            </div>
-                        ) : (
-                                <div className="container-all2">
-                                    <img alt="logo1" src={logo1} />
-                                </div>
-                            )} */}
+                   
                     </div>
-                ) : (<div><Dashboard /></div>)}
+               
             </div>
         );
     }

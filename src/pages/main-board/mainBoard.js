@@ -8,6 +8,7 @@ import HeaderDiv from './headerDiv';
 import './mainBoard.css';
 import Header from './../../layouts/header/index';
 import SiderLayout from './../../layouts/layout2/SiderLayout';
+import flowtype from './../select-flow-type/selflowtype';
 
 const { Meta } = Card;
 //URL link to fetch all products
@@ -144,13 +145,13 @@ export default class mainBoard extends Component {
     render() {
 
         if (this.state.sourcedef === true) {
-            return <Redirect to='/SourceDefinition' />
+            return <Redirect to='/flowtype' />
           }
 
         return (
             <div className='mainDiv'>
                 <Header />
-
+               
                 <div className='contentDiv'>
                     <HeaderDiv />
                 </div>
@@ -179,7 +180,7 @@ export default class mainBoard extends Component {
 
                             <Col span={7}>
                                 <Card className="projectCards" hoverable bordered={true}>
-                                    <Link to="/LayoutDefinition">
+                                    <Link to="/flowtype">
                                         <Meta className="projectDetails"
                                             title={<p>{project.productName}</p>}
                                             description={

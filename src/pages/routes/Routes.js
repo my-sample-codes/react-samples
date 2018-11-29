@@ -17,6 +17,10 @@ import TaskDesign from './../taskDesign/taskDesign';
 import TLogo from './../../components/navbar-logo-single-T/logo'
 import Image from './../../components/navbar-logo/image';
 import MainBoard from './../main-board/mainBoard';
+import ReconFlow from '../recon-flow/ReconFlow';
+import welcome from './../welcome/welcome';
+import Dashboard from './../dashboard/DashboardLand';
+import flowtype from './../select-flow-type/selflowtype';
 
 const Search = Input.Search;
 const { Header, Sider, Content } = Layout;
@@ -81,6 +85,17 @@ export default class Routes extends Component {
                                 path="/"
                                 component={Login}
                             />
+                             
+                             <Route
+                                exact
+                                path="/welcome"
+                                component={welcome}
+                            />
+                             <Route
+                                exact
+                                path="/Dashboard"
+                                component={Dashboard}
+                            />
 
                             <Route
                                 exact
@@ -139,10 +154,7 @@ export default class Routes extends Component {
                                                 </a>
 
                                             </Dropdown>
-                                            {/* <Button type="dashed" >
-           < Icon type="plus" />
-         </Button>
-        */}
+                                           
 
                                         </div>
                                     </Header>
@@ -177,6 +189,17 @@ export default class Routes extends Component {
                                             path="/TaskDesign"
                                             component={TaskDesign}
                                         />
+                                        <Route
+                                            exact
+                                            path="/ReconFlow"
+                                            component={ReconFlow}
+                                        />
+                                          <Route
+                                            exact
+                                            path="/flowtype"
+                                            component={flowtype}
+                                        />
+                                        
 
                                     </Content>
                                 </Layout>

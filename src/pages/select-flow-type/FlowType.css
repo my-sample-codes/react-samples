@@ -1,0 +1,16 @@
+.typeDiv{
+    text-align: center;
+    cursor: pointer;
+}
+.typeDiv > img{
+    width: 35%;
+}
+.selectType{
+    display: inline-flex;
+    MARGIN-TOP:8%;
+    margin-left: 25%;    
+}
+.typeDiv > h3{
+    color: #EE008C;
+    font-weight: 700;
+}

@@ -1,0 +1,93 @@
+.taskDesign { 
+    height: 100%; 
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #F0F2F5; 
+    padding: 0px;
+    margin-top: 0px;
+   margin-left: 0px;
+   margin-bottom: 0px; 
+}
+.clickableDiv{
+    background-color: transparent;
+    height: 71px;
+    width: 81px;
+    position: absolute;
+    margin-top: -30%;
+    margin-left: 18%;
+    cursor: pointer;
+}
+/* MODAL */
+.breadcumb1 {
+    padding: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 27%;
+    width: 500px;
+}
+ .breadcumb1.ant-steps-item-process .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot{
+    margin-top:18px;
+}
+.breadcumb1.ant-steps-item-wait .ant-steps-item-icon > .ant-steps-icon .ant-steps-icon-dot{
+    margin-top:7px;
+}
+.modal1.ant-modal {
+    width:1000px !important;
+}
+.modal1 > .ant-modal-content{
+    width: 1000px;
+}
+/* .ant-steps-item-icon
+{
+    margin-top: -4.7%;
+} */
+
+.ant-layout-content {
+    padding: 0px;
+}
+.space
+{
+    margin-left: 15px;
+}
+/* MODAL 2 */
+.plus-icon
+{
+ margin-left: 20%;
+ color: #1a75ff;
+ font-size: 30px;
+}
+
+.delete
+{
+  margin-left: 27%;
+    font-size: 20px;
+}
+
+.modal1.ant-modal
+{
+  margin-top : -90px;
+}
+
+.card1-table
+{
+  height: 230px;
+}
+
+.margin-class.ant-table
+{
+  margin-top: 100px;
+}
+
+.priority
+{
+  margin-top: -17px;
+}
+
+.link-style
+{
+  margin-left: 78%;
+  margin-top: -12px;
+  
+}

@@ -1,0 +1,19 @@
+.titleDiv{
+    text-align: center;
+    padding-top: 5%;
+    color: black;
+}
+.roleDiv{
+    text-align: center;
+}
+.roleDiv > img{
+    width: 35%;
+}
+.roleDiv > h3{
+    color: #EE008C;
+    font-weight: 700;
+}
+.selectRole{
+    display: inline-flex;
+    MARGIN-TOP:8%;
+}

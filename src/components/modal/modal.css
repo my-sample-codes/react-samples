@@ -1,0 +1,35 @@
+.breadcumb {
+
+    
+    padding: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    
+}
+.tb
+{
+
+}
+.tb1
+{
+display: inline;
+margin-left: 100px;
+
+}
+
+.modal1.ant-modal {
+    width:900px !important;
+}
+.ant-steps-item-icon
+{
+    margin-top: -4.7%;
+}
+
+.ant-layout-content {
+    padding: 0px;
+}
+.space
+{
+    margin-left: 15px;
+}
+
