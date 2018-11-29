@@ -123,8 +123,8 @@ export default class ReconFlow extends Component {
           Condition: 'Jim Green',
           Billing: '1111',
 
-          Action: <div><center>
-            <Icon className="delete" type="delete" theme="filled" /></center>
+          Action: <div>
+            <Icon className="delete" type="delete"/>
           </div>
 
         },
@@ -153,8 +153,8 @@ export default class ReconFlow extends Component {
             <Input size="small" placeholder="small size" />
 
           ,
-          Action: <div><center>
-            <Icon className="delete" type="delete" theme="filled" /></center>
+          Action: <div>
+            <Icon className="delete" type="delete"/>
           </div>
 
         },
@@ -174,7 +174,7 @@ export default class ReconFlow extends Component {
                       
                       ,    
           Action: <div>
-                   <Icon  className="delete" type="delete" theme="filled" />
+                   <Icon  className="delete" type="delete"/>
                   </div>
           
         },
@@ -192,7 +192,7 @@ export default class ReconFlow extends Component {
                         
                         ,   
             Action: <div>
-                     <Icon  className="delete" type="delete" theme="filled" />
+                     <Icon  className="delete" type="delete"/>
                     </div>
             
           },
@@ -212,7 +212,7 @@ export default class ReconFlow extends Component {
                       
                       ,    
           Action: <div>
-                   <Icon  className="delete" type="delete" theme="filled" />
+                   <Icon  className="delete" type="delete"/>
                   </div>
           
         },
@@ -230,7 +230,7 @@ export default class ReconFlow extends Component {
                         
                         ,   
             Action: <div>
-                     <Icon  className="delete" type="delete" theme="filled" />
+                     <Icon  className="delete" type="delete"/>
                     </div>
             
           },
@@ -309,7 +309,7 @@ export default class ReconFlow extends Component {
 
               <br /><br />
 
-              <p>Transaction Selection Criteria :</p>
+              <p className="formLabels">Transaction Selection Criteria :</p>
               <Row>
                 <Col span={12}>
                   <Card>
@@ -346,13 +346,13 @@ export default class ReconFlow extends Component {
 
             <br /><br />
 
-            <p>Priority :</p>
+            <p className="formLabels">Priority :</p>
             <Card className="card1-table">
               <div className="link-style">
                 <a style={{ marginRight: "15px" }}  >Add Priority</a>
                 <a >Delete Priority</a>
               </div>
-              <p className="priority">Priority 1:</p>
+              <p className="priority formLabels">Priority 1:</p>
               <Compacttable className="margin-class" columns={this.columns2} dataSource={this.state.dataSource3} />
             </Card>
             <br />
@@ -362,7 +362,7 @@ export default class ReconFlow extends Component {
                 <a style={{ marginRight: "15px" }} >Add Priority</a>
                 <a >Delete Priority</a>
               </div>
-              <p className="priority">Priority 2:</p>
+              <p className="priority formLabels">Priority 2:</p>
               <Compacttable className="margin-class" columns={this.columns2} dataSource={this.state.dataSource4} />
             </Card>
 

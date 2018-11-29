@@ -63,8 +63,8 @@ class SelectFlowType extends Component {
 
                     <div onClick={this.showModal}>
                         <div className="typeDiv">
-                            <img src={Reconciliation} alt='Reconcillation' /><br /><br />
-                            <h3>Reconcillation</h3>
+                            <img src={Reconciliation} alt='Reconciliation' /><br /><br />
+                            <h3>Reconciliation</h3>
                         </div>
                     </div>
                 </div>

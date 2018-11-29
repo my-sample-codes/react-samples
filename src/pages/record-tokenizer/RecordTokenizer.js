@@ -33,7 +33,7 @@ const columns = [{
 }, {
 
     title: <div>
-        <Icon type="plus-circle" theme="filled" className="plus-icon" />
+        <Icon type="plus-circle" theme="filled" className="plus-icon1" />
     </div>,
     dataIndex: 'Action',
     key: 'Action',
@@ -46,10 +46,10 @@ const data = [{
     Type: 'Fixed',
     FieldSize: '2',
     EncodingType: 'ASCII',
-    Action: <div>
-        <Icon className="edit-delete" type="edit" theme="filled" />
+    Action: <div><center>
+        <Icon className="edit-delete" type="edit"/>
 
-        <Icon className="edit-delete" type="delete" theme="filled" />
+        <Icon className="edit-delete" type="delete"/></center>
     </div>
 }, {
     key: '2',
@@ -58,10 +58,10 @@ const data = [{
     Type: 'Fixed',
     FieldSize: '64',
     EncodingType: 'ASCII',
-    Action: <div>
-        <Icon className="edit-delete" type="edit" theme="filled" />
+    Action: <div><center>
+        <Icon className="edit-delete" type="edit"/>
 
-        <Icon className="edit-delete" type="delete" theme="filled" />
+        <Icon className="edit-delete" type="delete"/></center>
     </div>
 },
 {
@@ -71,10 +71,10 @@ const data = [{
     Type: 'Fixed',
     FieldSize: '2',
     EncodingType: 'ASCII',
-    Action: <div>
-        <Icon className="edit-delete" type="edit" theme="filled" />
+    Action: <div><center>
+        <Icon className="edit-delete" type="edit"/>
 
-        <Icon className="edit-delete" type="delete" theme="filled" />
+        <Icon className="edit-delete" type="delete"/></center>
     </div>
 }];
 
@@ -244,7 +244,7 @@ export default class RecordTokenizer extends Component {
                     </div>
                     <br />
                     <div>
-                        <Table size="small" columns={columns} dataSource={data} className="record-table" />
+                        <Table size="small" columns={columns} dataSource={data} className="record-table ctable" />
                     </div>
                 </Card>
 

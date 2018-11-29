@@ -154,7 +154,7 @@ export default class LayoutDefinition extends Component {
                                 className="card-title"
                             >
                                 <div>
-                                    <Table size="small" columns={columns} dataSource={data} className="section-id-table" />
+                                    <Table size="small" columns={columns} dataSource={data} className="section-id-table ctable" />
                                 </div>
                             </Card>
 

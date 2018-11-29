@@ -37,14 +37,14 @@ const CreateReconForm = Form.create()(
             className="reconForm"
             >
             <Form>
-              <FormItem label="Profile Description">
+              <FormItem className="formLabels1" label="Profile Description">
                 {(<Input value="Store Payments & Samson Billing"/>)}
               </FormItem> 
 
               <br/>
               <br/>
 
-              <FormItem label="Number of Data Sources" style={{display: 'flex', flexDirection: 'row'}}>
+              <FormItem className="formLabels1" label="Number of Data Sources" style={{display: 'flex', flexDirection: 'row'}}>
                 {(<InputNumber min={1} max={10} defaultValue={1}
                                 value={2}                       // remove this line when non-static value to be shown
                                 onChange={this.handleChange}
@@ -52,7 +52,7 @@ const CreateReconForm = Form.create()(
                 {/* <Button type="primary" shape="circle" icon="check" size='medium' style={{marginLeft:'15px'}} /> */}
               </FormItem>
 
-              <FormItem label="Source A" style={{display: 'flex', marginLeft: "97px"}}>
+              <FormItem className="formLabels1" label="Source A" style={{display: 'flex', marginLeft: "97px"}}>
                 <Select
                   showSearch
                   placeholder="Select Source A"
@@ -68,7 +68,7 @@ const CreateReconForm = Form.create()(
               </FormItem>
 
               
-              <FormItem label="Source B" style={{display: 'flex', marginLeft: "97px"}}>
+              <FormItem  className="formLabels1" label="Source B" style={{display: 'flex', marginLeft: "97px"}}>
                 <Select
                   showSearch
                   placeholder="Select Source B"

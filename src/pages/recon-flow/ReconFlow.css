@@ -63,6 +63,7 @@
 {
   margin-left: 27%;
     font-size: 20px;
+    color:#808080;
 }
 
 .modal1.ant-modal
@@ -90,4 +91,8 @@
   margin-left: 78%;
   margin-top: -12px;
   
+}
+.formLabels{
+    color: #444444;
+    font-weight: 700;
 }
