@@ -24,11 +24,6 @@
   padding-right: 10px;
   text-align: center;
 }
-/* a 
-{
-    color: rgba(0,0,0,0.65);
-    font-weight: 600;
-} */
 .iconlist{
     float: right;
     margin-right: 25px;
@@ -47,6 +42,33 @@
 {
   margin-left: 2px;
 } 
+.select
+{
+    margin-left: 100px;
+    width: 150px ;
+    background-color: #EE008C;
+    background:  #EE008C ;
+    margin-top: 0px;
+    
+}
+/* .select > .ant-select-selection--single {
+    opacity: 0.4;
+
+} */
+/* .ant-select-selection {
+    border: #EE008C;
+    background-color:rgb(243, 53, 164);
+} */
+.ant-select-selection-selected-value {
+    color: rgb(10, 10, 10);
+    font-weight: 500;
+}
+
+.ant-select-selection__placeholder {
+    margin-top: -8%;
+    color: white;
+    font-weight: normal;
+}
 
  /* 
 * {

@@ -64,3 +64,13 @@ background-color: #EE008C;
 .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
      background-color: #EE008C; 
 }
+
+.select
+{
+    margin-left: 100px;
+    width: 150px ;
+    background-color: #EE008C;
+    background:  #EE008C ;
+    margin-top: 0px;
+    
+}

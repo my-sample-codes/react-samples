@@ -8,7 +8,7 @@ import Login from './../login/LoginForm';
 import SiderLayout from './../../layouts/layout2/SiderLayout';
 import NavigationBar from './../../layouts/sidebar/index';
 import Preview from './../preview/preview';
-import { Layout, Menu, Icon, Input, Dropdown } from 'antd';
+import { Layout, Menu, Icon, Input, Dropdown, Select } from 'antd';
 import './siderlayout.css';
 import 'antd/dist/antd.css';
 import './header.css';
@@ -23,6 +23,7 @@ import Dashboard from './../dashboard/DashboardLand';
 import flowtype from './../select-flow-type/selflowtype';
 
 const Search = Input.Search;
+const Option = Select.Option;
 const { Header, Sider, Content } = Layout;
 const menu1 = (
     <Menu>
@@ -59,17 +60,53 @@ const menu3 = (
     </Menu>
 );
 
+
 export default class Routes extends Component {
 
-    state = {
-        collapsed: false,
-    };
+    constructor(props){
+        super(props);
+        this.state = {
+            collapsed: false,
+            projects: [],
+            openProject : "Chase Payment",
+            defaultval:'Chase Payment'
+        };
+        this.handleChange=this.handleChange.bind(this);
+    }
+         handleChange(value) {
+            console.log(`selected ${value}`);
+    
+            const openArray = [];
+            openArray.push(value);
+    
+            this.setState({ openProject: value });
+        }
+
+    componentDidMount() {
+        
+                fetch("http://10.11.14.79:8081/recon/product/getlist/")
+                    .then(res => res.json())
+                    .then(
+                        (result) => {
+                            console.log("Result::", result)
+                            this.setState({
+                                projects: result
+                            });
+                        },
+        
+                        (error) => {
+                            console.log("Cannot fetch product list");
+                            console.log(error);
+                        }
+                    )
+            }
 
     toggle = () => {
         this.setState({
             collapsed: !this.state.collapsed,
         });
     }
+
 
     render() {
 
@@ -110,12 +147,11 @@ export default class Routes extends Component {
                                     collapsed={this.state.collapsed}
                                   
                                 >
-                               
-                            {logo?(
-                                   <div className='sidebar'><div><TLogo/></div><div><NavigationBar /></div></div>
-                                   ):( 
-                                    <div className='sidebar'><div><Image/></div><div><NavigationBar /></div></div>)
-                                     }
+                                {logo ? (
+                                    <div className='sidebar'><div><TLogo /></div><div><NavigationBar param = {this.state.openProject}/></div></div>
+                                ) : (
+                                        <div className='sidebar'><div><Image /></div><div><NavigationBar param = {this.state.openProject} /></div></div>)
+                                }
                                                               
                                 </Sider>
 
@@ -133,6 +169,17 @@ export default class Routes extends Component {
                                             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                                             onClick={this.toggle}
                                         />
+
+                                        <Select placeholder="Select project" className="select" defaultValue={ this.state.defaultval } onChange={this.handleChange}>
+                                        {
+                                            this.state.projects.map(project =>
+                                               
+                                                <Option  value={project.productName} >{project.productName}</Option>
+                                               
+                                            )
+                                            
+                                        }
+                                    </Select>
 
                                         <div className="iconlist" >
                                             <Dropdown overlay={menu1} trigger={['click']}>
