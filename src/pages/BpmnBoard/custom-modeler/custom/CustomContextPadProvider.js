@@ -34,9 +34,9 @@ export default function CustomContextPadProvider(injector, connect, translate, e
         options = title;
         title = translate('Append {type}', { type: type.replace(/^bpmn:/, '') });
       }
-  
+
       function appendStart(event, element) {
-  
+
         var shape = elementFactory.createShape(assign({ type: type }, options));
         create.start(event, shape, element);
       }
@@ -52,7 +52,7 @@ export default function CustomContextPadProvider(injector, connect, translate, e
       };
     }
 
-    
+
 
 
     if (isAny(businessObject, ['custom:triangle', 'custom:circle', 'custom:csv', 'custom:xls'])) {
@@ -66,33 +66,31 @@ export default function CustomContextPadProvider(injector, connect, translate, e
             dragstart: startConnect
           }
         },
-         'append.end-event': appendAction(
+        'append.end-event': appendAction(
           'bpmn:EndEvent',
           'bpmn-icon-end-event-none'
+        ), 'append.append-task': appendAction(
+          'bpmn:Task',
+          'bpmn-icon-task'
         ),
         'append.gateway': appendAction(
           'bpmn:ExclusiveGateway',
           'bpmn-icon-gateway-none',
           translate('Append Gateway')
-        ),
-        'append.append-task': appendAction(
-          'bpmn:Task',
-          'bpmn-icon-task'
-        ),
-        'append.intermediate-event': appendAction(
-          'bpmn:IntermediateThrowEvent',
-          'bpmn-icon-intermediate-event-none',
-          translate('Append Intermediate/Boundary Event')
         ), 'append.custom-csv': appendAction(
           'custom:csv',
           'icon-custom-csv-pad',
           translate('Append CSV')
-          ), 'append.custom-xls': appendAction(
-            'custom:xls',
-            'icon-custom-xls-pad',
-            translate('Append XLS')
-            )
-      
+        ), 'append.intermediate-event': appendAction(
+          'bpmn:IntermediateThrowEvent',
+          'bpmn-icon-intermediate-event-none',
+          translate('Append Intermediate/Boundary Event')
+        ), 'append.custom-xls': appendAction(
+          'custom:xls',
+          'icon-custom-xls-pad',
+          translate('Append XLS')
+        )
+
       });
     }
 

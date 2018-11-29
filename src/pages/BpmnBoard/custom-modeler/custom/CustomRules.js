@@ -57,13 +57,13 @@ CustomRules.prototype.init = function() {
     // allow connection between custom shape and task
     if (isCustom(source)) {
       // ||is(target, 'bpmn:StartEvent')
-      if (is(target, 'bpmn:Task')||is(target, 'custom:triangle') ||is(target, 'custom:csv') || is(target, 'custom:circle') ||is(target, 'custom:xls')) {
+      if (is(target, 'bpmn:Task')||is(target, 'custom:triangle') ||is(target, 'custom:csv') || is(target, 'custom:circle') ||is(target, 'custom:xls')||is(target, 'bpmn:EndEvent')||is(target, 'bpmn:ExclusiveGateway')||is(target, 'bpmn:IntermediateThrowEvent')) {
         return { type: 'custom:connection' };
       } else {
         return false;
       }
     } else if (isCustom(target)) {
-      if (is(source, 'bpmn:Task') || is(source, 'custom:triangle')||is(source, 'custom:csv')||is(source, 'custom:circle') ||is(source, 'custom:xls')) {
+      if (is(source, 'bpmn:Task') || is(source, 'custom:triangle')||is(source, 'custom:csv')||is(source, 'custom:circle') ||is(source, 'custom:xls')||is(source, 'bpmn:EndEvent')||is(source, 'bpmn:ExclusiveGateway')||is(source, 'bpmn:IntermediateThrowEvent')||is(source, 'bpmn:StartEvent')) {
         return { type: 'custom:connection' };
       } else {
         return false;
