@@ -4,7 +4,6 @@ import { Select, Card, Input, Button, Table, Divider, Tag, Radio, Steps, Breadcr
 import './recordtokenizer.css';
 
 import LayoutDefinition from './../layout-definition/LayoutDefinition';
-import TaskDesign from './../taskDesign/taskDesign';
 
 const Step = Steps.Step;
 const RadioGroup = Radio.Group;

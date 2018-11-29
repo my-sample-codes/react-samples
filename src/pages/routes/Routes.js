@@ -13,7 +13,7 @@ import './siderlayout.css';
 import 'antd/dist/antd.css';
 import './header.css';
 import Tables from './../table/table';
-import TaskDesign from './../taskDesign/taskDesign';
+import TaskDesign from './../BpmnBoard/BpmnBoard';
 import TLogo from './../../components/navbar-logo-single-T/logo'
 import Image from './../../components/navbar-logo/image';
 import MainBoard from './../main-board/mainBoard';

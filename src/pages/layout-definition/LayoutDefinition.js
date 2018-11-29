@@ -4,7 +4,6 @@ import { Select, Card, Input, Button, Table, Divider, Tag, Steps, Breadcrumb, Ro
 import RecordTokenizer from './../record-tokenizer/RecordTokenizer';
 import SourceDefinition from './../source-definition/SourceDefinition';
 import './layoutdefinition.css';
-import TaskDesign from './../taskDesign/taskDesign';
 
 var hoverContent = require('./../infomapper.js').default;
 
