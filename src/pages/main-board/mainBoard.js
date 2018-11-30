@@ -11,8 +11,10 @@ import MenuIcon from './menuIcon.png';
 import SiderLayout from './../../layouts/layout2/SiderLayout';
 
 import { Layout, Tag, Button, Drawer, Divider } from 'antd';
-import ThemeColor from './ThemeColor';
-import BlockChecbox from './BlockChecbox';
+//import ThemeColor from './ThemeColor';
+//import BlockChecbox from './BlockChecbox';
+
+import SettingDrawar from './../../components/setting-drawar/index'
 
 const { Meta } = Card;
 //URL link to fetch all products
@@ -55,6 +57,7 @@ export default class mainBoard extends Component {
             projects: []
           };
        this.showDrawar = this.showDrawar.bind(this);   
+       this.setHide = this.setHide.bind(this);
       }
 
       onCollapse = (collapsed) => {
@@ -66,21 +69,18 @@ export default class mainBoard extends Component {
         window.less
         .modifyVars({
           '@layout-header-background': color,
-          '@primary-color': color,
+          //'@primary-color': color,
         })
         
       }
     
-      onClose = () => {
+      onClose = () => {  
         this.setState({
             drawarVisible: false,
         });
       };
 
       showDrawar(){
-
-        console.log("CALLED :: ")
-
         this.setState({
             drawarVisible: true,
           });
@@ -192,9 +192,13 @@ export default class mainBoard extends Component {
         this.getProductData();
     }
 
-    render() {
+    setHide(){
+        this.setState({
+            drawarVisible: false,
+          });
+    }
 
-        console.log('window: ', window);
+    render() {
 
         if (this.state.sourcedef === true) {
             return <Redirect to='/SourceDefinition' />
@@ -202,7 +206,7 @@ export default class mainBoard extends Component {
 
         return (
             <div className='mainDiv'>
-                <Header click = {this.showDrawar}/>
+                <Header click = {this.showDrawar} hide = {this.onClose}/>
                 <div className='cardList'>
                     <HeaderDiv />
                 </div>
@@ -268,71 +272,7 @@ export default class mainBoard extends Component {
 
                     </Row>
                 </div>
-
-
-                <Layout>
-            <div style={{width:"300px"}}>
-
-              <Drawer
-                title="Basic Drawer"
-
-                placement="right"
-                closable={false}
-                onClose={this.onClose}
-                visible={this.state.drawarVisible}
-              >
-
-              <Body1 title="Page style setting">
-            <BlockChecbox
-              list={[
-                {
-                  key: 'dark',
-                  url: 'https://gw.alipayobjects.com/zos/rmsportal/LCkqqYNmvBEbokSDscrm.svg',
-                  title: "Dark",
-                },
-                {
-                  key: 'light',
-                  url: 'https://gw.alipayobjects.com/zos/rmsportal/jpRkZQMyYRryryPNtyIC.svg',
-                  title: "Light",
-                },
-              ]}
-              value = "dark"
-              onChange={value => this.changeSetting('navTheme', value)}
-            />
-          </Body1>
-
-            <div className = "content">
-                <ThemeColor
-                      title="Theme Color"
-                      value="#fff000"
-                      onChange={color => this.changeSetting('primaryColor', color)}
-                />
-            </div>
-
-            <Divider />
-  
-            <Body1 title="Navigation Mode">
-              <BlockChecbox
-                list={[
-                  {
-                    key: 'sidemenu',
-                    url: 'https://gw.alipayobjects.com/zos/rmsportal/JopDzEhOqwOjeNTXkoje.svg',
-                    title: 'Side Menu',
-                  },
-                  {
-                    key: 'topmenu',
-                    url: 'https://gw.alipayobjects.com/zos/rmsportal/KDNDBbriJhLwuqMoxcAr.svg',
-                    title: 'Top Menu',
-                  },
-                ]}
-                
-                onChange={value => this.changeSetting('layout', value)}
-              />
-            </Body1>
-              </Drawer>
-            </div>
-
-          </Layout>     
+                <SettingDrawar visible = {this.state.drawarVisible} onClose = {this.setHide}/>
             </div>
         )
 

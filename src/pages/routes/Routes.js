@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import SourceDefinition from './../source-definition/SourceDefinition';
@@ -18,68 +17,37 @@ import TLogo from './../../components/navbar-logo-single-T/logo'
 import Image from './../../components/navbar-logo/image';
 import MainBoard from './../main-board/mainBoard';
 
+import CustomHeader from '../../pages/header/index'
+
+
 const Search = Input.Search;
 const { Header, Sider, Content } = Layout;
-const menu1 = (
-    <Menu>
-        <Menu.Item key="0">
-            <a>You are all caught up! </a>
-
-        </Menu.Item>
-    </Menu>
-);
-const menu2 = (
-    <Menu>
-        <Menu.Item key="0">
-            <a>No new messages</a>
-        </Menu.Item>
-    </Menu>
-);
-
 
 export default class Routes extends Component {
-
-    /* state = {
-        collapsed: false,
-    }; */
 
     toggle = () => {
         this.setState({
             collapsed: !this.state.collapsed,
         });
     }
+ 
     constructor(props) {
         super(props);
         this.state = {
             collapsed: false,
         }
+
+        this.showDrawar = this.showDrawar.bind(this);
+    }
+
+    showDrawar(){
+
+        this.props.click();
+
     }
 
     render() {
-        const menu3 = (
-            <Menu className="menu">
-                <Menu.Item key="0">
-                    <Icon type="profile"/>
-                    <span><a style={{color:'#757E82'}}>Edit Profile</a></span>
-                </Menu.Item>
-                <Menu.Divider className="menu9" />
-                <Menu.Item key="1">
-                    <Icon type="read"/>
-                    <span><a style={{color:'#757E82'}}>View Profile</a></span>
-                </Menu.Item>
-                <Menu.Divider className="menu9" />
-                <Menu.Item key="2" onClick={this.props.click}>
-                    <Icon type="logout" />
-                    <span><a style={{color:'#757E82'}}>Settings</a></span>
-                </Menu.Item>
-                <Menu.Divider className="menu9" />
-                <Menu.Item key="2">
-                    <Icon type="logout" />
-                    <span><a style={{color:'#757E82'}}>Sign Out</a></span>
-                </Menu.Item>
         
-            </Menu>
-        );
         const logo=this.state.collapsed;
 
         return (
@@ -115,48 +83,10 @@ export default class Routes extends Component {
                                                               
                                 </Sider>
 
-                                {/* <Sider
-                                    trigger={null}
-                                    collapsible
-                                    collapsed={!this.state.collapsed} 
-                                >
-                                    <NavigationBar1 />
-                                </Sider> */}
                                 <Layout>
-                                    <Header style={{ background: '#EE008C', padding: 7, paddingLeft: 18 }} >
-                                        <Icon style={{ fontSize: '26px',color:'#FEF5F9'}}
-                                            className="trigger"
-                                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                                            onClick={this.toggle}
-                                        />
 
-                                        <div className="iconlist" >
-                                            <Dropdown overlay={menu1} trigger={['click']}>
-                                                <a className="iconbell" href="#">
-                                                    <Icon type="bell" style={{ fontSize: '22px', color: '#FFFFFF' }} />
-                                                </a>
-                                            </Dropdown>
+                                <CustomHeader showBurgerMenu = {true} showIcon = {false} collapsedClick = {this.toggle}  showDrawar = {this.showDrawar}/>
 
-
-                                            <Dropdown overlay={menu2} trigger={['click']}>
-                                                <a className="iconbell" href="#">
-                                                    <Icon type="message" className="iconmsg" style={{ fontSize: '22px', color: '#FFFFFF' }} />
-
-                                                </a>
-                                            </Dropdown>
-                                            <Dropdown overlay={menu3} trigger={['click']} onClick={this.showModal}>
-                                                <a className="iconbell" href="#">
-                                                    <Icon type="user" className="iconuser" style={{ fontSize: '22px', color: '#FFFFFF' }} />
-                                                </a>
-
-                                            </Dropdown>
-                                            {/* <Button type="dashed" >
-           < Icon type="plus" />
-         </Button>
-        */}
-
-                                        </div>
-                                    </Header>
                                     <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
                                         <Route
                                             exact

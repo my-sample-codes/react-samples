@@ -1,13 +1,26 @@
 @import "~antd/lib/style/themes/default.less";
 @import "../../../config/styles/variables.less";
 
+/* @primary-color: @layout-header-background; */
+
+/* .ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected{
+    background-color: @layout-header-background;
+} */
+
+// .subMenu > ul > li.ant-menu-item .ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected{
+//     background-color: @layout-header-background;
+// }
 .ant-layout-sider {
-    background: @text-color;
+    background: @text-color !important;
 }
 
 .ant-menu-dark, .ant-menu-dark .ant-menu-sub {
     color: rgba(255, 255, 255, 0.65);
     background:@text-color !important;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+    background-color: rgb(31, 4, 4);
 }
 
 .menus{

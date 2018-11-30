@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import { Menu, Icon } from 'antd';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import './sidebar.css'; 
+import './sidebar.less'; 
 import SourceDefinition from './../../pages/source-definition/SourceDefinition';
 import Image from './../../components/navbar-logo/image';
 import MainBoard from './../../pages/main-board/mainBoard';
@@ -74,7 +74,7 @@ class NavigationBar extends React.Component {
       <Image/>
      </div> */}
           
-        <SubMenu className="menus" key="sub1"  title={ <span> <Icon type="appstore" /> <span>Projects</span> </span> } >  
+        <SubMenu key="sub1"  title={ <span> <Icon type="appstore" /> <span>Projects</span> </span> } >  
           {
             this.state.projects.map(project=>
           <Menu.Item>{project.productName}</Menu.Item>
@@ -92,7 +92,7 @@ class NavigationBar extends React.Component {
         </SubMenu>
       
       </Menu>
-      
+    
     </Link>
      
  
