@@ -5,7 +5,7 @@ import BackgroundImg from './../../assets/images/login_background_img.svg';
 import logo from './../../assets/logos/logo.png';
 import { BrowserRouter as Router, Route, Link, Switch,Redirect } from 'react-router-dom';
 import logo1 from './../../assets/logos/logo-blue.png';
-import welcome from './../welcome/welcome'
+import welcome from './../select-role/welcome'
 import 'antd/dist/antd.css';
 import '../../index.css';
 import './Login.css';

@@ -80,7 +80,7 @@ export default class SourceDefinition extends Component {
      
         return (
           <div>
-            <Breadcrumb className="breadcumb" style={{ marginTop: '-1%', marginBottom: '2%' }}>
+            <Breadcrumb className="breadcumb">
               <Breadcrumb.Item>
                 <Steps size="small" current={0} progressDot>
                   <Step title="Source Definition" />

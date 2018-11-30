@@ -6,7 +6,7 @@ import SourceDefinition from '../../pages/source-definition/SourceDefinition';
 import "antd/dist/antd.css";
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Image from '../../components/navbar-logo/image';
-
+import CustomHeader from './../../components/header/index'
 const { Header } = Layout;
 const Search = Input.Search;
 
@@ -49,48 +49,25 @@ const menu3 = (
 );
 
 class Headers extends Component {
-  render() {
-    return (
-
-      
-      <Header className='header' style={{padding:'0px'}} >
-        <Image/> 
-        {/* <Search className="nav-area1"
-          placeholder=" search here"
-          onSearch={value => console.log(value)}
-          enterButton
-        /> */}
-
-        <div className="iconlist" >
-        <Dropdown overlay={menu1} trigger={['click']}>
-            <a className="iconbell" href="#">
-              <Icon type="bell" style={{ fontSize: '22px', color: '#FFFFFF' }} />
-            </a>
-          </Dropdown>
-
-
-        <Dropdown overlay={menu2} trigger={['click']}>
-            <a className="iconbell" href="#">
-              <Icon type="message" className="iconmsg" style={{ fontSize: '22px', color: '#FFFFFF' }} />
-              
-            </a>
-          </Dropdown>
-        <Dropdown overlay={menu3} trigger={['click']} onClick={this.showModal}>
-            <a className="iconbell" href="#">
-              <Icon type="user" className="iconuser" style={{ fontSize: '22px', color: '#FFFFFF' }} />
-            </a>
-           
-        </Dropdown>
-        {/* <Button type="dashed" >
-           < Icon type="plus" />
-         </Button>
-        */}
-
-        </div>
-
-      </Header>
+  constructor(props){
+    super(props);
+    
+    this.showDrawar = this.showDrawar.bind(this);
+    }
+    
+    showDrawar(){
+    this.props.click();
+    }
+    
+    
+    render() {
+    return (
+    <div>
+    <CustomHeader showBurgerMenu = {false} showIcon = {true} showDrawar = {this.showDrawar}/>
+    </div> 
     );
-  }
+    }
+  
 }
 export default Headers;
 

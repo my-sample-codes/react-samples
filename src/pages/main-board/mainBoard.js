@@ -141,7 +141,19 @@ export default class mainBoard extends Component {
     componentDidMount() {
         this.getProductData();
     }
+    onClose = () => {
+        console.log("Main CLOSE :::")  
+        this.setState({
+            drawarVisible: false,
+        });
+      };
 
+      showDrawar(){
+        this.setState({
+            drawarVisible: true,
+          });
+          console.log("Main Board called :: ",this.state.drawarVisible);      
+      }
     render() {
 
         if (this.state.sourcedef === true) {
@@ -150,7 +162,7 @@ export default class mainBoard extends Component {
 
         return (
             <div className='mainDiv'>
-                <Header />
+                <Header  click = {this.showDrawar} hide = {this.onClose}/>
                
                 <div className='contentDiv'>
                     <HeaderDiv />

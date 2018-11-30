@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { Select, Card, Input, Button, Table, Divider, Tag, Steps, Breadcrumb, Row, Col, Radio, Popover, Icon } from 'antd';
 import RecordTokenizer from './../record-tokenizer/RecordTokenizer';
 import SourceDefinition from './../source-definition/SourceDefinition';
-import './layoutdefinition.css';
+import './LayoutDefinition.css';
 import TaskDesign from './../taskDesign/taskDesign';
 
 var hoverContent = require('./../infomapper.js').default;
@@ -62,7 +62,7 @@ export default class LayoutDefinition extends Component {
         return (
             <div>
                 <div>
-                <Breadcrumb className="breadcumb" style={{marginTop:'-1%',marginBottom:'2%'}}>
+                <Breadcrumb className="breadcumb">
                 <Breadcrumb.Item>
                 <Steps size="small" current={1} progressDot>
                 <Step title="Source Definition" />

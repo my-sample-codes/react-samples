@@ -138,7 +138,7 @@ export default class RecordTokenizer extends Component {
 
         return (
             <div>
-                <Breadcrumb className="breadcumb" style={{marginTop:'-1%',marginBottom:'2%'}}>
+                <Breadcrumb className="breadcumb">
                 <Breadcrumb.Item>
                 <Steps size="small" current={2} progressDot>
                 <Step title="Source Definition" />

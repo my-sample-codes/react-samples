@@ -162,3 +162,7 @@
     color: rgb(131, 131, 131);
     margin-top : px;
 }
+.iconsize.anticon{
+    color: #808080;
+    font-size: 20px;
+}

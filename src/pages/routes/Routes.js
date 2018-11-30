@@ -18,10 +18,10 @@ import TLogo from './../../components/navbar-logo-single-T/logo'
 import Image from './../../components/navbar-logo/image';
 import MainBoard from './../main-board/mainBoard';
 import ReconFlow from '../recon-flow/ReconFlow';
-import welcome from './../welcome/welcome';
+import welcome from './../select-role/welcome';
 import Dashboard from './../dashboard/DashboardLand';
 import flowtype from './../select-flow-type/selflowtype';
-
+import CustomHeader from './../../components/header/index'
 const Search = Input.Search;
 const { Header, Sider, Content } = Layout;
 const menu1 = (
@@ -61,14 +61,28 @@ const menu3 = (
 
 export default class Routes extends Component {
 
-    state = {
+    /* state = {
         collapsed: false,
-    };
+    }; */
 
     toggle = () => {
         this.setState({
             collapsed: !this.state.collapsed,
         });
+    }
+    constructor(props) {
+        super(props);
+        this.state = {
+            collapsed: false,
+        }
+
+        this.showDrawar = this.showDrawar.bind(this);
+    }
+
+    showDrawar(){
+
+        this.props.click();
+
     }
 
     render() {
@@ -127,37 +141,7 @@ export default class Routes extends Component {
                                     <NavigationBar1 />
                                 </Sider> */}
                                 <Layout>
-                                    <Header style={{ background: '#EE008C', padding: 7, paddingLeft: 18 }} >
-                                        <Icon style={{ fontSize: '26px',color:'#FEF5F9'}}
-                                            className="trigger"
-                                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                                            onClick={this.toggle}
-                                        />
-
-                                        <div className="iconlist" >
-                                            <Dropdown overlay={menu1} trigger={['click']}>
-                                                <a className="iconbell" href="#">
-                                                    <Icon type="bell" style={{ fontSize: '22px', color: '#FFFFFF' }} />
-                                                </a>
-                                            </Dropdown>
-
-
-                                            <Dropdown overlay={menu2} trigger={['click']}>
-                                                <a className="iconbell" href="#">
-                                                    <Icon type="message" className="iconmsg" style={{ fontSize: '22px', color: '#FFFFFF' }} />
-
-                                                </a>
-                                            </Dropdown>
-                                            <Dropdown overlay={menu3} trigger={['click']} onClick={this.showModal}>
-                                                <a className="iconbell" href="#">
-                                                    <Icon type="user" className="iconuser" style={{ fontSize: '22px', color: '#FFFFFF' }} />
-                                                </a>
-
-                                            </Dropdown>
-                                           
-
-                                        </div>
-                                    </Header>
+                                <CustomHeader showBurgerMenu = {true} showIcon = {false} collapsedClick = {this.toggle}  showDrawar = {this.showDrawar}/>
                                     <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
                                         <Route
                                             exact
