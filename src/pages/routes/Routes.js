@@ -170,7 +170,7 @@ export default class Routes extends Component {
                                             onClick={this.toggle}
                                         />
 
-                                        <Select placeholder="Select project" className="select" defaultValue={ this.state.defaultval } onChange={this.handleChange}>
+                                        <Select placeholder="Select project" className="selectProject" defaultValue={ this.state.defaultval } onChange={this.handleChange}>
                                         {
                                             this.state.projects.map(project =>
                                                

@@ -42,23 +42,24 @@
 {
   margin-left: 2px;
 } 
-.select > .ant-select-selection--single
+.selectProject > .ant-select-selection--single
 {
-    margin-left: -30%;
-    width: 150px ;
-    background-color: #EE008C;
+    margin-left: 10%;
+    margin-top:-5%;
+    width: 230px ;
+    background-color: #ffffff;
     border: #EE008C;
     outline: none;
 }
-.select > .ant-select-selection--single > .ant-select-selection__rendered > .ant-select-selection-selected-value{
-    color: #fff;
+.selectProject > .ant-select-selection--single > .ant-select-selection__rendered > .ant-select-selection-selected-value{
+    color: #272727;
     font-weight: 600;
 }
-.select > .ant-select-selection--single > .ant-select-arrow .ant-select-arrow-icon{
-    color: #fff;
+.selectProject > .ant-select-selection--single > .ant-select-arrow .ant-select-arrow-icon{
+    color: #272727;
     font-size: 16px;
 }
-.select > .ant-select-focused .ant-select-selection, .ant-select-selection:focus, .ant-select-selection:active{
+.selectProject > .ant-select-focused .ant-select-selection, .ant-select-selection:focus, .ant-select-selection:active{
     box-shadow: none;
 }
 /* .select > .ant-select-selection--single {
