@@ -6,7 +6,7 @@ import DashboardLand from './pages/dashboard/DashboardLand';
 import 'antd/dist/antd.css';
 
 import './index.css';
-import './../src/pages/login/Login.css';
+import './../src/pages/login/Login.less';
 import Routes from './pages/routes/Routes';
 
 class App extends Component {

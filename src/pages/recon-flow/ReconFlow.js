@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Select, Button, Modal, Breadcrumb, Steps, Icon, Input, Card, Row, Col } from 'antd';
-import Compacttable from './../../components/table/compacttable';
+import CompactTable from './../../components/table/CompactTable';
 import Img from './../../assets/images/flowDig.png';
-import './ReconFlow.css'
+import './ReconFlow.less'
 
 const Step = Steps.Step;
 const Option = Select.Option;
@@ -33,7 +33,7 @@ export default class ReconFlow extends Component {
 
       {
         title: <div>
-          <Icon type="plus-circle" theme="filled" className="plus-icon" />
+          <Icon type="plus-circle" theme="filled" className="plusIcon" />
         </div>,
         dataIndex: 'Action',
         key: 'Action',
@@ -58,7 +58,7 @@ export default class ReconFlow extends Component {
 
       {
         title: <div>
-          <Icon type="plus-circle" theme="filled" className="plus-icon" />
+          <Icon type="plus-circle" theme="filled" className="plusIcon" />
         </div>,
         dataIndex: 'Action',
         key: 'Action',
@@ -97,7 +97,7 @@ export default class ReconFlow extends Component {
       },
       {
         title: <div>
-            <Icon type="plus-circle" theme="filled" className="plus-icon" />
+            <Icon type="plus-circle" theme="filled" className="plusIcon" />
         </div>,
         dataIndex: 'Action',
         key: 'Action',
@@ -124,7 +124,7 @@ export default class ReconFlow extends Component {
           Billing: '1111',
 
           Action: <div>
-            <Icon className="delete" type="delete"/>
+            <center><Icon className="icons" type="delete"/></center>
           </div>
 
         },
@@ -154,7 +154,7 @@ export default class ReconFlow extends Component {
 
           ,
           Action: <div>
-            <Icon className="delete" type="delete"/>
+            <center><Icon className="icons" type="delete"/></center>
           </div>
 
         },
@@ -174,7 +174,7 @@ export default class ReconFlow extends Component {
                       
                       ,    
           Action: <div>
-                   <Icon  className="delete" type="delete"/>
+                   <center><Icon  className="icons" type="delete"/></center>
                   </div>
           
         },
@@ -192,7 +192,7 @@ export default class ReconFlow extends Component {
                         
                         ,   
             Action: <div>
-                     <Icon  className="delete" type="delete"/>
+                     <center><Icon  className="icons" type="delete"/></center>
                     </div>
             
           },
@@ -212,7 +212,7 @@ export default class ReconFlow extends Component {
                       
                       ,    
           Action: <div>
-                   <Icon  className="delete" type="delete"/>
+                   <center><Icon  className="icons" type="delete"/></center>
                   </div>
           
         },
@@ -230,7 +230,7 @@ export default class ReconFlow extends Component {
                         
                         ,   
             Action: <div>
-                     <Icon  className="delete" type="delete"/>
+                     <center><Icon  className="icons" type="delete"/></center>
                     </div>
             
           },
@@ -294,11 +294,11 @@ export default class ReconFlow extends Component {
               onOk={this.handleOk}
               okText="Next"
               onCancel={this.handleCancel}
-              className="modal1"
+              className="reconFunctionModal"
             >
 
-              <Breadcrumb className="breadcumb1">
-                <Breadcrumb.Item>
+              <Breadcrumb className="reconBreadcumb">
+                <Breadcrumb.Item className="processSteps">
                   <Steps size="small" current={0} progressDot>
                     <Step title="Transaction Selection Criteria" />
                     <Step title="Matching Rules" />
@@ -307,19 +307,18 @@ export default class ReconFlow extends Component {
                 </Breadcrumb.Item>
               </Breadcrumb>
 
-              <br /><br />
+              <br />
 
               <p className="formLabels">Transaction Selection Criteria :</p>
               <Row>
                 <Col span={12}>
                   <Card>
-                    <Compacttable columns={this.columns} dataSource={this.state.dataSource} />
+                    <CompactTable columns={this.columns} dataSource={this.state.dataSource} />
                   </Card>
                 </Col>
                 <Col span={12}>
-
-                  <Card className="space">
-                    <Compacttable columns={this.columns1} dataSource={this.state.dataSource1} />
+                  <Card className="transactionTable">
+                    <CompactTable columns={this.columns1} dataSource={this.state.dataSource1} />
                   </Card>
                 </Col>
               </Row>
@@ -327,15 +326,15 @@ export default class ReconFlow extends Component {
           </div>
         ) :
           (<div><Modal
-            className="modal1"
+            className="reconFunctionModal"
             title="Recon Function"
             visible={this.state.visible}
             onOk={this.handleModal}
             onCancel={this.handleCancel}
           >
 
-            <Breadcrumb className="breadcumb1">
-              <Breadcrumb.Item>
+            <Breadcrumb className="reconBreadcumb">
+              <Breadcrumb.Item className="processSteps">
                 <Steps size="small" current={1} progressDot>
                   <Step title="Transaction Selection Criteria" />
                   <Step title="Matching Rules" />
@@ -344,26 +343,27 @@ export default class ReconFlow extends Component {
               </Breadcrumb.Item>
             </Breadcrumb>
 
-            <br /><br />
+            <br />
 
-            <p className="formLabels">Priority :</p>
-            <Card className="card1-table">
-              <div className="link-style">
-                <a style={{ marginRight: "15px" }}  >Add Priority</a>
-                <a >Delete Priority</a>
+            <p>Priority :</p>
+            <Card>
+              <p>Priority 1:</p>
+              <CompactTable columns={this.columns2} dataSource={this.state.dataSource3} />
+              
+              <div className="tableOptions">
+                <a>Add Priority</a>
+                <a>Delete Priority</a>
               </div>
-              <p className="priority formLabels">Priority 1:</p>
-              <Compacttable className="margin-class" columns={this.columns2} dataSource={this.state.dataSource3} />
             </Card>
             <br />
 
-            <Card className="card1-table">
-              <div className="link-style">
-                <a style={{ marginRight: "15px" }} >Add Priority</a>
-                <a >Delete Priority</a>
+            <Card>
+              <p>Priority 2:</p>
+              <CompactTable columns={this.columns2} dataSource={this.state.dataSource4} />
+              <div className="tableOptions">
+                <a>Add Priority</a>
+                <a>Delete Priority</a>
               </div>
-              <p className="priority formLabels">Priority 2:</p>
-              <Compacttable className="margin-class" columns={this.columns2} dataSource={this.state.dataSource4} />
             </Card>
 
           </Modal></div>)}

@@ -3,10 +3,16 @@
 @text: #5F5F5F;
 @special-text: #EE008C;
 @icons: #838383;
+@stdColor : #1890ff;
 
 .icons.anticon{
     font-size: 20px;
     color: @icons;
+    cursor: pointer;
+}
+.plusIcon.anticon{
+    color: @stdColor;
+    font-size: 28px;
     cursor: pointer;
 }
 .breadCrum{
@@ -68,4 +74,14 @@ p,.radioBtn{
     -webkit-box-shadow: 0px 1px 0px rgb(204, 202, 202);
      -moz-box-shadow:  0px 1px 0px rgb(204, 202, 202);
      box-shadow:  0px 1px 0px rgb(204, 202, 202);
+}
+.selectElement{
+    width: 230px;
+}
+.toolTips{
+    width: 50px;
+}
+.primaryBtn{
+    background-color: @stdColor;
+    margin-left: 2%;
 }

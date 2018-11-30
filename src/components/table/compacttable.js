@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Table } from 'antd';
-import './compacttable.css';
+import './CompactTable.less';
 
-class Compacttable extends Component {
+class CompactTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,14 +15,10 @@ class Compacttable extends Component {
   render() {
     //console.log('In compatible' , this.props.dataSource)
     return (
-      <div>
-
-        <Table className="ctable" columns={this.props.columns} dataSource={this.props.dataSource}  size="small" bordered="true" />
-
-      </div>
+        <Table className="customTable" columns={this.props.columns} dataSource={this.props.dataSource}  size="small" bordered="true" />
     );
 
   }
 }
 
-export default Compacttable;
+export default CompactTable;

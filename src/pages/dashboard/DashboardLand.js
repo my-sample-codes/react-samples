@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LandingPage from './../../layouts/landing-page';
 import './../../App.css';
-import MainBoard from './../main-board/mainBoard';
+import MainBoard from './../main-board/MainBoard';
 class DashboardLand extends Component {
   render() {
     return (

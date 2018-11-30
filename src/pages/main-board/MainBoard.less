@@ -1,0 +1,104 @@
+//To be added in global file
+// @color_1: #6a7777;
+// @color_2: #fff;
+
+
+
+@background-color-1: rgba(128,128,128,0.14);
+@background-color-2: #fff;
+
+.mainDiv {
+	background-color: @background-color-1;
+}
+.contentDiv {
+	margin-left: 185px;
+	>h4 {
+		color:#6a7777;
+	}
+	>Row {
+		margin-top: 2%;
+	}
+}
+.newProjectButton {
+	width: 100%;
+	height: 130px;
+	background: #039BE5;
+	color: #fff;
+	border-radius: 10px;
+	height: 204px;
+	font-weight: 700;
+	-webkit-box-shadow: 0 2px 8px rgba(3, 155, 229, 0.9);
+	box-shadow: 0 2px 8px rgba(3, 155, 229, 0.9);
+	border: #039BE5;
+	&:focus {
+		width: 100%;
+		height: 130px;
+		background: #039BE5;
+		color:#fff;
+		border-radius: 10px;
+		height: 204px;
+		font-weight: 700;
+		-webkit-box-shadow: 0 2px 8px rgba(3, 155, 229, 0.9);
+		box-shadow: 0 2px 8px rgba(3, 155, 229, 0.9);
+		border: #039BE5;
+	}
+	&:hover {
+		background: #0288D1;
+		color:  #fff;
+		transform: scale(1.05);
+	}
+}
+.addIcon {
+	font-size: 40px;
+}
+.projectCards {
+	-webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+	border-radius: 10px;
+	height: 204px;
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+.projectDetails {
+	height: -webkit-fill-available;
+}
+.descriptionData {
+	width: 200px;
+	display: block;
+	max-width: 100%;
+	height: 30px;
+	margin: 50 auto;
+	font-size: 14px;
+	line-height: 1;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.menulist {
+	float: right;
+	margin-top: -32px;
+	height: 50px;
+	width: 60px;
+}
+.supportLink {
+	margin-left: 2%;
+}
+.menuIconStyle {
+	border-top: none;
+	float: right;
+}
+.menuIcon {
+	font-size: 24px;
+	background-color: @background-color-2;
+	border-radius: 4px;
+	&:hover {
+		transform: scale(1.2);
+		background-color: @background-color-1;
+	}
+}
+.ant-col-7 {
+	margin-bottom: 2%;
+	height: 204px;
+}

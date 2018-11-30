@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Table, Popconfirm, Icon} from 'antd';
-import Compacttable from './../../components/table/compacttable';
+import CompactTable from './../../components/table/CompactTable';
 import './SourceDefinition.less'
   
 class Tables extends Component {
@@ -85,7 +85,7 @@ class Tables extends Component {
       const { dataSource } = this.state;
       const columns = this.columns;
       return (
-        <Compacttable columns={columns}  dataSource={dataSource}/*  pagination={{ pageSize: 10 }} */ />
+        <CompactTable columns={columns}  dataSource={dataSource}/*  pagination={{ pageSize: 10 }} */ />
       );
     }
   }

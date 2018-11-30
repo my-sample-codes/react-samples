@@ -1,53 +1,35 @@
-/* @import "../../../config/styles/variables.less";
-
-.ant-layout-header {
-  background: @primary-color;
-} */
+@import "./../../styleSheet.less";
 
 .header{
-    background-color: #EE008C;
-    padding: .25 rem;
-    width: '100%';
-    text-align: left;
-    font: bold 3em Georgia, serif;
+  background-color: #EE008C;
+  padding: 0px;
+  width: '100%';
+  text-align: left;
+  font: bold 3em Georgia, serif;
 
-}
+  .burgerMenu{
+    font-size: 26px;
+    color: #FEF5F9;
+    margin-left: 1%; 
+  }
 
-.nav-area1{
-    background:  #EE008C ;
-    height:30px;
-    width: 250px;
-    margin-left: 80px;
-}
-
-.test
-{
-   background-color:  #ffffff ;
-}
-.menu
-{  
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: center;
-}
-.iconlist{
+  .headerIcons{
     float: right;
-    margin-right: 25px;
-
+    margin-right: 25px;  
+    .ant-dropdown-trigger{
+      .anticon:not(.anticon-ellipsis){
+        font-size: 22px;
+        color: #FFFFFF;
+        margin-left: 10px;
+      }
+    }  
+  }
 }
-.iconbell
-{
-  margin-left: 20px;
+.profileMenu.ant-dropdown-menu-item{
+  Icon{
+    color: @text;
+  }
+  span > a{
+    color: @text;
+  }
 }
-.iconmsg
-{
-  margin-left: 5px;
- 
-}
-.iconuser
-{
-  margin-left: 2px;
-} 
-
-
- 

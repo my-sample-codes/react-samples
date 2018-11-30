@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Breadcrumb } from 'antd';
 import 'antd/dist/antd.css';
-import './breadcumb.css';
+import './breadcumb.less';
 import { Steps } from 'antd';
 
 const Step = Steps.Step;
@@ -11,7 +11,7 @@ class Breadcumb extends Component {
     render() {
         return (
             <Breadcrumb className="breadcumb">
-                <Breadcrumb.Item>
+                <Breadcrumb.Item className="processSteps">
                     <Steps size="small" current={1}>
                         <Step title="Source Definition" />
                         <Step title="Layout Definition" />

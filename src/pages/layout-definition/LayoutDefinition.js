@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { Select, Card, Input, Button, Table, Divider, Tag, Steps, Breadcrumb, Row, Col, Radio, Popover, Icon } from 'antd';
 import RecordTokenizer from './../record-tokenizer/RecordTokenizer';
 import SourceDefinition from './../source-definition/SourceDefinition';
-import './layoutdefinition.less';
+import './LayoutDefinition.less';
 import TaskDesign from './../taskDesign/taskDesign';
-import Compacttable from "./../../components/table/compacttable"
+import CompactTable from "./../../components/table/CompactTable"
 var hoverContent = require('./../infomapper.js').default;
 
 const { TextArea } = Input;
@@ -143,7 +143,7 @@ export default class LayoutDefinition extends Component {
                             <Card
                                 title="Section Identification"
                                 className="cardStyle">
-                                <Compacttable columns={columns} dataSource={data}/>                               
+                                <CompactTable columns={columns} dataSource={data}/>                               
                             </Card>
 
                             <Link to="/SourceDefinition">

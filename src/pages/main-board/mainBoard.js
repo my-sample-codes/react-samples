@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-rou
 import SourceDefinition from '../source-definition/SourceDefinition';
 import CollectionCreateForm from '../popup-form/collection'
 import HeaderDiv from './headerDiv';
-import './mainBoard.css';
+import './MainBoard.less';
 import Header from './../../layouts/header/index';
 import SiderLayout from './../../layouts/layout2/SiderLayout';
 import flowtype from './../select-flow-type/selflowtype';
@@ -24,7 +24,6 @@ const menu1 = (
         <Menu.Item key="1">
             <a >Delete</a>
         </Menu.Item>
-
     </Menu>
 );
 export default class mainBoard extends Component {

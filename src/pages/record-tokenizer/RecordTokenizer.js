@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { Select, Card, Input, Button, Table, Divider, Tag, Radio, Steps, Breadcrumb, Layout, Row, Col, Popover, Icon } from 'antd';
-import './recordtokenizer.css';
+import './RecordTokenizer.less';
 
 import LayoutDefinition from './../layout-definition/LayoutDefinition';
 import TaskDesign from './../taskDesign/taskDesign';
+import CompactTable from '../../components/table/CompactTable';
 
 const Step = Steps.Step;
 const RadioGroup = Radio.Group;
@@ -33,7 +34,7 @@ const columns = [{
 }, {
 
     title: <div>
-        <Icon type="plus-circle" theme="filled" className="plus-icon1" />
+        <center><Icon type="plus-circle" theme="filled" className="plusIcon icons" /></center>
     </div>,
     dataIndex: 'Action',
     key: 'Action',
@@ -47,9 +48,9 @@ const data = [{
     FieldSize: '2',
     EncodingType: 'ASCII',
     Action: <div><center>
-        <Icon className="edit-delete" type="edit"/>
+        <Icon className="icons" type="edit"/>
 
-        <Icon className="edit-delete" type="delete"/></center>
+        <Icon className="icons" type="delete"/></center>
     </div>
 }, {
     key: '2',
@@ -59,9 +60,9 @@ const data = [{
     FieldSize: '64',
     EncodingType: 'ASCII',
     Action: <div><center>
-        <Icon className="edit-delete" type="edit"/>
+        <Icon className="icons" type="edit"/>
 
-        <Icon className="edit-delete" type="delete"/></center>
+        <Icon className="icons" type="delete"/></center>
     </div>
 },
 {
@@ -72,9 +73,9 @@ const data = [{
     FieldSize: '2',
     EncodingType: 'ASCII',
     Action: <div><center>
-        <Icon className="edit-delete" type="edit"/>
+        <Icon className="icons" type="edit"/>
 
-        <Icon className="edit-delete" type="delete"/></center>
+        <Icon className="icons" type="delete"/></center>
     </div>
 }];
 
@@ -139,7 +140,7 @@ export default class RecordTokenizer extends Component {
         return (
             <div>
                 <Breadcrumb className="breadcumb">
-                <Breadcrumb.Item>
+                <Breadcrumb.Item className="processSteps">
                 <Steps size="small" current={2} progressDot>
                 <Step title="Source Definition" />
                 <Step title="Layout Definition" />
@@ -149,41 +150,31 @@ export default class RecordTokenizer extends Component {
               </Breadcrumb.Item>
             </Breadcrumb> 
                 <h2>Record Tokenizer</h2>
-                <Card className="record-card">
+                <Card className="cardStyle">
                     <div>
                         <Row>
                             <Col span={3}>
-                                <label className="extractor-details">Extractor Details :</label>
+                                <label className="subHeading3">Extractor Details :</label>
                             </Col>
                             <Col span={8}>
-
-
                                 <Select
                                     showSearch
-                                    className="slt-ret"
+                                    className="selectElement"
                                     placeholder="Record Extractor types"
                                     optionFilterProp="children"
                                     onChange={handleChange}
                                     onFocus={handleFocus}
-                                    onBlur={handleBlur}
-                                 
+                                    onBlur={handleBlur}                                 
                                     filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                                 >
                                     <Option value="delimited">Delimited record tokenizer</Option>
-                                    <Option value="fixed">Fixed length record tokenizer</Option>
-
-                                 
+                                    <Option value="fixed">Fixed length record tokenizer</Option>                           
                                 </Select>
 
                             </Col>
                             <Col span={8}>
-                                <Popover placement="right" title="Datasets"
-                                    content={hoverContent.maparray.RecordExtract}
-                                    // <DatasetCard/>
-                                    style={{ width: "50px" }}
-
-                                >
-                                    {/*  <Icon className="info-icon" type="question-circle" style={{marginLeft:"0px" , marginTop:"-5px"}} /> */}
+                                <Popover className="toolTips" placement="right" title="Datasets"
+                                    content={hoverContent.maparray.RecordExtract}>
                                 </Popover>
                             </Col>
                         </Row>
@@ -191,13 +182,13 @@ export default class RecordTokenizer extends Component {
                     <br /><div>
                    
                         <RadioGroup onChange={this.onChange} value={this.state.value}>
-                            <Radio value="line" className="radio">Line</Radio>
-                            <Radio value="comma" className="radio">Comma</Radio>
-                            <Radio value="colon" className="radio">Colon</Radio>
+                            <Radio value="line" className="radioBtn">Line</Radio>
+                            <Radio value="comma" className="radioBtn">Comma</Radio>
+                            <Radio value="colon" className="radioBtn">Colon</Radio>
                             {/* <Radio value="others" className="radio" onChange={this.textappear}>Others</Radio> */}
-                            <Radio value={4}>
+                            <Radio value={4} className="radioBtn">
                                 Others
-                                    {this.state.value === 4 ? <Input placeholder="Enter Delimiter " style={{ width: 150, marginLeft: 10 }} /> : null}
+                                    {this.state.value === 4 ? <Input placeholder="Enter Delimiter" style={{ width: 150, marginLeft: 10 }} /> : null}
                             </Radio>
                         </RadioGroup>
                         
@@ -208,14 +199,11 @@ export default class RecordTokenizer extends Component {
                 <br />
                 <Card
                     title="Field Tokenization"
-                    className="field-card"
+                    className="styleCard"
                     extra={
                         <Popover placement="right" title="Datasets"
-                            content={hoverContent.maparray.RecordExtract}
-                        // <DatasetCard/>
-
-                        >
-                            <Icon className="info-icon" type="question-circle" style={{cursor:'pointer', marginRight: "820px", marginTop: "-8px" }} />
+                            content={hoverContent.maparray.RecordExtract}>
+                            <Icon className="icons" type="question-circle" style={{cursor:'pointer', marginRight: "820px", marginTop: "-8px" }} />
                         </Popover>
 
                     }
@@ -223,17 +211,17 @@ export default class RecordTokenizer extends Component {
                     <div>
                         <Select
                             showSearch
-                            className="slt-ft"
+                            className="selectElement"
                             placeholder="Section Detail types"
                             optionFilterProp="children"
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                         >
                             <Option value="Header">Data (*)</Option>
-                        </Select>
+                        </Select>&nbsp;&nbsp;
 
                         <Select
                             showSearch
-                            className="slt-ft"
+                            className="selectElement"
                             placeholder="Record Tokenizer types"
                             optionFilterProp="children"
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
@@ -244,17 +232,16 @@ export default class RecordTokenizer extends Component {
                     </div>
                     <br />
                     <div>
-                        <Table size="small" columns={columns} dataSource={data} className="record-table ctable" />
+                        <CompactTable columns={columns} dataSource={data}/>
                     </div>
-                </Card>
+                </Card><br/>
 
                 <Link to="/LayoutDefinition">
-                    <Button className="btn">Back</Button>
+                    <Button>Back</Button>
                 </Link>
                 <Link to="/TaskDesign">
-                    <Button type='primary' className="btn">Next</Button>
+                    <Button type='primary' className="primaryBtn">Next</Button>
                 </Link>
-                {/* <Button type='primary' className="btn">Complete Step</Button> */}
             </div>
         )
     }

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import SourceDefinition from './../source-definition/SourceDefinition';
 import LayoutDefinition from './../layout-definition/LayoutDefinition';
 import RecordTokenizer from './../record-tokenizer/RecordTokenizer';
-import Login from './../login/LoginForm';
+import Login from './../login/Login';
 import SiderLayout from './../../layouts/layout2/SiderLayout'
 export default class Routes2 extends Component {
 

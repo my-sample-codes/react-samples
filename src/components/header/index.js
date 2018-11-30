@@ -38,57 +38,55 @@ export default class CustomHeader extends React.Component {
     render() {
 
         const menu3 = (
-            <Menu className="menu">
-                <Menu.Item key="0">
+            <Menu>
+                <Menu.Item key="0" className="profileMenu">
                     <Icon type="profile" />
-                    <span><a style={{ color: '#757E82' }}>Edit Profile</a></span>
+                    <span><a>Edit Profile</a></span>
                 </Menu.Item>
-                <Menu.Divider className="menu9" />
-                <Menu.Item key="1">
+                <Menu.Divider/>
+                <Menu.Item key="1" className="profileMenu">
                     <Icon type="read" />
-                    <span><a style={{ color: '#757E82' }}>View Profile</a></span>
+                    <span><a>View Profile</a></span>
                 </Menu.Item>
-                {/* <Menu.Divider className="menu9" />
-                <Menu.Item key="2" onClick={this.props.showDrawar}>
+                {/* <Menu.Divider/>
+                <Menu.Item key="2" onClick={this.props.showDrawar} className="profileMenu">
                     <Icon type="logout" />
-                    <span><a style={{ color: '#757E82' }}>Settings</a></span>
+                    <span><a>Settings</a></span>
                 </Menu.Item> */}
-                <Menu.Divider className="menu9" />
-                <Menu.Item key="2">
+                <Menu.Divider/>
+                <Menu.Item key="2" className="profileMenu">
                     <Icon type="logout" />
-                    <span><a style={{ color: '#757E82' }}>Sign Out</a></span>
+                    <span><a>Sign Out</a></span>
                 </Menu.Item>
-
             </Menu>
         );
 
         return (
-            <Header className='header' style={{ padding: '0px' }}>
+            <Header className='header'>
 
                 {this.showIcon ? <Image /> : null}
 
-                {this.showBurgerMenu ? <Icon style={{ fontSize: '26px', color: '#FEF5F9',marginLeft:'1%' }}
-                    className="trigger"
+                {this.showBurgerMenu ? <Icon className="burgerMenu"
                     type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                     onClick={this.props.collapsedClick}
                 /> : null}
 
-                <div className="iconlist" >
+                <div className="headerIcons" >
                     <Dropdown overlay={menu1} trigger={['click']}>
-                        <a className="iconbell" href="#">
-                            <Icon type="bell" style={{ fontSize: '22px', color: '#FFFFFF' }} />
+                        <a href="#">
+                            <Icon type="bell"/>
                         </a>
                     </Dropdown>
 
                     <Dropdown overlay={menu2} trigger={['click']}>
-                        <a className="iconbell" href="#">
-                            <Icon type="message" className="iconmsg" style={{ fontSize: '22px', color: '#FFFFFF' }} />
+                        <a href="#">
+                            <Icon type="message"/>
                         </a>
                     </Dropdown>
 
                     <Dropdown overlay={menu3} trigger={['click']} onClick={this.showModal}>
-                        <a className="iconbell" href="#">
-                            <Icon type="user" className="iconuser" style={{ fontSize: '22px', color: '#FFFFFF' }} />
+                        <a href="#">
+                            <Icon type="user"/>
                         </a>
                     </Dropdown>
                 </div>
