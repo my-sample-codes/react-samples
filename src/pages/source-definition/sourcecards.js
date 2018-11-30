@@ -60,7 +60,7 @@ class SourceCards extends Component {
                   <div className="icon-div">
                     <Icon className="card-icons" type="file-text" />
                   </div>
-                  <Card className="stylecards" bordered={true}>Browse repo / marketplace for more
+                  <Card className="stylecards" bordered={true}>Browse for more supported Source types
                   </Card>
                {/*  </Upload>
  */}

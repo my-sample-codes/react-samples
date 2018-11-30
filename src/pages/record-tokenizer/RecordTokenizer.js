@@ -5,10 +5,10 @@ import './recordtokenizer.css';
 
 import LayoutDefinition from './../layout-definition/LayoutDefinition';
 
+
 const Step = Steps.Step;
 const RadioGroup = Radio.Group;
 var  hoverContent  =  require('./../infomapper.js').default;
-
 const columns = [{
     title: 'Field Name',
     dataIndex: 'FieldName',
@@ -32,7 +32,7 @@ const columns = [{
 }, {
 
     title: <div>
-        <Icon type="plus-circle" theme="filled" className="plus-icon1" />
+        <Icon type="plus-circle" theme="filled" className="plus-icon" />
     </div>,
     dataIndex: 'Action',
     key: 'Action',
@@ -45,10 +45,10 @@ const data = [{
     Type: 'Fixed',
     FieldSize: '2',
     EncodingType: 'ASCII',
-    Action: <div><center>
-        <Icon className="edit-delete" type="edit"/>
+    Action: <div>
+        <Icon className="edit-delete" type="edit" theme="filled" />
 
-        <Icon className="edit-delete" type="delete"/></center>
+        <Icon className="edit-delete" type="delete" theme="filled" />
     </div>
 }, {
     key: '2',
@@ -57,10 +57,10 @@ const data = [{
     Type: 'Fixed',
     FieldSize: '64',
     EncodingType: 'ASCII',
-    Action: <div><center>
-        <Icon className="edit-delete" type="edit"/>
+    Action: <div>
+        <Icon className="edit-delete" type="edit" theme="filled" />
 
-        <Icon className="edit-delete" type="delete"/></center>
+        <Icon className="edit-delete" type="delete" theme="filled" />
     </div>
 },
 {
@@ -70,10 +70,10 @@ const data = [{
     Type: 'Fixed',
     FieldSize: '2',
     EncodingType: 'ASCII',
-    Action: <div><center>
-        <Icon className="edit-delete" type="edit"/>
+    Action: <div>
+        <Icon className="edit-delete" type="edit" theme="filled" />
 
-        <Icon className="edit-delete" type="delete"/></center>
+        <Icon className="edit-delete" type="delete" theme="filled" />
     </div>
 }];
 
@@ -82,7 +82,14 @@ export default class RecordTokenizer extends Component {
 
     state = {
         value: '',
-        recordtype:''
+        recordtype: 1,
+        dlt:''
+    }
+
+    showRadio = (e) => { 
+       
+        console.log("Data::::",e);
+        this.setState({ dlt:e}); 
     }
 
     onChange = (e) => {
@@ -92,38 +99,26 @@ export default class RecordTokenizer extends Component {
         });
     }
 
-    textappear = (e) => {
-        console.log('helooooo');
-        // return(<div>
-        //     <input placeholder="jhuhgfjhg"></input>
-        // </div>);
-
+    chngRec(rec)
+    {
+        this.setState({recordtype:rec});
     }
 
- /*  
-    onChange1 = (e) => {
-        console.log('radio checked', e.target.value);
-        this.setState({
-            recordtype: e.target.value,
-        });
-    }
- */
-
- chngRec(rec)
- {
-     this.setState({recordtype:rec});
- }
     render() {
 
         const Option = Select.Option;
         var record='';
-        this.state.recordtype=record;
+        // this.state.recordtype=record;
         function handleChange(value) {
             console.log(`selected ${value}`);
-         /*    console.log("Option::",Option); */
-            record=value;
-            console.log("Record::",record);
-          /*   this.chngRec(record); */
+            // record=value;
+            // console.log("Record::",record);
+            // chngRec(record);
+        }
+
+        function handleIt() {
+            record=this.state.value;
+            console.log("record", record);
         }
 
         function handleBlur() {
@@ -162,7 +157,7 @@ export default class RecordTokenizer extends Component {
                                     className="slt-ret"
                                     placeholder="Record Extractor types"
                                     optionFilterProp="children"
-                                    onChange={handleChange}
+                                    onChange={this.showRadio}
                                     onFocus={handleFocus}
                                     onBlur={handleBlur}
                                  
@@ -187,22 +182,30 @@ export default class RecordTokenizer extends Component {
                             </Col>
                         </Row>
                     </div>
-                    <br /><div>
-                   
+                    <br />
+                    {this.state.dlt === "delimited" ?
+                
+                     (
                         <RadioGroup onChange={this.onChange} value={this.state.value}>
-                            <Radio value="line" className="radio">Line</Radio>
-                            <Radio value="comma" className="radio">Comma</Radio>
-                            <Radio value="colon" className="radio">Colon</Radio>
-                            {/* <Radio value="others" className="radio" onChange={this.textappear}>Others</Radio> */}
-                            <Radio value={4}>
-                                Others
-                                    {this.state.value === 4 ? <Input placeholder="Enter Delimiter " style={{ width: 150, marginLeft: 10 }} /> : null}
-                            </Radio>
-                        </RadioGroup>
-                        
+                        <Radio value="line" className="radio">Line</Radio>
+                        <Radio value="comma" className="radio">Comma</Radio>
+                        <Radio value="colon" className="radio">Colon</Radio>
+                        {/* <Radio value="others" className="radio" onChange={this.textappear}>Others</Radio> */}
+                        <Radio value={4}>
+                            Others
+                                {this.state.value === 4 ? <Input placeholder="Enter Delimiter " style={{ width: 150, marginLeft: 10 }} /> : null}
+                        </Radio>
+                    </RadioGroup>
+                    )
+                    :
+                    this.state.dlt === "fixed" ?
+                    (
+                    <div>Enter your Record Size:   
                         <Input placeholder="Enter Record Size " style={{ width: 150, marginLeft: 10 }}/>
-                    
-                    </div>
+                    </div>)
+                    :(<div/>)
+                }
+
                 </Card>
                 <br />
                 <Card
@@ -214,7 +217,7 @@ export default class RecordTokenizer extends Component {
                         // <DatasetCard/>
 
                         >
-                            <Icon className="info-icon" type="question-circle" style={{cursor:'pointer', marginRight: "820px", marginTop: "-8px" }} />
+                            <Icon className="info-icon" type="question-circle" style={{ marginRight: "820px", marginTop: "-8px" }} />
                         </Popover>
 
                     }
@@ -227,7 +230,7 @@ export default class RecordTokenizer extends Component {
                             optionFilterProp="children"
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                         >
-                            <Option value="Header">Data (*)</Option>
+                            <Option value="Header">Header</Option>
                         </Select>
 
                         <Select
@@ -243,7 +246,7 @@ export default class RecordTokenizer extends Component {
                     </div>
                     <br />
                     <div>
-                        <Table size="small" columns={columns} dataSource={data} className="record-table ctable" />
+                        <Table size="small" columns={columns} dataSource={data} className="record-table" />
                     </div>
                 </Card>
 

@@ -98,7 +98,7 @@ export default class SourceDefinition extends Component {
             <div><CardTable /></div>
             <br/>
             <div>
-              <Link to="/Login">
+              <Link to="/flowtype">
                 <Button className="next-btn">Back</Button>
               </Link>
               <Link to="/LayoutDefinition">

@@ -54,7 +54,7 @@ class Headers extends Component {
 
       
       <Header className='header' style={{padding:'0px'}} >
-        <Image/> 
+       <Link to="welcome"> <Image/> </Link>
         {/* <Search className="nav-area1"
           placeholder=" search here"
           onSearch={value => console.log(value)}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import { Select, Card, Input, Button, Table, Divider, Tag, Steps, Breadcrumb, Row, Col, Radio, Popover, Icon } from 'antd';
+import { Select, Card, Input, Button, Table, Divider, Tag, Steps, Breadcrumb, Row, Col, Radio, Popover, Icon, Upload } from 'antd';
 import RecordTokenizer from './../record-tokenizer/RecordTokenizer';
 import SourceDefinition from './../source-definition/SourceDefinition';
 import './layoutdefinition.css';
@@ -32,6 +32,7 @@ export default class LayoutDefinition extends Component {
 
     state = {
         value: '',
+        val2:''
     }
 
 
@@ -39,6 +40,13 @@ export default class LayoutDefinition extends Component {
         console.log('radio checked', e.target.value);
         this.setState({
             value: e.target.value,
+        });
+    }
+
+    onChange2 = (e) => {
+        console.log('radio checked', e.target.value);
+        this.setState({
+            val2: e.target.value,
         });
     }
 
@@ -58,6 +66,8 @@ export default class LayoutDefinition extends Component {
         }
 
         const val = this.state.value;
+        const val2=this.state.val2;
+
         return (
             <div>
                 <div>
@@ -72,17 +82,15 @@ export default class LayoutDefinition extends Component {
               </Breadcrumb.Item>
             </Breadcrumb> 
                     <h2>Layout Definition</h2>
-                    { !(val === 'yes'|| val=='no')?( 
+                    { !(val === 'yes')?( 
                     <div>
                         <h3>
                             Does the file have multiple data sections?  &nbsp;&nbsp;
                     <RadioGroup onChange={this.onChange} value={this.state.value}>
                                 <Radio value="yes" >Yes</Radio>
-                                <Link to="/RecordTokenizer">
                                     <Radio value="no" >No</Radio>
-                                </Link>
-
                             </RadioGroup>
+
                             <Popover placement="right" title="Datasets"
                                 content={hoverContent.maparray.question_info}
                             >
@@ -92,6 +100,34 @@ export default class LayoutDefinition extends Component {
                         </h3> 
                     </div>):(<div></div>)}
                     <br />
+                    { (val === 'no')?( 
+                    <div>
+                        <h3>
+                            Does the your file have column header?  &nbsp;&nbsp;
+                          <RadioGroup onChange={this.onChange2} value={this.state.val2}>
+                                <Radio value="positive" >Yes</Radio>
+                                    <Link to="/RecordTokenizer">
+                                    <Radio value="negative" >No</Radio>
+                                    </Link>
+                            </RadioGroup>
+                            
+                            <Popover placement="right" title="Datasets"
+                                content={hoverContent.maparray.question_info}
+                            >
+                                <Icon className="info-icon" type="question-circle" style={{ marginTop: "5px",cursor:'pointer' }} />
+                            </Popover>
+
+                        </h3> 
+                    </div>):(<div></div>)}<br/>
+                    { (val2 === 'positive')?( 
+                    <div>
+                         <Upload >
+            <Button className="ant-btn btn ant-btn-primary" >Upload Sample file</Button>
+          </Upload>
+                       <Link to="/RecordTokenizer">
+            <Button className="ant-btn btn ant-btn-primary" >Next</Button>
+          </Link>
+                    </div>):(<div></div>)}
                 </div>
 
                 {
@@ -113,6 +149,7 @@ export default class LayoutDefinition extends Component {
                                                 onChange={handleChange}
                                                 onFocus={handleFocus}
                                                 onBlur={handleBlur}
+                                                defaultValue="UTF-8"
                                                 filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                                             >
                                                 <Option value="utf8">UTF-8</Option>

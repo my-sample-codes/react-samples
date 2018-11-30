@@ -150,11 +150,11 @@ export default class Routes extends Component {
                                     collapsed={this.state.collapsed}
 
                                 >
-                                    {logo ? (
-                                        <div className='sidebar'><div><TLogo /></div><div><NavigationBar param={this.state.openProject} /></div></div>
-                                    ) : (
-                                            <div className='sidebar'><div><Image /></div><div><NavigationBar param={this.state.openProject} /></div></div>)
-                                    }
+                                {logo ? (
+                                    <div className='sidebar'><div><Link to="/welcome"><TLogo /></Link></div><div><NavigationBar param = {this.state.openProject}/></div></div>
+                                ) : (
+                                        <div className='sidebar'><div><Link to="/welcome"><Image /></Link></div><div><NavigationBar param = {this.state.openProject} /></div></div>)
+                                }
 
                                 </Sider>
 
