@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import BpmnModeler from "./custom-modeler";
-import { Button, Steps, Breadcrumb } from 'antd';
+import { Button, Steps, Breadcrumb, Upload, message } from 'antd';
 import "./style/app.less";
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import xmlStr from "./assets/bpmn/xmlStr";
@@ -14,7 +14,8 @@ export default class BpmnBoard extends Component {
     super(props);
     this.state = {
       csvIsOpen: false,
-      formIsopen: false
+      formIsopen: false,
+      autoConfigDisable: true
     }
     this.handleSave = this.handleSave.bind(this);
     this.csvDialogBoxStateChange = this.csvDialogBoxStateChange.bind(this);
@@ -23,7 +24,7 @@ export default class BpmnBoard extends Component {
     this.eventListener = this.eventListener.bind(this);
     this.formDialogBoxStateChange = this.formDialogBoxStateChange.bind(this);
     this.data = require('./input.json');
-    console.log("this.data", this.data);
+    this.onUploadChange = this.onUploadChange.bind(this);
   }
 
   componentDidMount() {
@@ -67,7 +68,7 @@ export default class BpmnBoard extends Component {
 
   showDialogBox(e) {
 
-    if (e.element.type === "custom:csv" || e.element.type === "custom:xls") {
+    if (e.element.type === "custom:csv" || e.element.type === "custom:xls" || e.element.type === 'bpmn:Task') {
       this.setState({ csvIsOpen: true });
     } else if (e.element.type === "bpmn:StartEvent" || e.element.type === "bpmn:EndEvent" || e.element.type === "bpmn:Task") {
       this.setState({ formIsopen: true })
@@ -111,7 +112,28 @@ export default class BpmnBoard extends Component {
     this.setState({ formIsopen: false });
   }
 
+  onUploadChange(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      this.setState({ autoConfigDisable: false });
+      message.success(`${info.file.name} file uploaded successfully you can now use auto Configuration`);
+    } else if (info.file.status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  }
+
   render() {
+    const props = {
+      name: 'file',
+      action: '//jsonplaceholder.typicode.com/posts/',
+      headers: {
+        authorization: 'authorization-text',
+      }, onChange: this.onUploadChange,
+      multiple: false
+    };
+
     return (
 
       <div>
@@ -132,11 +154,17 @@ export default class BpmnBoard extends Component {
         </div>
 
         <div id="canvas" />
-        <div>
+        <div className="inlineButton">
           <Link to="/RecordTokenizer">
             <Button className="ant-btn btn ant-btn-primary">Back</Button>
           </Link>
           <Button className="ant-btn btn ant-btn-primary" onClick={this.handleSave} >Save Diagram</Button>
+          <Upload {...props}>
+            <Button className="ant-btn btn ant-btn-primary" >Upload Sample file</Button>
+          </Upload>
+          <Link to="/tablescreen">
+            <Button className="ant-btn btn ant-btn-primary" disabled={this.state.autoConfigDisable}>Test Run</Button>
+          </Link>
         </div>
       </div>
     );

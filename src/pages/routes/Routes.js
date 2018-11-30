@@ -21,6 +21,9 @@ import ReconFlow from '../recon-flow/ReconFlow';
 import welcome from './../welcome/welcome';
 import Dashboard from './../dashboard/DashboardLand';
 import flowtype from './../select-flow-type/selflowtype';
+import tablescreen from './../tablescreen/tabscreen'
+import tablescreen1 from './../tablescreen/tabscreen1'
+import tablescreen2 from './../tablescreen/tabscreen2'
 
 const Search = Input.Search;
 const Option = Select.Option;
@@ -43,18 +46,18 @@ const menu2 = (
 const menu3 = (
     <Menu className="menu">
         <Menu.Item key="0">
-            <Icon type="profile"/>
-            <span><a style={{color:'#757E82'}}>Edit Profile</a></span>
+            <Icon type="profile" />
+            <span><a style={{ color: '#757E82' }}>Edit Profile</a></span>
         </Menu.Item>
         <Menu.Divider className="menu9" />
         <Menu.Item key="1">
-            <Icon type="read"/>
-            <span><a style={{color:'#757E82'}}>View Profile</a></span>
+            <Icon type="read" />
+            <span><a style={{ color: '#757E82' }}>View Profile</a></span>
         </Menu.Item>
         <Menu.Divider className="menu9" />
         <Menu.Item key="2">
             <Icon type="logout" />
-            <span><a style={{color:'#757E82'}}>Sign Out</a></span>
+            <span><a style={{ color: '#757E82' }}>Sign Out</a></span>
         </Menu.Item>
 
     </Menu>
@@ -63,43 +66,43 @@ const menu3 = (
 
 export default class Routes extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             collapsed: false,
             projects: [],
-            openProject : "Chase Payment",
-            defaultval:'Chase Payment'
+            openProject: "Chase Payment",
+            defaultval: 'Chase Payment'
         };
-        this.handleChange=this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
-         handleChange(value) {
-            console.log(`selected ${value}`);
-    
-            const openArray = [];
-            openArray.push(value);
-    
-            this.setState({ openProject: value });
-        }
+    handleChange(value) {
+        console.log(`selected ${value}`);
+
+        const openArray = [];
+        openArray.push(value);
+
+        this.setState({ openProject: value });
+    }
 
     componentDidMount() {
-        
-                fetch("http://10.11.14.79:8081/recon/product/getlist/")
-                    .then(res => res.json())
-                    .then(
-                        (result) => {
-                            console.log("Result::", result)
-                            this.setState({
-                                projects: result
-                            });
-                        },
-        
-                        (error) => {
-                            console.log("Cannot fetch product list");
-                            console.log(error);
-                        }
-                    )
-            }
+
+        fetch("http://10.11.14.79:8081/recon/product/getlist/")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    console.log("Result::", result)
+                    this.setState({
+                        projects: result
+                    });
+                },
+
+                (error) => {
+                    console.log("Cannot fetch product list");
+                    console.log(error);
+                }
+            )
+    }
 
     toggle = () => {
         this.setState({
@@ -110,7 +113,7 @@ export default class Routes extends Component {
 
     render() {
 
-        const logo=this.state.collapsed;
+        const logo = this.state.collapsed;
 
         return (
             <div>
@@ -122,13 +125,13 @@ export default class Routes extends Component {
                                 path="/"
                                 component={Login}
                             />
-                             
-                             <Route
+
+                            <Route
                                 exact
                                 path="/welcome"
                                 component={welcome}
                             />
-                             <Route
+                            <Route
                                 exact
                                 path="/Dashboard"
                                 component={Dashboard}
@@ -145,14 +148,14 @@ export default class Routes extends Component {
                                     trigger={null}
                                     collapsible
                                     collapsed={this.state.collapsed}
-                                  
+
                                 >
-                                {logo ? (
-                                    <div className='sidebar'><div><TLogo /></div><div><NavigationBar param = {this.state.openProject}/></div></div>
-                                ) : (
-                                        <div className='sidebar'><div><Image /></div><div><NavigationBar param = {this.state.openProject} /></div></div>)
-                                }
-                                                              
+                                    {logo ? (
+                                        <div className='sidebar'><div><TLogo /></div><div><NavigationBar param={this.state.openProject} /></div></div>
+                                    ) : (
+                                            <div className='sidebar'><div><Image /></div><div><NavigationBar param={this.state.openProject} /></div></div>)
+                                    }
+
                                 </Sider>
 
                                 {/* <Sider
@@ -164,22 +167,22 @@ export default class Routes extends Component {
                                 </Sider> */}
                                 <Layout>
                                     <Header style={{ background: '#EE008C', padding: 7, paddingLeft: 18 }} >
-                                        <Icon style={{ fontSize: '26px',color:'#FEF5F9'}}
+                                        <Icon style={{ fontSize: '26px', color: '#FEF5F9' }}
                                             className="trigger"
                                             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
                                             onClick={this.toggle}
                                         />
 
-                                        <Select placeholder="Select project" className="select" defaultValue={ this.state.defaultval } onChange={this.handleChange}>
-                                        {
-                                            this.state.projects.map(project =>
-                                               
-                                                <Option  value={project.productName} >{project.productName}</Option>
-                                               
-                                            )
-                                            
-                                        }
-                                    </Select>
+                                        <Select placeholder="Select project" className="selectProject" defaultValue={this.state.defaultval} onChange={this.handleChange}>
+                                            {
+                                                this.state.projects.map(project =>
+
+                                                    <Option value={project.productName} >{project.productName}</Option>
+
+                                                )
+
+                                            }
+                                        </Select>
 
                                         <div className="iconlist" >
                                             <Dropdown overlay={menu1} trigger={['click']}>
@@ -201,7 +204,7 @@ export default class Routes extends Component {
                                                 </a>
 
                                             </Dropdown>
-                                           
+
 
                                         </div>
                                     </Header>
@@ -241,12 +244,26 @@ export default class Routes extends Component {
                                             path="/ReconFlow"
                                             component={ReconFlow}
                                         />
-                                          <Route
+                                        <Route
                                             exact
                                             path="/flowtype"
                                             component={flowtype}
                                         />
-                                        
+                                        <Route
+                                            exact
+                                            path="/tablescreen"
+                                            component={tablescreen}
+                                        />
+                                        <Route
+                                            exact
+                                            path="/tablescreen1"
+                                            component={tablescreen1}
+                                        />
+                                        <Route
+                                            exact
+                                            path="/tablescreen2"
+                                            component={tablescreen2}
+                                        />
 
                                     </Content>
                                 </Layout>

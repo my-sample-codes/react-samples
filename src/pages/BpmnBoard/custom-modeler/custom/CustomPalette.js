@@ -68,13 +68,13 @@ PaletteProvider.prototype.getPaletteEntries = function(element) {
     //   'custom:triangle', 'event', 'icon-custom-triangle'
     // ),
     'custom-csv': createAction(
-      'custom:csv', 'data-object', 'icon-custom-csv'
+      'custom:csv', 'data-object', 'icon-custom-csv',"Create CSV file"
     ),
     // 'custom-circle': createAction(
     //   'custom:circle', 'event', 'icon-custom-circle'
     // ),
     'custom-xls': createAction(
-      'custom:xls', 'data-object', 'icon-custom-xls'
+      'custom:xls', 'data-object', 'icon-custom-xls', "Create CSV file"
     ),
     'custom-separator': {
       group: 'custom',
@@ -90,16 +90,16 @@ PaletteProvider.prototype.getPaletteEntries = function(element) {
         }
       }
     },
-    'space-tool': {
-      group: 'tools',
-      className: 'bpmn-icon-space-tool',
-      title: 'Activate the create/remove space tool',
-      action: {
-        click: function(event) {
-          spaceTool.activateSelection(event);
-        }
-      }
-    },
+    // 'space-tool': {
+    //   group: 'tools',
+    //   className: 'bpmn-icon-space-tool',
+    //   title: 'Activate the create/remove space tool',
+    //   action: {
+    //     click: function(event) {
+    //       spaceTool.activateSelection(event);
+    //     }
+    //   }
+    // },
     'tool-separator': {
       group: 'tools',
       separator: true
@@ -125,19 +125,19 @@ PaletteProvider.prototype.getPaletteEntries = function(element) {
     'create.data-store': createAction(
       'bpmn:DataStoreReference', 'data-store', 'bpmn-icon-data-store'
     ),
-    'create.subprocess-expanded': createAction(
-      'bpmn:SubProcess', 'activity', 'bpmn-icon-subprocess-expanded', 'Create expanded SubProcess',
-      { isExpanded: true }
-    ),
-    'create.participant-expanded': {
-      group: 'collaboration',
-      className: 'bpmn-icon-participant',
-      title: 'Create Pool/Participant',
-      action: {
-        dragstart: createParticipant,
-        click: createParticipant
-      }
-    }
+    // 'create.subprocess-expanded': createAction(
+    //   'bpmn:SubProcess', 'activity', 'bpmn-icon-subprocess-expanded', 'Create expanded SubProcess',
+    //   { isExpanded: true }
+    // ),
+    // 'create.participant-expanded': {
+    //   group: 'collaboration',
+    //   className: 'bpmn-icon-participant',
+    //   title: 'Create Pool/Participant',
+    //   action: {
+    //     dragstart: createParticipant,
+    //     click: createParticipant
+    //   }
+    // }
   });
 
   return actions;

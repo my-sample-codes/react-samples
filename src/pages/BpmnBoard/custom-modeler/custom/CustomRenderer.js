@@ -185,7 +185,6 @@ export default function CustomRenderer(eventBus, styles, canvas) {
       strokeWidth: 2,
       markerEnd: 'url(#customMarker)'
     });
-    console.log("p", p);
 
     return svgAppend(p, createLine(element.waypoints, attrs));
   };
