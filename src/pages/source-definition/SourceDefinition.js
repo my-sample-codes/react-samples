@@ -3,7 +3,7 @@ import {Link } from 'react-router-dom';
 import { Button, Steps, Breadcrumb, message } from 'antd';
 import SourceCards from './sourcecards';
 import CardTable from './cardtable';
-import './SourceDefinition.css'
+import './SourceDefinition.less'
 
 const Step = Steps.Step;
 
@@ -81,7 +81,7 @@ export default class SourceDefinition extends Component {
         return (
           <div>
             <Breadcrumb className="breadcumb">
-              <Breadcrumb.Item>
+              <Breadcrumb.Item className="processSteps">
                 <Steps size="small" current={0} progressDot>
                   <Step title="Source Definition" />
                   <Step title="Layout Definition" />
@@ -99,7 +99,7 @@ export default class SourceDefinition extends Component {
             <br/>
             <div>
               <Link to="/Login">
-                <Button className="next-btn">Back</Button>
+                <Button className="backBtn">Back</Button>
               </Link>
               <Link to="/LayoutDefinition">
                 <Button type='primary' >Next</Button>

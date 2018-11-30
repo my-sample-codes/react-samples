@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Card, Icon, Popover, Table,Popconfirm} from 'antd';
+import { Card, Icon, Popover, Table,Popconfirm,Row,Col} from 'antd';
 import Tables from './dupETLTable';
 import { Input } from 'antd';
-import './SourceDefinition.css';
+import './SourceDefinition.less';
 
 const Search = Input.Search;
 var hoverContent = require('./../infomapper.js').default;
@@ -44,7 +44,7 @@ class CardTable extends Component
                 onConfirm={() => this.handleDelete(record.key)}
               >
                 <a href="javascript:;"></a>
-                <Icon type="copy" className="iconsize"  theme="filled" style={{cursor:'pointer'}}/>
+                <Icon type="copy" className="iconSize"  theme="filled" style={{cursor:'pointer'}}/>
               </Popconfirm>
             ) : null;
         },
@@ -84,23 +84,28 @@ class CardTable extends Component
     render() 
     {
       return (
-        <Card className="cardtablestyle">
-              <header className="dup-etl-header">Duplicate ETL Jobs</header>
-              {/* <Icon className="info-icon" type="question-circle" style={{marginTop:"-10px"}} /> */}
-              <Popover placement = "right" title="Datasets"
-                               content={hoverContent.maparray.duplicate_etl_jobs}                               
-                                  >
-                               <Icon className="info-icon" type="question-circle" style={{cursor:'pointer',marginTop:"-20px"}} />
+        <Card className="cardTableStyle">
+          <Row>
+            <Col span={5}>
+              <h2 className="subHeading2">Duplicate ETL Jobs</h2>
+            </Col>
+            <Col span={14}>
+              <Popover placement="right" title="Datasets"
+                content={hoverContent.maparray.duplicate_etl_jobs}
+              >
+                <Icon className="icons infoIcon" type="question-circle"/>
               </Popover>
-               <Search
-                        placeholder="Search Source Name"
-                        onSearch={value => console.log(value)}
-                        className = "searchstyle"
-                />
-                <br/>
-                <br/>
-            <Tables/>
-         </Card>
+            </Col>
+            <Col span={4}>
+              <Search
+                placeholder="Search Source Name"
+                onSearch={value => console.log(value)}
+                className="searchStyle"
+              />
+            </Col>
+          </Row>
+          <Tables />
+        </Card>
       );
     }
 }

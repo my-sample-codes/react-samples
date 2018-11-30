@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import { Table, Popconfirm, Icon} from 'antd';
-import './SourceDefinition.css';
+import Compacttable from './../../components/table/compacttable';
+import './SourceDefinition.less'
   
 class Tables extends Component {
     constructor(props) {
@@ -40,7 +41,7 @@ class Tables extends Component {
                 onConfirm={() => this.handleDelete(record.key)}
               >
                 <a href="javascript:;"></a>
-                <Icon type="copy" className="iconsize" style={{cursor:'pointer'}}/>
+                <center><Icon type="copy" className="icons"/></center>
               </Popconfirm>
             ) : null;
         },
@@ -84,7 +85,7 @@ class Tables extends Component {
       const { dataSource } = this.state;
       const columns = this.columns;
       return (
-        <Table size="small" className="ctable" columns={columns}  dataSource={dataSource}/*  pagination={{ pageSize: 10 }} */ />
+        <Compacttable columns={columns}  dataSource={dataSource}/*  pagination={{ pageSize: 10 }} */ />
       );
     }
   }

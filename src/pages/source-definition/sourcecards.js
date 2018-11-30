@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Col, Row, Layout, Icon, Upload, message } from 'antd';
-import './SourceDefinition.css'
+import './SourceDefinition.less'
 
 const { Content } = Layout;
 const props = {
@@ -27,16 +27,16 @@ class SourceCards extends Component {
   render() {
     return (
       <Content >
-        <div className="cardsbackground">
+        <div className="cardsBackground">
           <tr>
             <Row gutter={16}>
               <Col span={7}>
 
                 <Upload {...props}>
-                  <div className="icon-div">
-                    <Icon className="card-icons" type="file-text" />
+                  <div className="iconDiv">
+                    <Icon className="cardIcons" type="file-text" />
                   </div>
-                  <Card className="stylecards" bordered={true}>
+                  <Card className="styleCards" bordered={true}>
                     Create Configuration for CSV file Sources
                     </Card>
 
@@ -46,10 +46,10 @@ class SourceCards extends Component {
               <Col span={7} className="sourceCardsDiv">
 
                 <Upload {...props}>
-                  <div className="icon-div">
-                    <Icon className="card-icons" type="file-text" />
+                  <div className="iconDiv">
+                    <Icon className="cardIcons" type="file-text" />
                   </div>
-                  <Card className="stylecards" bordered={true}>
+                  <Card className="styleCards" bordered={true}>
                     Create configuraion for excel file sources
                         </Card>
                 </Upload>
@@ -57,10 +57,10 @@ class SourceCards extends Component {
               </Col>
               <Col span={7} className="sourceCardsDiv">
                 <Upload {...props}>
-                  <div className="icon-div">
-                    <Icon className="card-icons" type="file-text" />
+                  <div className="iconDiv">
+                    <Icon className="cardIcons" type="file-text" />
                   </div>
-                  <Card className="stylecards" bordered={true}>Browse repo / marketplace for more
+                  <Card className="styleCards" bordered={true}>Browse repo / marketplace for more
                   </Card>
                 </Upload>
 
