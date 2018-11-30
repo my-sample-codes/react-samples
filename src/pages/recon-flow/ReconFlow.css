@@ -59,9 +59,8 @@
  font-size: 30px;
 }
 
-.delete
-{
-  margin-left: 27%;
+.delete{
+    margin-left: 27%;
     font-size: 20px;
     color:#808080;
 }
@@ -73,7 +72,7 @@
 
 .card1-table
 {
-  height: 230px;
+  height: 200px;
 }
 
 .margin-class.ant-table
@@ -84,15 +83,26 @@
 .priority
 {
   margin-top: -17px;
+ 
 }
 
 .link-style
 {
-  margin-left: 78%;
+  margin-left: 90%;
   margin-top: -12px;
   
 }
 .formLabels{
     color: #444444;
     font-weight: 700;
+}
+
+.tableCard
+{
+    height: 150px;
+}
+
+.addLink
+{
+    margin-top: 15px;
 }

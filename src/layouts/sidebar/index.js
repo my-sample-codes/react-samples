@@ -70,7 +70,7 @@ class NavigationBar extends React.Component {
       <Menu openKeys={[this.props.param]} theme="dark"  mode="inline"  /* openKeys={this.state.openKeys}  onOpenChange={this.onOpenChange} */>
       
             <Menu.Item key="1">
-              <Link to="/MainBoard">
+              <Link to="/welcome">
                   <Icon type="home" />
                    <span>Home</span>
               </Link>

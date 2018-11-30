@@ -91,10 +91,10 @@ export default class SourceDefinition extends Component {
               </Breadcrumb.Item>
             </Breadcrumb>
 
-            <h2>Source Definition</h2>
-
+            <h2>Select your Source Type</h2>
+            <Link to="/LayoutDefinition">
             <SourceCards />
-
+             </Link>
             <div><CardTable /></div>
             <br/>
             <div>

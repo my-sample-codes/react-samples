@@ -3,24 +3,43 @@ import ETL from './../../assets/icons/etl.png';
 import Reconciliation from './../../assets/icons/reconciliation.png';
 import LayoutDefinition from '../layout-definition/LayoutDefinition';
 import { BrowserRouter as Router, Route, Link, Switch,Redirect} from 'react-router-dom';
-import ReconForm from '../popup-form/recon-popup'
+import ReconForm from '../popup-form/recon-popup';
+import ETLForm from '../popup-form/EtlPopup';
 import './FlowType.css';
 import ReconFlow from '../recon-flow/ReconFlow';
 
 class SelectFlowType extends Component {
-    state = { visible: false,
-              next:false
-              };
+
+    state = { 
+        visible: false,
+        visibleETL: false,
+        next:false,
+        nextETL: false,
+    };
 
     showModal = () => {
         this.setState({
-          visible: true,
+            visible: true,
         });
-      }
-      handleCancel = () => {
+    }
+
+    showModal1 = () => {
+        this.setState({
+            visibleETL: true,
+        });
+    }
+
+    handleCancel = () => {
         const form = this.formRef.props.form;
         this.setState({ visible: false });
-    form.resetFields();}
+        form.resetFields();
+    }
+
+    handleCancelETL = () => {
+        const form = this.formRef.props.form;
+        this.setState({ visibleETL: false });
+        form.resetFields();
+    }
     
     handleCreate = () => {
         /* const form = this.formRef.props.form;
@@ -34,17 +53,25 @@ class SelectFlowType extends Component {
             this.setState({ visible: false });
 
         }); */
-        this.setState({ next:true });
-       
+        this.setState({ next:true });  
     }
+
+    handleCreateETL = () => {
+        this.setState({ nextETL:true });
+    }
+
     saveFormRef = (formRef) => { this.formRef = formRef; }
 
     render() {
 
-        if(this.state.next)
-        {
+        if(this.state.next) {
             return <Redirect to="/ReconFlow"/>
         }
+
+        if(this.state.nextETL) {
+            return <Redirect to="/SourceDefinition"/>
+        }
+
         return (
             <div>
                  <div className="titleDiv">
@@ -53,12 +80,12 @@ class SelectFlowType extends Component {
 
                 <div className="selectType">
                     <div>
-                        <Link to="/LayoutDefinition">
+                       <div onClick={this.showModal1}>
                             <div className="typeDiv">
                                 <img src={ETL} alt='ETL' /><br /><br />
                                 <h3>ETL</h3>
                             </div>
-                        </Link>
+                       </div>
                     </div>
 
                     <div onClick={this.showModal}>
@@ -74,6 +101,12 @@ class SelectFlowType extends Component {
                 visible={this.state.visible}
                 onCancel={this.handleCancel}
                 onCreate={this.handleCreate}/>
+
+                <ETLForm
+                wrappedComponentRef={this.saveFormRef}
+                visible={this.state.visibleETL}
+                onCancel={this.handleCancelETL}
+                onCreate={this.handleCreateETL}/>
             </div>    
           );
     }

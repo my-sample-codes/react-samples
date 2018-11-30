@@ -32,7 +32,7 @@ class SourceCards extends Component {
             <Row gutter={16}>
               <Col span={7}>
 
-                <Upload {...props}>
+              {/*   <Upload {...props}> */}
                   <div className="icon-div">
                     <Icon className="card-icons" type="file-text" />
                   </div>
@@ -40,30 +40,30 @@ class SourceCards extends Component {
                     Create Configuration for CSV file Sources
                     </Card>
 
-                </Upload>
+              {/*   </Upload> */}
               </Col>
 
               <Col span={7} className="sourceCardsDiv">
 
-                <Upload {...props}>
+                {/* <Upload {...props}> */}
                   <div className="icon-div">
                     <Icon className="card-icons" type="file-text" />
                   </div>
                   <Card className="stylecards" bordered={true}>
                     Create configuraion for excel file sources
                         </Card>
-                </Upload>
-
+               {/*  </Upload>
+ */}
               </Col>
               <Col span={7} className="sourceCardsDiv">
-                <Upload {...props}>
+               {/*  <Upload {...props}> */}
                   <div className="icon-div">
                     <Icon className="card-icons" type="file-text" />
                   </div>
                   <Card className="stylecards" bordered={true}>Browse repo / marketplace for more
                   </Card>
-                </Upload>
-
+               {/*  </Upload>
+ */}
               </Col>
 
             </Row>

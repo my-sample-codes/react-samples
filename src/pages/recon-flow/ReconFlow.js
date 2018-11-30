@@ -29,19 +29,6 @@ export default class ReconFlow extends Component {
         key: 'textinput1',
 
       },
-
-
-      {
-        title: <div>
-          <Icon type="plus-circle" theme="filled" className="plus-icon" />
-        </div>,
-        dataIndex: 'Action',
-        key: 'Action',
-      },
-
-    ];
-
-    this.columns1 = [
       {
         title: "Samson Billing",
         dataIndex: "FirstData",
@@ -64,7 +51,12 @@ export default class ReconFlow extends Component {
         key: 'Action',
       },
 
+
+     
+
     ];
+
+  
 
     this.columns2 = [
       {
@@ -294,6 +286,7 @@ export default class ReconFlow extends Component {
               onOk={this.handleOk}
               okText="Next"
               onCancel={this.handleCancel}
+             
               className="modal1"
             >
 
@@ -310,19 +303,11 @@ export default class ReconFlow extends Component {
               <br /><br />
 
               <p className="formLabels">Transaction Selection Criteria :</p>
-              <Row>
-                <Col span={12}>
-                  <Card>
+             
+                  <Card className="tableCard">
                     <Compacttable columns={this.columns} dataSource={this.state.dataSource} />
-                  </Card>
-                </Col>
-                <Col span={12}>
-
-                  <Card className="space">
-                    <Compacttable columns={this.columns1} dataSource={this.state.dataSource1} />
-                  </Card>
-                </Col>
-              </Row>
+                   
+                 </Card>
             </Modal>
           </div>
         ) :
@@ -332,6 +317,7 @@ export default class ReconFlow extends Component {
             visible={this.state.visible}
             onOk={this.handleModal}
             onCancel={this.handleCancel}
+            cancelText="Back"
           >
 
             <Breadcrumb className="breadcumb1">
@@ -349,7 +335,7 @@ export default class ReconFlow extends Component {
             <p className="formLabels">Priority :</p>
             <Card className="card1-table">
               <div className="link-style">
-                <a style={{ marginRight: "15px" }}  >Add Priority</a>
+                {/* <a style={{ marginRight: "15px" }}  >Add Priority</a> */}
                 <a >Delete Priority</a>
               </div>
               <p className="priority formLabels">Priority 1:</p>
@@ -359,12 +345,16 @@ export default class ReconFlow extends Component {
 
             <Card className="card1-table">
               <div className="link-style">
-                <a style={{ marginRight: "15px" }} >Add Priority</a>
+                {/* <a style={{ marginRight: "15px" }} >Add Priority</a> */}
                 <a >Delete Priority</a>
               </div>
               <p className="priority formLabels">Priority 2:</p>
               <Compacttable className="margin-class" columns={this.columns2} dataSource={this.state.dataSource4} />
             </Card>
+
+            <div>
+            <a className="addLink"  >Add Priority</a>
+            </div>
 
           </Modal></div>)}
       </div>
