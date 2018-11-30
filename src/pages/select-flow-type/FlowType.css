@@ -5,6 +5,9 @@
 .typeDiv > img{
     width: 35%;
 }
+.typeDiv:hover{
+    transform: scale(1.05);
+}
 .selectType{
     display: inline-flex;
     MARGIN-TOP:8%;

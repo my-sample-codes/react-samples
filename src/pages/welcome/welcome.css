@@ -9,6 +9,10 @@
 .roleDiv > img{
     width: 35%;
 }
+.roleDiv:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
 .roleDiv > h3{
     color: #EE008C;
     font-weight: 700;
