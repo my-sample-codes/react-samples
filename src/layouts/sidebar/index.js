@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './sidebar.css'; 
 import SourceDefinition from './../../pages/source-definition/SourceDefinition';
 import Image from './../../components/navbar-logo/image';
-import MainBoard from './../../pages/main-board/mainBoard';
+import MainBoard from './../../pages/main-board/MainBoard';
 const SubMenu = Menu.SubMenu;
 
 class NavigationBar extends React.Component {

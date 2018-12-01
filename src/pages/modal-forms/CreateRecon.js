@@ -1,13 +1,13 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Button, Modal, Form, Input, InputNumber, Radio, Select, Spin, Icon } from 'antd';
-import './recon-popup.css'
+import './CreateRecon.less'
 
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
 const Option = Select.Option;
 
-const CreateReconForm = Form.create()(
+const CreateRecon = Form.create()(
   class extends React.Component {
 
     constructor(props) { 
@@ -34,17 +34,17 @@ const CreateReconForm = Form.create()(
             okText="Next"
             onCancel={onCancel}
             onOk={onCreate}
-            className="reconForm"
+            className="customModal"
             >
             <Form>
-              <FormItem className="formLabels1" label="Profile Description">
+              <FormItem className="formLabels" label="Profile Description">
                 {(<Input value="Store Payments & Samson Billing"/>)}
               </FormItem> 
 
               <br/>
               <br/>
 
-              <FormItem className="formLabels1" label="Number of Data Sources" style={{display: 'flex', flexDirection: 'row'}}>
+              <FormItem className="formLabels" label="Number of Data Sources" style={{display: 'flex', flexDirection: 'row'}}>
                 {(<InputNumber min={1} max={10} defaultValue={1}
                                 value={2}                       // remove this line when non-static value to be shown
                                 onChange={this.handleChange}
@@ -52,7 +52,7 @@ const CreateReconForm = Form.create()(
                 {/* <Button type="primary" shape="circle" icon="check" size='medium' style={{marginLeft:'15px'}} /> */}
               </FormItem>
 
-              <FormItem className="formLabels1" label="Source A" style={{display: 'flex', marginLeft: "97px"}}>
+              <FormItem className="formLabels" label="Source A" style={{display: 'flex', marginLeft: "97px"}}>
                 <Select
                   showSearch
                   placeholder="Select Source A"
@@ -68,7 +68,7 @@ const CreateReconForm = Form.create()(
               </FormItem>
 
               
-              <FormItem  className="formLabels1" label="Source B" style={{display: 'flex', marginLeft: "97px"}}>
+              <FormItem  className="formLabels" label="Source B" style={{display: 'flex', marginLeft: "97px"}}>
                 <Select
                   showSearch
                   placeholder="Select Source B"
@@ -90,4 +90,4 @@ const CreateReconForm = Form.create()(
     }
   }
 );
-export default CreateReconForm;
+export default CreateRecon;

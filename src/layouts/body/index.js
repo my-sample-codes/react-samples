@@ -5,7 +5,7 @@ import Headers from '../header';
 import Footers from '../footer';
 import Breadcumb from '../../components/breadcrumb';
 import Routes from './../../pages/routes/Routes';
-import MainBoard from '../../pages/main-board/mainBoard';
+import MainBoard from '../../pages/main-board/MainBoard';
 
 class Body extends Component {
 

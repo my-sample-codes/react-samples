@@ -3,8 +3,8 @@ import ETL from './../../assets/icons/etl.png';
 import Reconciliation from './../../assets/icons/reconciliation.png';
 import LayoutDefinition from '../layout-definition/LayoutDefinition';
 import { BrowserRouter as Router, Route, Link, Switch,Redirect} from 'react-router-dom';
-import ReconForm from '../popup-form/recon-popup'
-import './FlowType.css';
+import ReconForm from '../modal-forms/CreateRecon'
+import './FlowType.less';
 import ReconFlow from '../recon-flow/ReconFlow';
 
 class SelectFlowType extends Component {

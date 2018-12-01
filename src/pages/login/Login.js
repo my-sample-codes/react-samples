@@ -5,7 +5,7 @@ import BackgroundImg from './../../assets/images/login_background_img.svg';
 import logo from './../../assets/logos/logo.png';
 import { BrowserRouter as Router, Route, Link, Switch,Redirect } from 'react-router-dom';
 import logo1 from './../../assets/logos/logo-blue.png';
-import welcome from './../select-role/welcome'
+import SelectRole from './../select-role/SelectRole'
 import 'antd/dist/antd.css';
 import '../../index.css';
 import './Login.less';
@@ -84,7 +84,7 @@ class Login extends Component {
 
         if(this.state.validate)
         {
-           return <Redirect to="/welcome"/>
+           return <Redirect to="/SelectRole"/>
         }
         const { getFieldDecorator } = this.props.form;
         const isValidated = this.state.validate;

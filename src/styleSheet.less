@@ -53,11 +53,17 @@
     color: @title;
     font-size: 22px;
     font-weight: 600;
+    .specialText{
+        color: @special-text;
+    }
 }
 .subHeading3{
     color: @title;
     font-size: 14px;
     font-weight: 600;
+    .specialText{
+        color: @special-text;
+    }
 }
 .cardStyle > .ant-card-head > .ant-card-head-wrapper > .ant-card-head-title{
     color: @title;
@@ -84,4 +90,21 @@ p,.radioBtn{
 .primaryBtn{
     background-color: @stdColor;
     margin-left: 2%;
+}
+.customModal{
+    .ant-modal-content{
+        .ant-modal-header{
+            .ant-modal-title{
+                color: #ffffff;
+            }
+        }
+        .ant-modal-close{
+            color: #ffffff;
+        }
+    }
+}
+.formLabels.ant-form-item{
+    .ant-form-item-label label{
+        .subHeading3();
+    }
 }

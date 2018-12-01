@@ -6,9 +6,9 @@ import SysAdmin from './../../assets/icons/sysadmin.png'
 import Header from './../../layouts/header/index';
 import Dashboard from './../dashboard/DashboardLand';
 import { BrowserRouter as Router, Route, Link, Switch,Redirect } from 'react-router-dom';
-import './welcome.css';
+import './SelectRole.less';
 
-class Welcome extends Component {
+class SelectRole extends Component {
 
     render() {
         return (
@@ -44,4 +44,4 @@ class Welcome extends Component {
           );
     }
 }
-export default Welcome;
+export default SelectRole;

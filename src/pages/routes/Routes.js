@@ -11,15 +11,15 @@ import Preview from './../preview/preview';
 import { Layout, Menu, Icon, Input, Dropdown } from 'antd';
 import './siderlayout.css';
 import 'antd/dist/antd.css';
-import Tables from './../table/table';
+/* import Tables from './../table/table'; */
 import TaskDesign from './../taskDesign/taskDesign';
-import TLogo from './../../components/navbar-logo-single-T/logo'
+import TLogo from './../../components/navbar-logo-single-T/logo';
 import Image from './../../components/navbar-logo/image';
 import MainBoard from './../main-board/MainBoard';
 import ReconFlow from '../recon-flow/ReconFlow';
-import welcome from './../select-role/welcome';
+import SelectRole from './../select-role/SelectRole';
 import Dashboard from './../dashboard/DashboardLand';
-import flowtype from './../select-flow-type/selflowtype';
+import FlowType from './../select-flow-type/FlowType';
 import CustomHeader from './../../components/header/index'
 const Search = Input.Search;
 const { Header, Sider, Content } = Layout;
@@ -101,8 +101,8 @@ export default class Routes extends Component {
                              
                              <Route
                                 exact
-                                path="/welcome"
-                                component={welcome}
+                                path="/SelectRole"
+                                component={SelectRole}
                             />
                              <Route
                                 exact
@@ -162,11 +162,11 @@ export default class Routes extends Component {
                                             path="/Preview"
                                             component={Preview}
                                         />
-                                        <Route
+                                        {/* <Route
                                             exact
                                             path="/Tables"
                                             component={Tables}
-                                        />
+                                        /> */}
                                         <Route
                                             exact
                                             path="/TaskDesign"
@@ -179,8 +179,8 @@ export default class Routes extends Component {
                                         />
                                           <Route
                                             exact
-                                            path="/flowtype"
-                                            component={flowtype}
+                                            path="/FlowType"
+                                            component={FlowType}
                                         />
                                         
 

@@ -3,12 +3,12 @@ import { Card, Col, Row, Button, Icon, Avatar,Dropdown,Menu } from 'antd';
 // import axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
 import SourceDefinition from '../source-definition/SourceDefinition';
-import CollectionCreateForm from '../popup-form/collection'
+import CreateProject from '../modal-forms/CreateProject'
 import HeaderDiv from './headerDiv';
 import './MainBoard.less';
 import Header from './../../layouts/header/index';
 import SiderLayout from './../../layouts/layout2/SiderLayout';
-import flowtype from './../select-flow-type/selflowtype';
+import FlowType from './../select-flow-type/FlowType';
 
 const { Meta } = Card;
 //URL link to fetch all products
@@ -156,7 +156,7 @@ export default class mainBoard extends Component {
     render() {
 
         if (this.state.sourcedef === true) {
-            return <Redirect to='/flowtype' />
+            return <Redirect to='/FlowType' />
           }
 
         return (
@@ -174,7 +174,7 @@ export default class mainBoard extends Component {
                             <Button size="large" className='newProjectButton' onClick={this.showModal}>
                                 < Icon className="addIcon" type="plus" /><br />Add project
                             </Button>
-                            <CollectionCreateForm
+                            <CreateProject
                                 // Modal 1 for "New Project" Form
                                 wrappedComponentRef={this.saveFormRef}
                                 visible={this.state.visible}
